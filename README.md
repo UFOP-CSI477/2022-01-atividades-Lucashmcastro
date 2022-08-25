@@ -3,11 +3,11 @@
 
 ## Atualize os seus dados
 
-- Nome:
-- Matrícula:
-- Curso:
-- Semestre/Ano correntes:
-- Link para o seu GitHub:
+- Nome: Lucas Horta Monteiro de Castro
+- Matrícula: 16.1.8073
+- Curso: Sistema de Informações
+- Semestre/Ano correntes: 2021-01
+- Link para o seu GitHub: https://github.com/UFOP-CSI477/2022-01-atividades-Lucashmcastro
 
 ## [Projeto final:](./Projeto/README.md)
 
