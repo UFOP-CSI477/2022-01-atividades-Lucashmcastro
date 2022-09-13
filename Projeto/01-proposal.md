@@ -1,6 +1,6 @@
 # **CSI606-2021-02 - Remoto - Proposta de Trabalho Final**
 
-## *Aluna(o): Princesa Leia (Luke Skywalker)*
+## *Aluna(o): Lucas Horta Monteiro de Castro
 
 --------------
 
@@ -29,7 +29,11 @@ A Valhalla Savings é uma Aplicação Web para gerenciar a sua carteira de inves
 <!-- Apresentar restrições de funcionalidades e de escopo. -->
 ### 3. Restrições
 
-  Neste trabalho não serão considerados ...
+  Neste trabalho não serão considerados:
+
+  - Refinamento de inputs de dados, como máscaras em datas.
+  - Alocação de um Servidor Web para rodar a aplicação.
+  - Dashboard para análise dos dados da carteira de investimento.  
 
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
@@ -49,5 +53,5 @@ Referências das imagens usadas no protótipo:
   5. https://br.pinterest.com/pin/973199800701788684/
 
 ### 5. Referências
-Res
+
   Referências podem ser incluídas, caso necessário. Utilize o padrão ABNT.
