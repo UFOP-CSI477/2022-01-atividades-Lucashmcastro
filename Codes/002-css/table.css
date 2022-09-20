@@ -1,0 +1,52 @@
+table{
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    font-size: 14pt;
+    font-family: Tahoma;
+    font-style: italic;
+}
+
+caption {
+    font-size: 14pt;
+    font-family: Tahoma;
+    font-weight: bold;
+}
+
+thead tr:hover {
+    background-color: blue;
+}
+
+tbody tr:hover{
+    background-color: gray;
+}
+
+tfoot tr:hover{
+    background-color: green;
+}
+
+/* tr:nth-child(3n + 0) { /* an + b 
+    background-color:yellow;
+} */
+
+tbody tr:nth-child(odd) { 
+    background-color:yellow;
+}
+
+.centralizado{
+    text-align: center;
+}
+
+/* tbody tr td {
+    text-align: center;
+} */

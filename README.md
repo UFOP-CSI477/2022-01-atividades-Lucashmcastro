@@ -12,3 +12,5 @@
 ## [Projeto final:](./Projeto/README.md)
 
 Apresente uma breve descrição do seu projeto.
+
+A Valhalla Savings é uma Aplicação Web para gerenciar a sua carteira de investimentos financeiros. De forma simples e clara, temos como objetivo trazer as notícias do mercado global,  como também os dados reais da cotação de ações e forex. Também é possível acompanhar as Bolsas de Valores presentes no mundo em um único local. 

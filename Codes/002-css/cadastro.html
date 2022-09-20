@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+
+    <link rel="stylesheet" type="text/css" href="forms.css">
+</head>
+<body>
+    
+    <h1>Dados do Cadastro</h1>
+    
+    <div>
+        <form method="get" action="validar.html">
+            <div class="controle">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" placeholder="">                
+            </div>
+            <br>
+            <div class="controle">
+                <label for="endereco">Endereço:</label>
+                <input type="text" name="endereco" id="endereco" placeholder="">          
+            </div>
+            <br>
+            <div class="controle">
+                <label>Gênero:</label><br>               
+                    <input type="radio" name="genero" id="feminino" placeholder="" value="f">  
+                    <label for="feminino">Feminino</label>
+                    <br>             
+                    <input type="radio" name="genero" id="masculino" placeholder="" value="m">  
+                    <label for="masculino">Masculino</label>
+                    <br>
+                    <input type="radio" name="genero" id="naobinario" placeholder="" value="nb">  
+                    <label for="naobinario">Não Binário</label> 
+                    <br>
+                    <input type="radio" name="genero" id="semresp" placeholder="" value="sr">  
+                    <label for="semresp">Não Gostaria de Informar</label> 
+            </div>
+            <br>
+            <div>
+                <label>Áreas de Interesse:</label><br>
+                    <div>
+                        <input type="checkbox" name="interesse[0]" id="web" placeholder="">
+                        <label for="web">Sistemas Web</label> 
+                    </div>
+                    <div>
+                        <input type="checkbox" name="interesse[1]" id="bd" placeholder="">
+                        <label for="bd">Banco de Dados</label> 
+                    </div>
+                    <div>
+                        <input type="checkbox" name="interesse[2]" id="redes" placeholder="">
+                        <label for="redes">Redes de Computadores</label>  
+                    </div>        
+            </div>          
+            <input type="submit" value="Cadastrar">
+            <input type="reset" value="Limpar">
+
+        </form>
+        <a href="introducao.html">Voltar</a>
+
+    </div>   
+</body>
+</html>
