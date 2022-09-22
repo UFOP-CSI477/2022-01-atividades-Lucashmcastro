@@ -29,6 +29,29 @@
                 console.log(i);
             }
         }
+
+        function carregarDadosForm(){
+
+            const nome = document.formDados.nome.value;
+            const sobrenome = document.formDados.sobrenome.value;
+
+            const pessoa = new Pessoa (nome, sobrenome);
+            console.log(pessoa);
+
+            window.alert(`Dados Carregados com Sucesso: ${nome} ${sobrenome}`);
+
+            let objeto = {
+                name : nome,
+                lastname: sobrenome,
+                adress: {
+                    street: '5th avenue'                
+                }
+            };
+
+            console.log(objeto);
+        }
+
+
     </script>
 
 </head>
@@ -42,6 +65,14 @@
             <div id="data"></div>
             <div id="nome"></div>
       </div> 
-            <input type="button" value="Carregar" onclick="carregarDados()">
+
+      <form action="post" name="formDados">
+        <input type="text" name="nome">
+        <input type="text" name="sobrenome">    
+      </form>
+
+      <input type="button" value="Carregar" onclick="carregarDados()">
+      <input type="button" value="Carregar do Formulário" onclick="carregarDadosForm()">
+
 </body>
 </html>
