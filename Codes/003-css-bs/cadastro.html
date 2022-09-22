@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+    <title>Cadastro com Bootstrap</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script> -->
+</head>
+<body>
+
+    <form method="get" action="validar.html">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" placeholder="Nome da pessoa" class="form-control">                
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="endereco">Endereço:</label>
+            <input type="text" name="endereco" id="endereco" placeholder="Endereço da pessoa" class="form-control">          
+        </div>
+        <br>
+        <div class="form-group form-check">
+            <label>Gênero:</label><br> 
+
+                <div class="form-group form-check">
+                    <input type="radio" name="genero" id="feminino" placeholder="" value="f" class="form-check-input">  
+                    <label for="feminino" class="form-check-label">Feminino</label>                   
+                </div>
+                <div class="form-group form-check">
+                    <input type="radio" name="genero" id="masculino" placeholder="" value="m" class="form-check-input">   
+                    <label for="masculino" class="form-check-label">Masculino</label>                 
+                </div>
+                <div class="form-group form-check">
+                    <input type="radio" name="genero" id="naobinario" placeholder="" value="nb" class="form-check-input">  
+                    <label for="naobinario" class="form-check-label">Não Binário</label>                    
+                </div>
+                <div class="form-group form-check">
+                    <input type="radio" name="genero" id="semresp" placeholder="" value="sr" class="form-check-input">  
+                    <label for="semresp" class="form-check-label">Não Gostaria de Informar</label>
+                </div> 
+        </div>
+        <br>
+        <div>
+            <label>Áreas de Interesse:</label><br>
+                <div class="form-group form-check">
+                    <input type="checkbox" name="interesse[0]" id="web" placeholder="" class="form-check-input">
+                    <label for="web" class="form-check-label">Sistemas Web</label> 
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" name="interesse[1]" id="bd" placeholder="" class="form-check-input">
+                    <label for="bd" class="form-check-label">Banco de Dados</label> 
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" name="interesse[2]" id="redes" placeholder="" class="form-check-input">
+                    <label for="redes" class="form-check-label">Redes de Computadores</label>  
+                </div>        
+        </div>          
+        <input type="submit" value="Cadastrar" class="btn btn-primary">
+        <input type="reset" value="Limpar" class="btn btn-danger">
+
+    </form>
+
+</body>
+</html>
