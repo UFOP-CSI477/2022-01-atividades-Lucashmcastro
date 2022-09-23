@@ -9,7 +9,7 @@ async function load() {
     res.urls.map(({name, url}) => addElement({name, url}))
 }
 
-// load()
+load()
 
 function addElement({ name, url }) {
     const li = document.createElement('li')
