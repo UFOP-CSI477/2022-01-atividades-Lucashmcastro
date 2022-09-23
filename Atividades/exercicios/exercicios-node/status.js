@@ -1,10 +1,11 @@
 const os = require('os')
+const log = require('./logger')
 
 // console.log(os.platform())
 
-
 setInterval(() => {
 
+    //desistruturando objeto OS
     const { freemem, totalmem } = os
 
     // console.log(freemem, totalmem()/1024)
@@ -16,15 +17,17 @@ setInterval(() => {
     // console.log(mem, total, percents)
 
     const status = {
-        free: `${mem} MB`,
-        total: `${total} MB`,
-        usage: `${percents} %`
+        free: `${mem}MB`,
+        total: `${total}MB`,
+        usage: `${percents}%`
     }
 
     console.clear()
     console.log("===== PC STATUS ======")
     console.table(status)
 
+    log(`${JSON.stringify(status)}\n`)
+
 }, 1000)
 
-//desistruturando objeto OS
+

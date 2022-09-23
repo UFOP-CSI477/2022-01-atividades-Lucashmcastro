@@ -1,0 +1,74 @@
+Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...Rodando...{"free":"1205 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1196 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1196 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1175 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1179 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1177 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1197 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1196 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1221 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1212 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1226 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1224 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1227 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1227 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1218 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1231 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1215 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1232 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1194 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1150 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1161 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1157 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1148 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1147 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1159 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1179 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1178 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1184 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1183 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1181 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1199 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1188 MB","total":"7908 MB","usage":"15 %"}
+{"free":"1180 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1181 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1174 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1171 MB","total":"7908 MB","usage":"14 %"}
+{"free":"1187MB","total":"7908MB","usage":"15%"}
+{"free":"1182MB","total":"7908MB","usage":"14%"}
+{"free":"1179MB","total":"7908MB","usage":"14%"}
+{"free":"1181MB","total":"7908MB","usage":"14%"}
+{"free":"1185MB","total":"7908MB","usage":"14%"}
+{"free":"1183MB","total":"7908MB","usage":"14%"}
+{"free":"1195MB","total":"7908MB","usage":"15%"}
+{"free":"1194MB","total":"7908MB","usage":"15%"}
+{"free":"1198MB","total":"7908MB","usage":"15%"}
+{"free":"1195MB","total":"7908MB","usage":"15%"}
+{"free":"1195MB","total":"7908MB","usage":"15%"}
+{"free":"1208MB","total":"7908MB","usage":"15%"}
+{"free":"1208MB","total":"7908MB","usage":"15%"}
+{"free":"1209MB","total":"7908MB","usage":"15%"}
+{"free":"1213MB","total":"7908MB","usage":"15%"}
+{"free":"1209MB","total":"7908MB","usage":"15%"}
+{"free":"1207MB","total":"7908MB","usage":"15%"}
+{"free":"1207MB","total":"7908MB","usage":"15%"}
+{"free":"1202MB","total":"7908MB","usage":"15%"}
+{"free":"1202MB","total":"7908MB","usage":"15%"}
+{"free":"1206MB","total":"7908MB","usage":"15%"}
+{"free":"1186MB","total":"7908MB","usage":"14%"}
+{"free":"1190MB","total":"7908MB","usage":"15%"}
+{"free":"1194MB","total":"7908MB","usage":"15%"}
+{"free":"1196MB","total":"7908MB","usage":"15%"}
+{"free":"1207MB","total":"7908MB","usage":"15%"}
+{"free":"1199MB","total":"7908MB","usage":"15%"}
+{"free":"1211MB","total":"7908MB","usage":"15%"}
+{"free":"1202MB","total":"7908MB","usage":"15%"}
+{"free":"1214MB","total":"7908MB","usage":"15%"}
+{"free":"1199MB","total":"7908MB","usage":"15%"}
+{"free":"1200MB","total":"7908MB","usage":"15%"}
+{"free":"1202MB","total":"7908MB","usage":"15%"}
+{"free":"1201MB","total":"7908MB","usage":"15%"}
+{"free":"1203MB","total":"7908MB","usage":"15%"}
+{"free":"1190MB","total":"7908MB","usage":"15%"}
+{"free":"1182MB","total":"7908MB","usage":"14%"}
+{"free":"1179MB","total":"7908MB","usage":"14%"}
