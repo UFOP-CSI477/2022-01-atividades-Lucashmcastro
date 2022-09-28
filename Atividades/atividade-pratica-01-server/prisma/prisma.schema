@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./app-doacao.sqlite"
+}
+
+model TipoSanguineo {
+  id         Int      @id @default(autoincrement())
+  tipo       String
+  fator      String
+  created_at DateTime @default(now())
+
+  pessoa Pessoa[]
+  @@map("tiposSanguineos")
+}
+
+model Pessoa {
+  id               Int    @id @default(autoincrement())
+  nome             String
+  rua              String
+  numero           String
+  complemento      String
+  documento        String
+  cidade_id        Int
+  tipoSanguineo_id Int 
+
+  cidade Cidade @relation(fields: [cidade_id], references: [id])
+  tipoSanguineo TipoSanguineo @relation(fields: [tipoSanguineo_id], references: [id])
+  created_at DateTime @default(now())
+  @@map("pessoas")
+}
