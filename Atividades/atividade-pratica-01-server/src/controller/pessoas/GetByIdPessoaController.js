@@ -1,18 +1,18 @@
 import { prismaClient } from '../../database/client.js';
 
-export class GetByIdTipoSanguineoController{
+export class GetByIdPessoaController{
 
     async handle( request, response){
 
         const { id } = request.params;
 
-        const tipoSanguineo = await prismaClient.tipoSanguineo.findUnique({
+        const pessoa = await prismaClient.pessoa.findUnique({
             where: { 
                 id : parseInt(id)
             }
         });
 
-        console.log(tipoSanguineo);
-        return response.json(tipoSanguineo);
+        console.log(pessoa);
+        return response.json(pessoa);
     }
 }
