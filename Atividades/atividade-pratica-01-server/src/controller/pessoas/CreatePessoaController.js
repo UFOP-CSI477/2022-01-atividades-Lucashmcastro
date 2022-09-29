@@ -1,6 +1,6 @@
 import { prismaClient } from '../../database/client.js';
 
-export class createPessoaController {
+export class CreatePessoaController {
 
     async handle (request, response){
 

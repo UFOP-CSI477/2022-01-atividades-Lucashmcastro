@@ -2,7 +2,7 @@ import { response } from 'express';
 import { request } from 'https';
 import { prismaClient } from '../../database/client.js';
 
-export class createDoacaoController {
+export class CreateDoacaoController {
 
     async handle (request, response){
 

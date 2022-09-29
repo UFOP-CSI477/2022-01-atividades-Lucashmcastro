@@ -1,0 +1,22 @@
+import { prismaClient } from '../../database/client.js'
+
+export class GetAllCidadeController {
+
+
+    async handle(request, response) {
+
+        const cidades = await prismaClient.cidade.findMany({
+            include: {
+                id: true,
+                nome: true,
+                created_at:true,
+                estado: true
+            }
+        });
+
+        console.log(cidades);
+        return response.json(cidades);
+
+    }
+
+}

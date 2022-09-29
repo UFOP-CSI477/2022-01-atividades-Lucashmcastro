@@ -1,6 +1,6 @@
 import { prismaClient } from '../../database/client.js';
 
-export class createLocalColetaController {
+export class CreateLocalColetaController {
 
     async handle ( request, response ){
 
