@@ -9,8 +9,8 @@ export class DeleteTipoSanguineoController {
         let { id } = request.body.data;
         id = parseInt(id);
         console.log(request.body);
-        const TipoSanguineoModel = new TipoSanguineoModel();
-        if (! (await TipoSanguineoModel.exists(id))) {
+        const tipoSanguineoModel = new TipoSanguineoModel();
+        if (! (await tipoSanguineoModel.exists(id))) {
             console.log(`[DeleteTipoSanguineoController] Tipo Sanguineo id: ${id} does not exist!`);
             return response.status(403).json({ 
                 message: `[DeleteTipoSanguineoController] Tipo Sanguineo id: ${id} does not exist! (model check)`
