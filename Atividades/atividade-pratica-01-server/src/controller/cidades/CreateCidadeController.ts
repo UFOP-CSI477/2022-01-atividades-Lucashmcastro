@@ -21,4 +21,3 @@ export class CreateCidadeController {
         return response.json(cidade);
     }
 }
-
