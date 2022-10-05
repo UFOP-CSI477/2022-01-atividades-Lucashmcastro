@@ -1,0 +1,27 @@
+POST http://localhost:4002/products
+content-type: application/json
+
+{
+    "name": "Caneta Preta",
+    "price": 3
+}
+
+###
+GET http://localhost:4002/products
+
+###
+GET http://localhost:4002/products/17fdb171-3165-4744-8441-0cb00ea7bcd5
+
+
+###
+PUT http://localhost:4002/products/17fdb171-3165-4744-8441-0cb00ea7bcd5
+content-type: application/json
+
+{
+    "name": "Caneta 96 Folhas Preto",
+    "price": 13
+}
+
+
+###
+DELETE http://localhost:4002/products/254edee4-9429-4a43-a0b7-2ec47f813047
