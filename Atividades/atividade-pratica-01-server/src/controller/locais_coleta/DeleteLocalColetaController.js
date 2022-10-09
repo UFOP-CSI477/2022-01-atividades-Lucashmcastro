@@ -1,6 +1,4 @@
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime/index.js";
 import { prismaClient } from "../../database/client.js";
-import { LocalColetaModel } from "../../model/locais_coleta/LocalColetaModel.js";
 
 export class DeleteLocalColetaController {
 
@@ -8,16 +6,8 @@ export class DeleteLocalColetaController {
 
         let { id } = request.body.data;
         id = parseInt(id);
-        console.log(request.body);
-        const localColetaModel = new LocalColetaModel();
-        if (! (await localColetaModel.exists(id))) {
-            console.log(`[DeleteLocalColetaController] Local Coleta id: ${id} does not exist!`);
-            return response.status(403).json({ 
-                message: `[DeleteLocalColetaController] Local Coleta id: ${id} does not exist! (model check)`
-            });            
-        }
 
-        try{
+        try {
             const localColeta = await prismaClient.localColeta.delete({
                 where: {
                     id: id
@@ -26,16 +16,9 @@ export class DeleteLocalColetaController {
 
             return response.json(localColeta);
 
-        } catch(error) {
-            if ( error.code === "P2025" &&
-                error instanceof PrismaClientKnownRequestError ) {
-                    console.log(`[DeleteLocalColetaController] Local Coleta id: ${id} does not exist!`);
-
-                    return response.status(400).json({ 
-                        message: "Local Coleta id does not exist."
-                    });
-
-                }
+        } catch (error) {
+            console.error(error);
+            return response.status(400).json(error);
         }
     }
 }

@@ -5,14 +5,14 @@ import { GetByIdLocalColetaController } from '../controller/locais_coleta/GetByI
 import { UpdateLocalColetaController } from '../controller/locais_coleta/UpdateLocalColetaController.js';
 
 const localColetaRouter = Router();
-const CreateLocalColetaController = new CreateLocalColetaController();
-const GetAllLocalColetaController = new GetAllLocalColetaController();
-const GetByIdLocalColetaController = new GetByIdLocalColetaController();
-const UpdateLocalColetaController = new UpdateLocalColetaController();
+const createLocalColetaController = new CreateLocalColetaController();
+const getAllLocalColetaController = new GetAllLocalColetaController();
+const getByIdLocalColetaController = new GetByIdLocalColetaController();
+const updateLocalColetaController = new UpdateLocalColetaController();
 
-localColetaRouter.post('/locais_coleta', CreateLocalColetaController.handle);
-localColetaRouter.get('/locais_coleta', GetAllLocalColetaController.handle);
-localColetaRouter.get('/locais_coleta', GetByIdLocalColetaController.handle);
-localColetaRouter.put('/locais_coleta', UpdateLocalColetaController.handle);
+localColetaRouter.post('/locais_coleta', createLocalColetaController.handle);
+localColetaRouter.get('/locais_coleta', getAllLocalColetaController.handle);
+localColetaRouter.get('/locais_coleta', getByIdLocalColetaController.handle);
+localColetaRouter.put('/locais_coleta', updateLocalColetaController.handle);
 
 export { localColetaRouter };

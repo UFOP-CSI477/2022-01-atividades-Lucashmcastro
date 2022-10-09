@@ -6,7 +6,7 @@ export class CreateEstadoController {
         
         const { nome, sigla } = request.body;
         
-        const estado = await prismaClient.estado.create({
+        const estado = await prismaClient.estado({
             data: { 
                 nome,
                 sigla

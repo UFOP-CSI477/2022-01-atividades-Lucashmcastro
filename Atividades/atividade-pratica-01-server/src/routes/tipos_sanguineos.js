@@ -5,14 +5,14 @@ import { GetByIdTipoSanguineoController } from '../controller/tipos_sanguineos/G
 import { UpdateTipoSanguineoController } from '../controller/tipos_sanguineos/UpdateTipoSanguineoController.js';
 
 const tipoSanguineoRouter = Router();
-const CreateTipoSanguineoController = new CreateTipoSanguineoController();
-const GetAllTipoSanguineoController = new GetAllTipoSanguineoController();
-const GetByIdTipoSanguineoController = new GetByIdTipoSanguineoController();
-const UpdateTipoSanguineoController = new UpdateTipoSanguineoController();
+const createTipoSanguineoController = new CreateTipoSanguineoController();
+const getAllTipoSanguineoController = new GetAllTipoSanguineoController();
+const getByIdTipoSanguineoController = new GetByIdTipoSanguineoController();
+const updateTipoSanguineoController = new UpdateTipoSanguineoController();
 
-tipoSanguineoRouter.post('tipos_sanguineos', CreateTipoSanguineoController.handle);
-tipoSanguineoRouter.get('tipos_sanguineos', GetAllTipoSanguineoController.handle);
-tipoSanguineoRouter.get('tipos_sanguineos', GetByIdTipoSanguineoController.handle);
-tipoSanguineoRouter.put('tipos_sanguineos', UpdateTipoSanguineoController.handle);
+tipoSanguineoRouter.post('tipos_sanguineos', createTipoSanguineoController.handle);
+tipoSanguineoRouter.get('tipos_sanguineos', getAllTipoSanguineoController.handle);
+tipoSanguineoRouter.get('tipos_sanguineos', getByIdTipoSanguineoController.handle);
+tipoSanguineoRouter.put('tipos_sanguineos', updateTipoSanguineoController.handle);
 
 export { tipoSanguineoRouter };

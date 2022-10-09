@@ -5,14 +5,14 @@ import { GetByIdDoacaoController } from '../controller/doacoes/GetByIdDoacaoCont
 import { UpdateDoacaoController } from '../controller/doacoes/UpdateDoacaoController.js';
 
 const doacaoRouter = Router();
-const CreateDoacaoController = new CreateDoacaoController();
-const GetAllDoacaoController = new GetAllDoacaoController();
-const GetByIdDoacaoController = new GetByIdDoacaoController();
-const UpdateDoacaoController = new UpdateDoacaoController();
+const createDoacaoController = new CreateDoacaoController();
+const getAllDoacaoController = new GetAllDoacaoController();
+const getByIdDoacaoController = new GetByIdDoacaoController();
+const updateDoacaoController = new UpdateDoacaoController();
 
-doacaoRouter.post('/doacoes', CreateDoacaoController.handle);
-doacaoRouter.get('/doacoes', getAllEstadoController.handle);
-doacaoRouter.get('/doacoes', GetByIdDoacaoController.handle);
-doacaoRouter.put('/doacoes', UpdateDoacaoController.handle);
+doacaoRouter.post('/doacoes', createDoacaoController.handle);
+doacaoRouter.get('/doacoes', getAllDoacaoController.handle);
+doacaoRouter.get('/doacoes', getByIdDoacaoController.handle);
+doacaoRouter.put('/doacoes', updateDoacaoController.handle);
 
 export { doacaoRouter };

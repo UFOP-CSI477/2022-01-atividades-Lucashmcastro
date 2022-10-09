@@ -5,14 +5,14 @@ import { GetByIdPessoaController } from '../controller/pessoas/GetByIdPessoaCont
 import { UpdatePessoaController } from '../controller/pessoas/UpdatePessoaController.js';
 
 const pessoaRouter = Router();
-const CreatePessoaController = new CreatePessoaController();
-const GetAllPessoaController = new GetAllPessoaController();
-const GetByIdPessoaController = new GetByIdPessoaController();
-const UpdatePessoaController = new UpdatePessoaController();
+const createPessoaController = new CreatePessoaController();
+const getAllPessoaController = new GetAllPessoaController();
+const getByIdPessoaController = new GetByIdPessoaController();
+const updatePessoaController = new UpdatePessoaController();
 
-pessoaRouter.post('/pessoas', CreatePessoaController.handle);
-pessoaRouter.get('/pessoas', GetAllPessoaController.handle);
-pessoaRouter.get('/pessoas', GetByIdPessoaController.handle);
-pessoaRouter.put('/pessoas', UpdatePessoaController.handle);
+pessoaRouter.post('/pessoas', createPessoaController.handle);
+pessoaRouter.get('/pessoas', getAllPessoaController.handle);
+pessoaRouter.get('/pessoas', getByIdPessoaController.handle);
+pessoaRouter.put('/pessoas', updatePessoaController.handle);
 
 export { pessoaRouter };
