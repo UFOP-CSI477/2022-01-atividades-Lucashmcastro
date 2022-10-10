@@ -1,1 +1,12 @@
-[{"name":"Caneta Lilas","price":3,"id":"f1a3dc92-9879-4fd1-88e8-bcdf14699626"},{"name":"Caneta Preta","price":3,"id":"87dd9b0f-51be-4260-8678-3878e2887455"}]
+[
+  {
+    "name": "Caneta Lilas",
+    "price": 3,
+    "id": "f1a3dc92-9879-4fd1-88e8-bcdf14699626"
+  },
+  {
+    "name": "Caneta Preta",
+    "price": 3,
+    "id": "87dd9b0f-51be-4260-8678-3878e2887455"
+  }
+]

@@ -94,7 +94,4 @@ function productFile() {
     });
 }
 
-
-
-
 app.listen(4002, () => console.log("Servidor rodando na porta 4002"));
