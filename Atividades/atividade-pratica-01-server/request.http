@@ -1,9 +1,11 @@
+//Metodos para Estados
+
 POST http://localhost:4002/estados
 content-type: application/json
 
 {
-    "name": "Espírito Santo",
-    "sigla": "ES"
+    "name": "Rio de Janeiro",
+    "sigla": "RJ"
 }
 
 ###
@@ -25,3 +27,36 @@ content-type: application/json
 
 ###
 DELETE http://localhost:4002/estados/628f8fe6-cbf4-447a-9cc9-bb92c59cc81f
+
+
+//Metodos para Cidade
+
+###
+
+POST http://localhost:4002/cidades
+content-type: application/json
+
+{
+    "name": "Timóteo",
+    "estado_id": "7cf8276e-e72a-43d1-bce7-3b3d65a24a4a"
+}
+
+###
+GET http://localhost:4002/cidades
+
+###
+GET http://localhost:4002/cidades/5b6e94d7-7dce-4628-8192-9d22f2be89c0
+
+
+###
+PUT http://localhost:4002/cidades/5b6e94d7-7dce-4628-8192-9d22f2be89c0
+content-type: application/json
+
+{
+    "name": "Niterói",
+    "estado_id": "7cf8276e-e72a-43d1-bce7-3b3d65a24a4a"
+}
+
+
+###
+DELETE http://localhost:4002/cidades/661258a2-052c-427d-88f3-f16948c6c22b

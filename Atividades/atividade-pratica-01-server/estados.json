@@ -2,8 +2,18 @@
   { "nome": "São Paulo", "sigla": "SP" },
   { "nome": "Rio Grande do Sul", "sigla": "RS" },
   {
+    "name": "Espírito Santo",
+    "sigla": "ES",
+    "id": "1ec8b4f9-d045-4ca5-b22b-2405bc6f1d5d"
+  },
+  {
+    "name": "Minas Gerais",
+    "sigla": "MG",
+    "id": "7cf8276e-e72a-43d1-bce7-3b3d65a24a4a"
+  },
+  {
     "name": "Rio de Janeiro",
     "sigla": "RJ",
-    "id": "c9e134eb-097e-43a0-bcb7-9b73b4783ea0"
+    "id": "544490c0-628c-4f65-b278-15236ae9b848"
   }
 ]
