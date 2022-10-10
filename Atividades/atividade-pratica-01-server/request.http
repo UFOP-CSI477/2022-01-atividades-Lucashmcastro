@@ -1,0 +1,27 @@
+POST http://localhost:4002/estados
+content-type: application/json
+
+{
+    "name": "Espírito Santo",
+    "sigla": "ES"
+}
+
+###
+GET http://localhost:4002/estados
+
+###
+GET http://localhost:4002/estados/c9e134eb-097e-43a0-bcb7-9b73b4783ea0
+
+
+###
+PUT http://localhost:4002/estados/628f8fe6-cbf4-447a-9cc9-bb92c59cc81f
+content-type: application/json
+
+{
+    "name": "Minas Gerais",
+    "sigla": "MG"
+}
+
+
+###
+DELETE http://localhost:4002/estados/628f8fe6-cbf4-447a-9cc9-bb92c59cc81f

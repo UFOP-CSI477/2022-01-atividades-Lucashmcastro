@@ -1,27 +1,27 @@
-GET http://localhost:3000/
+# GET http://localhost:3000/
 
-### POST http://localhost:3000/estados Content-Type: application/json
+# ### POST http://localhost:3000/estados Content-Type: application/json
 
-{
-"nome": "Rio de Jnaeiro", "sigla": "JR"
-}
+# {
+# "nome": "Rio de Janeiro", "sigla": "RJ"
+# }
 
-### POST http://localhost:3000/cidades Content-Type: application/json
+# ### POST http://localhost:3000/cidades Content-Type: application/json
 
-{
-"nome": "São Paulo", "estado_id": 2
-}
+# {
+# "nome": "São Paulo", "estado_id": 2
+# }
 
-### GET http://localhost:3000/estados
+# ### GET http://localhost:3000/estados
 
-### GET http://localhost:3000/cidades
+# ### GET http://localhost:3000/cidades
 
-### GET http://localhost:3000/estados/2
+# ### GET http://localhost:3000/estados/2
 
-### GET http://localhost:3000/cidades/1
+# ### GET http://localhost:3000/cidades/1
 
-### PUT http://localhost:3000/estados Content-Type: application/json
+# ### PUT http://localhost:3000/estados Content-Type: application/json
 
-{
-"id": 3, "nome": "Rio de Janeiro", "sigla": "RJ"
-}
+# {
+# "id": 3, "nome": "Rio de Janeiro", "sigla": "RJ"
+# }

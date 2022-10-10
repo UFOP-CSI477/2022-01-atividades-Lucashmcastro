@@ -4,7 +4,7 @@ const mainRouter = Router();
 
 mainRouter.get('/', (request, response) => {
     response.json({
-        message: "Server is running."
+        message: "O servidor estar rodando com sucesso."
     })
 });
 

@@ -4,12 +4,12 @@ export class CreateEstadoController {
 
     async handle(request, response){
         
-        const { nome, sigla } = request.body;
+        let { nome, sigla } = request.body;
         
         const estado = await prismaClient.estado({
             data: { 
                 nome,
-                sigla
+                sigla,
             }
         });
 
