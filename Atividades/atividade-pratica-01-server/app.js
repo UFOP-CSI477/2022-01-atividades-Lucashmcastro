@@ -8,6 +8,7 @@ app.use(json());
 
 let estados = [];
 let cidades = [];
+let doacoes = [];
 
 readFile("estados.json", "utf-8", (err, data) => {
     if (err) {
@@ -22,6 +23,14 @@ readFile("cidades.json", "utf-8", (err, data) => {
         console.log(err)
     }else {
         cidades = JSON.parse(data);
+    }
+})
+
+readFile("doacoes.json", "utf-8", (err, data) => {
+    if (err) {
+        console.log(err)
+    }else {
+        doacoes = JSON.parse(data);
     }
 })
 
@@ -40,7 +49,7 @@ Params => /products/13123123123123
 Query => /products?id=234234234234234234&value=234234234234
 */
 
-//metodos para estados
+//METODOS PARA ESTADO
 
 app.post("/estados", (request, response) => {
     //nome e sigla => name  and sigla
@@ -107,7 +116,7 @@ function estadoFile() {
     });
 };
 
-//metodos para cidades
+//METODOS PARA CIDADES
 
 
 app.post("/cidades", (request, response) => {
@@ -170,5 +179,82 @@ function cidadeFile() {
         }
     });
 };
+
+
+//METODOS PARA DOACOES
+
+app.post("/doacoes", (request, response) => {
+
+    const { data, pessoa_id, local_id } = request.body;
+    const doacao = { 
+        data,
+        pessoa_id, 
+        local_id, 
+        id: randomUUID(),
+    }
+
+    doacoes.push(doacao);
+    doacaoFile();
+    return response.json(doacao);
+});
+
+app.get("/doacoes", (request, response) =>{
+    return response.json(doacoes);
+});
+
+app.get("/doacoes/:id", (request, response) => {
+    const { id } = request.params;
+    const doacao = doacoes.find((doacao) => doacao.id === id);
+    return response.json(doacao);
+});
+
+app.put("/doacoes/:id", (request, response) => {
+    const { id } = request.params;
+    const { data, pessoa_id, local_id } = request.body; 
+
+    const doacaoIndex = doacoes.findIndex((doacao) => doacao.id === id);
+    doacoes[doacaoIndex] = {
+        ...doacoes[doacaoIndex],
+        data, 
+        pessoa_id, 
+        local_id,
+    };
+
+    doacaoFile();
+    return response.json({ message: "Doação Alterada com Sucesso" });
+});
+
+app.delete("/doacoes/:id", (request, response) => {
+    const { id } = request.params;
+
+    const doacaoIndex = doacoes.findIndex((doacao) => doacao.id === id);
+
+    doacoes.splice(doacaoIndex, 1);
+    doacaoFile();
+    return response.json({ message: "Doação Removida com Sucesso"});
+
+});
+
+function doacaoFile() {
+
+    writeFile("doacoes.json", JSON.stringify(doacoes), (err) => {
+        if (err) {
+            console.log(err)
+        }else {
+            console.log("Doação Inserida");
+        }
+    });
+};
+
+
+
+
+
+
+
+
+
+
+
 
 app.listen(4002, () => console.log("Servidor rodando na porta 4002"));
