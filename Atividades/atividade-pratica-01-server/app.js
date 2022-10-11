@@ -9,6 +9,7 @@ app.use(json());
 let estados = [];
 let cidades = [];
 let doacoes = [];
+let locaisColeta = [];
 
 readFile("estados.json", "utf-8", (err, data) => {
     if (err) {
@@ -34,6 +35,13 @@ readFile("doacoes.json", "utf-8", (err, data) => {
     }
 })
 
+readFile("locaisColeta.json", "utf-8", (err, data) => {
+    if (err) {
+        console.log(err)
+    }else {
+        locaisColeta = JSON.parse(data);
+    }
+})
 
 
 /*
@@ -246,6 +254,76 @@ function doacaoFile() {
     });
 };
 
+
+//METODOS PARA LOCAL COLETA
+
+app.post("/locaiscoleta", (request, response) => {
+
+    const { name, rua, numero, complemento, cidade_id } = request.body;
+
+    const localColeta = {
+        name, 
+        rua, 
+        numero, 
+        complemento, 
+        cidade_id,
+        id: randomUUID(),
+    }
+
+    locaisColeta.push(localColeta);
+    locaisColetaFile();
+    return response.json(localColeta);
+});
+
+app.get("/locaiscoleta", (request, response) =>{
+    return response.json(locaisColeta);
+});
+
+app.get("/locaiscoleta/:id", (request, response) => {
+    const { id } = request.params;
+    const localColeta = locaisColeta.find((doacao) => doacao.id === id);
+    return response.json(localColeta);
+});
+
+app.put("/locaiscoleta/:id", (request, response) => {
+    const { id } = request.params;
+    const { name, rua, numero, complemento, cidade_id } = request.body;
+
+    const localColetaIndex = doacoes.findIndex((localColeta) => localColeta.id === id);
+    locaisColeta[localColetaIndex] = {
+        ...locaisColeta[localColetaIndex],
+        name, 
+        rua, 
+        numero, 
+        complemento, 
+        cidade_id,
+    };
+
+    locaisColetaFile();
+    return response.json({ message: "Local da Coleta Alterado com Sucesso" });
+});
+
+app.delete("/locaiscoleta/:id", (request, response) => {
+    const { id } = request.params;
+
+    const localColetaIndex = locaisColeta.findIndex((localColeta) => localColeta.id === id);
+
+    locaisColeta.splice(localColetaIndex, 1);
+    locaisColetaFile();
+    return response.json({ message: "Local da Coleta Removido com Sucesso"});
+
+});
+
+function locaisColetaFile(){
+
+    writeFile("locaiscoleta.json", JSON.stringify(locaisColeta), (err) => {
+        if (err) {
+            console.log(err)
+        }else {
+            console.log("Local Coleta Inserido");
+        }
+    });
+};
 
 
 

@@ -1,1 +1,13 @@
-[{"name":"Petrópolis","estado_id":"c9e134eb-097e-43a0-bcb7-9b73b4783ea0"},{"name":"Campos","estado_id":"c9e134eb-097e-43a0-bcb7-9b73b4783ea0","id":"f1b9cd97-a9a2-4ee2-a495-d0403ec60f20"},{"name":"Niterói","estado_id":"7cf8276e-e72a-43d1-bce7-3b3d65a24a4a","id":"5b6e94d7-7dce-4628-8192-9d22f2be89c0"}]
+[
+  { "name": "Petrópolis", "estado_id": "c9e134eb-097e-43a0-bcb7-9b73b4783ea0" },
+  {
+    "name": "Campos",
+    "estado_id": "c9e134eb-097e-43a0-bcb7-9b73b4783ea0",
+    "id": "f1b9cd97-a9a2-4ee2-a495-d0403ec60f20"
+  },
+  {
+    "name": "Niterói",
+    "estado_id": "7cf8276e-e72a-43d1-bce7-3b3d65a24a4a",
+    "id": "5b6e94d7-7dce-4628-8192-9d22f2be89c0"
+  }
+]

@@ -61,7 +61,6 @@ content-type: application/json
 DELETE http://localhost:4002/cidades/0a3fb57c-dbc0-4701-882b-7d738ffd963b
 
 
-
 //Metodos para Doacão
 
 ###
@@ -90,6 +89,41 @@ content-type: application/json
       "local_id": "544490c0-628c-4f65-b278-15236ae9b848"
     }
 
-
 ###
 DELETE http://localhost:4002/doacoes/e3aa0fc3-baee-4cb6-915d-b028788b0bfd
+
+
+//Metodos para Locais de Coleta
+
+###
+POST http://localhost:4002/locaisColeta
+content-type: application/json
+
+   {
+        "name": "UFMG",
+        "rua": "Rua 36",
+        "numero": "115",
+        "complemento": "Loanda, João Monlevade",
+        "cidade_id": "5b6e94d7-7dce-4628-8192-9d22f2be89c0"
+    }
+
+###
+GET http://localhost:4002/locaisColeta
+
+###
+GET http://localhost:4002/locaisColeta/ab9bf908-9027-4bc8-a588-a13f0a4c708e
+
+###
+PUT http://localhost:4002/locaisColeta/9df98cbb-b4e1-460a-a8a7-11895579becc
+content-type: application/json
+    
+    {
+        "name": "UFV",
+        "rua": "Rua 36",
+        "numero": "115",
+        "complemento": "Loanda, João Monlevade",
+        "cidade_id": "5b6e94d7-7dce-4628-8192-9d22f2be89c0"
+    }
+
+###
+DELETE http://localhost:4002/locaisColeta/ab9bf908-9027-4bc8-a588-a13f0a4c708e
