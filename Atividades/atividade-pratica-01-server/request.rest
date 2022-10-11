@@ -127,3 +127,45 @@ content-type: application/json
 
 ###
 DELETE http://localhost:4002/locaisColeta/ab9bf908-9027-4bc8-a588-a13f0a4c708e
+
+
+
+//Metodos para Pessoas
+
+###
+POST http://localhost:4002/pessoas
+content-type: application/json
+
+    {
+        "name": "Maria Horta Monteiro de Castro",
+        "rua": "Rua 86", 
+        "numero": "203",
+        "complemento": "Novo Horizonte, Timóteo", 
+        "documento": "MG-43.323.431",
+        "cidade_id": "f1b9cd97-a9a2-4ee2-a495-d0403ec60f20",
+        "tipo_id": ""
+    } 
+
+###
+GET http://localhost:4002/pessoas/
+###
+GET http://localhost:4002/pessoas/b4ab981e-339f-43b3-b092-4216ff026dab
+
+###
+PUT http://localhost:4002/pessoas/b4ab981e-339f-43b3-b092-4216ff026dab
+content-type: application/json
+
+    {
+        "name": "Jose Horta Monteiro de Castro",
+        "rua": "Rua 86", 
+        "numero": "203",
+        "complemento": "Novo Horizonte, Timóteo", 
+        "documento": "MG-43.323.431",
+        "cidade_id": "f1b9cd97-a9a2-4ee2-a495-d0403ec60f20",
+        "tipo_id": ""
+    } 
+
+###
+DELETE http://localhost:4002/pessoas/b4ab981e-339f-43b3-b092-4216ff026dab
+
+

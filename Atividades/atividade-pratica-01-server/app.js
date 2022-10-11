@@ -10,6 +10,7 @@ let estados = [];
 let cidades = [];
 let doacoes = [];
 let locaisColeta = [];
+let pessoas = [];
 
 readFile("estados.json", "utf-8", (err, data) => {
     if (err) {
@@ -43,6 +44,14 @@ readFile("locaisColeta.json", "utf-8", (err, data) => {
     }
 })
 
+
+readFile("pessoas.json", "utf-8", (err, data) => {
+    if (err) {
+        console.log(err)
+    }else {
+        pessoas = JSON.parse(data);
+    }
+})
 
 /*
 POST => Inserção de Dado
@@ -326,13 +335,80 @@ function locaisColetaFile(){
 };
 
 
+//METODOS PARA PESSOA
+
+app.post("/pessoas", (request, response) => {
+
+    const { name, rua, numero, complemento, documento, cidade_id, tipo_id } = request.body;
+
+    const pessoa = {
+        name, 
+        rua, 
+        numero, 
+        complemento,
+        documento, 
+        cidade_id,
+        tipo_id,
+        id: randomUUID(),
+    }
+
+    pessoas.push(pessoa);
+    locaisColetaFile();
+    return response.json(pessoa);
+});
+
+app.get("/pessoas", (request, response) =>{
+    return response.json(pessoas);
+});
+
+app.get("/pessoas/:id", (request, response) => {
+    const { id } = request.params;
+    const pessoa = pessoas.find((pessoa) => pessoa.id === id);
+    return response.json(pessoa);
+});
+
+app.put("/pessoas/:id", (request, response) => {
+    const { id } = request.params;
+    const { name, rua, numero, complemento, documento, cidade_id, tipo_id } = request.body;
 
 
+    const pessoaIndex = pessoas.findIndex((pessoa) => pessoa.id === id);
+    pessoas[pessoaIndex] = {
+        ...pessoas[pessoaIndex],
+        name, 
+        rua, 
+        numero, 
+        complemento,
+        documento, 
+        cidade_id,
+        tipo_id,
+    };
 
+    pessoasFile();
+    return response.json({ message: "Pessoa Alterada com Sucesso" });
+});
 
+app.delete("/pessoas/:id", (request, response) => {
+    const { id } = request.params;
 
+    const pessoaIndex = pessoas.findIndex((pessoa) => pessoa.id === id);
 
+    pessoas.splice(pessoaIndex, 1);
+    pessoasFile();
+    return response.json({ message: "Pessoa Removida com Sucesso"});
 
+});
+
+function pessoasFile(){
+
+    writeFile("pessoas.json", JSON.stringify(pessoas), (err) => {
+        if (err) {
+            console.log(err)
+        }else {
+            console.log("Pessoa Inserida");
+        }
+    });
+};
 
 
 app.listen(4002, () => console.log("Servidor rodando na porta 4002"));

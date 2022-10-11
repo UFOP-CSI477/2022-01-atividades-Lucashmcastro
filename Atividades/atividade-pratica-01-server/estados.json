@@ -1,6 +1,6 @@
 [
-  { "nome": "São Paulo", "sigla": "SP" },
-  { "nome": "Rio Grande do Sul", "sigla": "RS" },
+  { "name": "São Paulo", "sigla": "SP" },
+  { "name": "Rio Grande do Sul", "sigla": "RS" },
   {
     "name": "Espírito Santo",
     "sigla": "ES",
