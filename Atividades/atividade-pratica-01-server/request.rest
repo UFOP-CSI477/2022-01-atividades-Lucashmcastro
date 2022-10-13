@@ -169,3 +169,31 @@ content-type: application/json
 DELETE http://localhost:4002/pessoas/b4ab981e-339f-43b3-b092-4216ff026dab
 
 
+//Metodos para Tipos Sanguínos
+
+###
+POST http://localhost:4002/tipossanguineos
+content-type: application/json
+
+    {
+        "tipo": "O",
+        "fator": "R"
+    }
+
+###
+GET http://localhost:4002/tipossanguineos/
+###
+GET http://localhost:4002/tipossanguineos/76a16136-424b-4bbb-9eed-9869623637ad
+
+###
+PUT http://localhost:4002/tipossanguineos/76a16136-424b-4bbb-9eed-9869623637ad
+content-type: application/json
+
+    {
+        "tipo": "A",
+        "fator": "R+"    
+    }
+###
+DELETE http://localhost:4002/tipossanguineos/76a16136-424b-4bbb-9eed-9869623637ad
+
+

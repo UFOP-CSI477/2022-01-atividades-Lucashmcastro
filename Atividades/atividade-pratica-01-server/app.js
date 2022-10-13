@@ -11,6 +11,7 @@ let cidades = [];
 let doacoes = [];
 let locaisColeta = [];
 let pessoas = [];
+let tiposSanguineos = [];
 
 readFile("estados.json", "utf-8", (err, data) => {
     if (err) {
@@ -52,6 +53,15 @@ readFile("pessoas.json", "utf-8", (err, data) => {
         pessoas = JSON.parse(data);
     }
 })
+
+readFile("tiposSanguineos.json", "utf-8", (err, data) => {
+    if (err) {
+        console.log(err)
+    }else {
+        tiposSanguineos = JSON.parse(data);
+    }
+})
+
 
 /*
 POST => Inserção de Dado
@@ -409,6 +419,79 @@ function pessoasFile(){
         }
     });
 };
+
+
+//METODOS PARA TIPO SANGUINEO
+
+app.post("/tiposSanguineos", (request, response) => {
+
+    const { tipo, fator } = request.body;
+
+    const tipoSanguineo = {     
+        tipo,
+        fator,
+        id: randomUUID(),
+    }
+
+    tiposSanguineos.push(tipoSanguineo);
+    tiposSanguineosFile();
+    return response.json(tipoSanguineo);
+});
+
+app.get("/tiposSanguineos", (request, response) =>{
+    return response.json(tiposSanguineos);
+});
+
+app.get("/tiposSanguineos/:id", (request, response) => {
+    const { id } = request.params;
+    const tipoSanguineo = tiposSanguineos.find((tipoSanguineo) => tipoSanguineo.id === id);
+    return response.json(tipoSanguineo);
+});
+
+app.put("/tiposSanguineos/:id", (request, response) => {
+    const { id } = request.params;
+    const { tipo, fator } = request.body;
+
+    const tipoSanguineoIndex = tiposSanguineos.findIndex((tipoSanguineo) => tipoSanguineo.id === id);
+    tiposSanguineos[tipoSanguineoIndex] = {
+        ...tiposSanguineos[tipoSanguineoIndex],
+        tipo,
+        fator,
+    };
+
+    tiposSanguineosFile();
+    return response.json({ message: "Tipo Sanguineo Alterado com Sucesso" });
+});
+
+app.delete("/tiposSanguineos/:id", (request, response) => {
+    const { id } = request.params;
+
+    const tipoSanguineoIndex = tiposSanguineos.findIndex((tipoSanguineo) => tipoSanguineo.id === id);
+
+    tiposSanguineos.splice(tipoSanguineoIndex, 1);
+    tiposSanguineosFile();
+    return response.json({ message: "Tipo Sanguineo Removido com Sucesso"});
+
+});
+
+function tiposSanguineosFile(){
+
+    writeFile("tiposSanguineos.json", JSON.stringify(tiposSanguineos), (err) => {
+        if (err) {
+            console.log(err)
+        }else {
+            console.log("Tipo Sanguineo Inserido");
+        }
+    });
+};
+
+
+
+
+
+
+
+
 
 
 app.listen(4002, () => console.log("Servidor rodando na porta 4002"));
