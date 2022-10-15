@@ -10,9 +10,9 @@ const getAllTipoSanguineoController = new GetAllTipoSanguineoController();
 const getByIdTipoSanguineoController = new GetByIdTipoSanguineoController();
 const updateTipoSanguineoController = new UpdateTipoSanguineoController();
 
-tipoSanguineoRouter.post('tipos_sanguineos', createTipoSanguineoController.handle);
-tipoSanguineoRouter.get('tipos_sanguineos', getAllTipoSanguineoController.handle);
-tipoSanguineoRouter.get('tipos_sanguineos', getByIdTipoSanguineoController.handle);
-tipoSanguineoRouter.put('tipos_sanguineos', updateTipoSanguineoController.handle);
+tipoSanguineoRouter.post('/tiposSanguineos', createTipoSanguineoController.handle);
+tipoSanguineoRouter.get('/tiposSanguineos', getAllTipoSanguineoController.handle);
+tipoSanguineoRouter.get('/tiposSanguineos', getByIdTipoSanguineoController.handle);
+tipoSanguineoRouter.put('/tiposSanguineos', updateTipoSanguineoController.handle);
 
 export { tipoSanguineoRouter };

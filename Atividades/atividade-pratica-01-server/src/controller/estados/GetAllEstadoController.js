@@ -5,7 +5,7 @@ export class GetAllEstadoController {
     async handle(request, response) {
 
         const estados = await prismaClient.estado.findMany({
-            include: {
+            select: {
                 id: true,
                 nome: true,
                 sigla: true,

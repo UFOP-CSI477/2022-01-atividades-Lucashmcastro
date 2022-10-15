@@ -4,10 +4,11 @@ export class CreateLocalColetaController {
 
     async handle ( request, response ){
 
-    const { nome, rua, numero, complemento, cidade_id } = request.body;
+    const { id, nome, rua, numero, complemento, cidade_id } = request.body;
 
-    const localColeta = await prismaClient.localColeta({
+    const localColeta = await prismaClient.localColeta.create({
         data: {
+            id,
             nome,
             rua,
             numero,

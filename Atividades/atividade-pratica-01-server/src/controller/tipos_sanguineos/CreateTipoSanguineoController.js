@@ -5,10 +5,11 @@ export class CreateTipoSanguineoController {
     //criacão de função assíncrona
     async handle( request, response ){
 
-        const { tipo, fator } = request.body;
+        const { id, tipo, fator } = request.body;
 
         const tipoSanguineo = await prismaClient.tipoSanguineo.create({
             data: {
+                id,
                 tipo,
                 fator
             }

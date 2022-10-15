@@ -5,7 +5,7 @@ export class GetAllPessoaController {
     async handle(request, response) {
 
         const pessoa = await prismaClient.pessoa.findMany({
-            include: {
+            select: {
                 id: true,
                 nome: true,
                 rua: true,

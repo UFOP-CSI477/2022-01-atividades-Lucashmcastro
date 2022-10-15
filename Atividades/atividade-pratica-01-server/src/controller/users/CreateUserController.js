@@ -4,11 +4,12 @@ export class CreateUserController {
 
     async handle(request, response) {
 
-        const { nome, email, password } = request.body;
+        const { id, nome, email, password } = request.body;
 
         try {
             const user = await prismaClient.user.create({
                 data : {
+                    id,
                     nome, 
                     email,
                     password

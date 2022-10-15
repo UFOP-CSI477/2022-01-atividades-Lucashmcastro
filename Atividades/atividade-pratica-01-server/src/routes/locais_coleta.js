@@ -10,9 +10,9 @@ const getAllLocalColetaController = new GetAllLocalColetaController();
 const getByIdLocalColetaController = new GetByIdLocalColetaController();
 const updateLocalColetaController = new UpdateLocalColetaController();
 
-localColetaRouter.post('/locais_coleta', createLocalColetaController.handle);
-localColetaRouter.get('/locais_coleta', getAllLocalColetaController.handle);
-localColetaRouter.get('/locais_coleta', getByIdLocalColetaController.handle);
-localColetaRouter.put('/locais_coleta', updateLocalColetaController.handle);
+localColetaRouter.post('/locaisColeta', createLocalColetaController.handle);
+localColetaRouter.get('/locaisColeta', getAllLocalColetaController.handle);
+localColetaRouter.get('/locaisColeta', getByIdLocalColetaController.handle);
+localColetaRouter.put('/locaisColeta', updateLocalColetaController.handle);
 
 export { localColetaRouter };

@@ -14,7 +14,7 @@ import * as dotenv from "dotenv";
   
 dotenv.config();
 
-const PORT = process.env.PORT || 5555;
+const PORT = process.env.PORT || 4002;
 const app = express();
 
 app.use(express.json());

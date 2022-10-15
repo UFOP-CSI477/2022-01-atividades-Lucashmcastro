@@ -3,12 +3,12 @@ import { prismaClient } from '../../database/client.js';
 export class CreatePessoaController {
 
     async handle (request, response){
+    const { id, nome, rua, numero, complemento, documento, cidade_id, tipoSanguineo_id } = request.body;
 
-    const { nome, rua, numero, complemento, documento, cidade_id, tipo_id } = request.body;
-
-    const pessoa = await prismaClient.pessoa({
+    const pessoa = await prismaClient.pessoa.create({
 
         data: {
+            id, 
             nome,
             rua,
             numero,
@@ -19,9 +19,9 @@ export class CreatePessoaController {
                     id: cidade_id
                 }
             }, 
-            tipo: {
+            tipoSanguineo: {
                 connect: {
-                    id: tipo_id
+                    id: tipoSanguineo_id 
                 }
             }
         }

@@ -6,7 +6,7 @@ export class GetAllDoacaoController {
     async handle(request, response){
        
         const doacao = await prismaClient.doacao.findMany({
-            include: {
+            select: {
                 id: true,
                 data: true,
                 created_at: true,

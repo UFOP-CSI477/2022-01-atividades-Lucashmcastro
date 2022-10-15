@@ -4,10 +4,11 @@ export class CreateCidadeController {
 
     async handle ( request, response) {
 
-        const { nome, estado_id } = request.body;
+        const { id, nome, estado_id } = request.body;
 
         const cidade = await prismaClient.cidade.create({
-            data: { 
+            data: {
+                id,
                 nome,
                 estado: {
                     connect: {

@@ -6,7 +6,7 @@ export class GetAllCidadeController {
     async handle(request, response) {
 
         const cidades = await prismaClient.cidade.findMany({
-            include: {
+            select: {
                 id: true,
                 nome: true,
                 created_at:true,
