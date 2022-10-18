@@ -12,7 +12,7 @@ const updatePessoaController = new UpdatePessoaController();
 
 pessoaRouter.post('/pessoas', createPessoaController.handle);
 pessoaRouter.get('/pessoas', getAllPessoaController.handle);
-pessoaRouter.get('/pessoas', getByIdPessoaController.handle);
+pessoaRouter.get('/pessoas/:id', getByIdPessoaController.handle);
 pessoaRouter.put('/pessoas', updatePessoaController.handle);
 
 export { pessoaRouter };

@@ -8,7 +8,13 @@ export class GetByIdTipoSanguineoController{
 
         const tipoSanguineo = await prismaClient.tipoSanguineo.findUnique({
             where: { 
-                id : parseInt(id)
+                id : id
+            },
+            select: {
+                id: true,
+                tipo: true,
+                fator: true,
+                created_at: true
             }
         });
 

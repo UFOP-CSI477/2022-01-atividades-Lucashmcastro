@@ -5,7 +5,7 @@ export class GetAllLocalColetaController {
     async handle(request, response) {
 
         const localColeta = await prismaClient.localColeta.findMany({
-            include: {
+            select: {
                 id: true,
                 nome: true,
                 rua: true,

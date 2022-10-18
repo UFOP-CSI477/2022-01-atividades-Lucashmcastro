@@ -12,7 +12,7 @@ const updateTipoSanguineoController = new UpdateTipoSanguineoController();
 
 tipoSanguineoRouter.post('/tiposSanguineos', createTipoSanguineoController.handle);
 tipoSanguineoRouter.get('/tiposSanguineos', getAllTipoSanguineoController.handle);
-tipoSanguineoRouter.get('/tiposSanguineos', getByIdTipoSanguineoController.handle);
+tipoSanguineoRouter.get('/tiposSanguineos/:id', getByIdTipoSanguineoController.handle);
 tipoSanguineoRouter.put('/tiposSanguineos', updateTipoSanguineoController.handle);
 
 export { tipoSanguineoRouter };

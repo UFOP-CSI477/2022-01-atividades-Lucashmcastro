@@ -8,7 +8,7 @@ export class GetByIdDoacaoController{
 
         const doacao = await prismaClient.doacao.findUnique({
             where: { 
-                id : parseInt(id)
+                id : id
             }
         });
 

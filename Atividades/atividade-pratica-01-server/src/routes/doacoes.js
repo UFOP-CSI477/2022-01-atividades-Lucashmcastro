@@ -12,7 +12,7 @@ const updateDoacaoController = new UpdateDoacaoController();
 
 doacaoRouter.post('/doacoes', createDoacaoController.handle);
 doacaoRouter.get('/doacoes', getAllDoacaoController.handle);
-doacaoRouter.get('/doacoes', getByIdDoacaoController.handle);
+doacaoRouter.get('/doacoes/:id', getByIdDoacaoController.handle);
 doacaoRouter.put('/doacoes', updateDoacaoController.handle);
 
 export { doacaoRouter };

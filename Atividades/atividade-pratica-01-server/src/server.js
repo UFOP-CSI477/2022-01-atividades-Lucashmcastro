@@ -23,10 +23,10 @@ app.use(cors());
 app.use(cidadeRouter);
 app.use(doacaoRouter);
 app.use(estadoRouter);
+app.use(tipoSanguineoRouter);
 app.use(localColetaRouter);
 app.use(mainRouter);
 app.use(pessoaRouter);
-app.use(tipoSanguineoRouter);
 app.use(userRouter);
 
 app.listen(PORT, () =>{
