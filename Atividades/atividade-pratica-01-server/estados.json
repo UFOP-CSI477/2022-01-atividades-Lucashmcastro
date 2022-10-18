@@ -1,1 +1,19 @@
-[{"name":"São Paulo","sigla":"SP"},{"name":"Rio Grande do Sul","sigla":"RS"},{"name":"Espírito Santo","sigla":"ES","id":"1ec8b4f9-d045-4ca5-b22b-2405bc6f1d5d"},{"name":"Minas Gerais","sigla":"MG","id":"7cf8276e-e72a-43d1-bce7-3b3d65a24a4a"},{"name":"Rio de Janeiro","sigla":"RJ","id":"544490c0-628c-4f65-b278-15236ae9b848"}]
+[
+  { "name": "São Paulo", "sigla": "SP" },
+  { "name": "Rio Grande do Sul", "sigla": "RS" },
+  {
+    "name": "Espírito Santo",
+    "sigla": "ES",
+    "id": "1ec8b4f9-d045-4ca5-b22b-2405bc6f1d5d"
+  },
+  {
+    "name": "Minas Gerais",
+    "sigla": "MG",
+    "id": "7cf8276e-e72a-43d1-bce7-3b3d65a24a4a"
+  },
+  {
+    "name": "Rio de Janeiro",
+    "sigla": "RJ",
+    "id": "544490c0-628c-4f65-b278-15236ae9b848"
+  }
+]

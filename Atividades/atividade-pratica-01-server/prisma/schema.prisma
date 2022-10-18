@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Estado {
-  id         Int      @id @default(autoincrement())
+  id         String      @id 
   nome       String
   sigla      String
   created_at DateTime @default(now())
@@ -22,9 +22,9 @@ model Estado {
 }
 
 model Cidade {
-  id        Int    @id @default(autoincrement())
+  id        String      @id 
   nome      String
-  estado_id Int
+  estado_id String
 
   pessoa Pessoa[]
   localColeta LocalColeta[]
@@ -35,7 +35,7 @@ model Cidade {
 }
 
 model TipoSanguineo {
-  id         Int      @id @default(autoincrement())
+  id         String      @id 
   tipo       String
   fator      String
   created_at DateTime @default(now())
@@ -46,14 +46,14 @@ model TipoSanguineo {
 }
 
 model Pessoa {
-  id               Int    @id @default(autoincrement())
+  id               String      @id 
   nome             String
   rua              String
   numero           String
   complemento      String
   documento        String
-  cidade_id        Int
-  tipoSanguineo_id Int 
+  cidade_id        String
+  tipoSanguineo_id String 
 
   doacao Doacao[]
 
@@ -64,12 +64,12 @@ model Pessoa {
 }
 
 model LocalColeta {
-  id               Int    @id @default(autoincrement())
+  id               String      @id 
   nome             String
   rua              String
   numero           String
   complemento      String
-  cidade_id        Int
+  cidade_id        String
 
   doacao Doacao[]
 
@@ -80,9 +80,10 @@ model LocalColeta {
 }
 
 model Doacao {
-  id               Int    @id @default(autoincrement())
-  pessoa_id        Int
-  local_id         Int
+  id               String      @id 
+  pessoa_id        String
+  local_id         String
+  data             DateTime
 
   pessoa Pessoa @relation(fields: [pessoa_id], references: [id])
   local LocalColeta @relation(fields: [local_id], references: [id])
@@ -92,10 +93,10 @@ model Doacao {
 }
 
 model User {
-  id  Int @id @default(autoincrement())
-  nome  String
-  email String  @unique
-  password  String
+  id          String  @id 
+  nome        String
+  email       String  @unique
+  password    String
   created_at  DateTime @default(now())
   @@map("users")
 }

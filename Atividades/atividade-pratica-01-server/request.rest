@@ -4,29 +4,30 @@ POST http://localhost:4002/estados
 content-type: application/json
 
 {
-    "name": "Rio de Janeiro",
-    "sigla": "RJ"
+    "id": "6",
+    "nome": "Ceara",
+    "sigla": "CE"
 }
 
 ###
 GET http://localhost:4002/estados
 
 ###
-GET http://localhost:4002/estados/c9e134eb-097e-43a0-bcb7-9b73b4783ea0
+GET http://localhost:4002/estados/5
 
 
 ###
-PUT http://localhost:4002/estados/628f8fe6-cbf4-447a-9cc9-bb92c59cc81f
+PUT http://localhost:4002/estados
 content-type: application/json
 
-{
-    "name": "Minas Gerais",
-    "sigla": "MG"
+{   
+    "id": "5",
+    "nome": "Santa Catarina",
+    "sigla": "SC"
 }
 
-
 ###
-DELETE http://localhost:4002/estados/628f8fe6-cbf4-447a-9cc9-bb92c59cc81f
+DELETE http://localhost:4002/estados/6
 
 
 //Metodos para Cidade
@@ -35,62 +36,63 @@ DELETE http://localhost:4002/estados/628f8fe6-cbf4-447a-9cc9-bb92c59cc81f
 POST http://localhost:4002/cidades
 content-type: application/json
 
-{
-    "name": "Timóteo",
-    "estado_id": "7cf8276e-e72a-43d1-bce7-3b3d65a24a4a"
+{   
+    "id": "4",
+    "nome": "Cidade Teste",
+    "estado_id": "2"
 }
 
 ###
 GET http://localhost:4002/cidades
 
 ###
-GET http://localhost:4002/cidades/5b6e94d7-7dce-4628-8192-9d22f2be89c0
+GET http://localhost:4002/cidades/3
 
 
 ###
-PUT http://localhost:4002/cidades/0a3fb57c-dbc0-4701-882b-7d738ffd963b
+PUT http://localhost:4002/cidades
 content-type: application/json
 
 {
-    "name": "Jurere",
-    "estado_id": "7cf8276e-e72a-43d1-bce7-3b3d65a24a4a"
+    "id": "3",
+    "nome": "Governador Valadares",
+    "estado_id": "2"
 }
 
+###
+DELETE http://localhost:4002/cidades/4
+
+
+//Metodos para Tipos Sanguínos
 
 ###
-DELETE http://localhost:4002/cidades/0a3fb57c-dbc0-4701-882b-7d738ffd963b
-
-
-//Metodos para Doacão
-
-###
-POST http://localhost:4002/doacoes
+POST http://localhost:4002/tiposSanguineos
 content-type: application/json
 
     {
-      "data": "11/10/2022",
-      "pessoa_id": "544490c0-628c-4f65-b278-15236ae9b848",
-      "local_id": "544490c0-628c-4f65-b278-15236ae9b848"
+        "id": "4",
+        "tipo": "AB",
+        "fator": "Positivo"
     }
 
 ###
-GET http://localhost:4002/doacoes
+GET http://localhost:4002/tiposSanguineos
+###
+GET http://localhost:4002/tiposSanguineos/2
 
 ###
-GET http://localhost:4002/doacoes/e3aa0fc3-baee-4cb6-915d-b028788b0bfd
-
-###
-PUT http://localhost:4002/doacoes/e3aa0fc3-baee-4cb6-915d-b028788b0bfd
+PUT http://localhost:4002/tiposSanguineos
 content-type: application/json
 
     {
-      "data": "13/10/2022",
-      "pessoa_id": "544490c0-628c-4f65-b278-15236ae9b848",
-      "local_id": "544490c0-628c-4f65-b278-15236ae9b848"
+        "id": "3",
+        "tipo": "O",
+        "fator": "Negativo"    
     }
 
+
 ###
-DELETE http://localhost:4002/doacoes/e3aa0fc3-baee-4cb6-915d-b028788b0bfd
+DELETE http://localhost:4002/tiposSanguineos/4
 
 
 //Metodos para Locais de Coleta
@@ -100,34 +102,35 @@ POST http://localhost:4002/locaisColeta
 content-type: application/json
 
    {
-        "name": "UFMG",
+        "id": "4",
+        "nome": "Minha Casa",
         "rua": "Rua 36",
         "numero": "115",
-        "complemento": "Loanda, João Monlevade",
-        "cidade_id": "5b6e94d7-7dce-4628-8192-9d22f2be89c0"
+        "complemento": "Centro",
+        "cidade_id": "1"
     }
 
 ###
 GET http://localhost:4002/locaisColeta
 
 ###
-GET http://localhost:4002/locaisColeta/ab9bf908-9027-4bc8-a588-a13f0a4c708e
+GET http://localhost:4002/locaisColeta/2
 
 ###
-PUT http://localhost:4002/locaisColeta/9df98cbb-b4e1-460a-a8a7-11895579becc
+PUT http://localhost:4002/locaisColeta
 content-type: application/json
     
     {
-        "name": "UFV",
+        "id": "2",
+        "nome": "UFV",
         "rua": "Rua 36",
         "numero": "115",
         "complemento": "Loanda, João Monlevade",
-        "cidade_id": "5b6e94d7-7dce-4628-8192-9d22f2be89c0"
+        "cidade_id": "2"
     }
 
 ###
-DELETE http://localhost:4002/locaisColeta/ab9bf908-9027-4bc8-a588-a13f0a4c708e
-
+DELETE http://localhost:4002/locaisColeta/4
 
 
 //Metodos para Pessoas
@@ -137,63 +140,70 @@ POST http://localhost:4002/pessoas
 content-type: application/json
 
     {
-        "name": "Maria Horta Monteiro de Castro",
+        "id": "3",
+        "nome": "Lucas Horta Monteiro de Castro",
         "rua": "Rua 86", 
         "numero": "203",
         "complemento": "Novo Horizonte, Timóteo", 
         "documento": "MG-43.323.431",
-        "cidade_id": "f1b9cd97-a9a2-4ee2-a495-d0403ec60f20",
-        "tipo_id": ""
+        "cidade_id": "3",
+        "tipoSanguineo_id": "3"
     } 
 
 ###
-GET http://localhost:4002/pessoas/
+GET http://localhost:4002/pessoas
 ###
-GET http://localhost:4002/pessoas/b4ab981e-339f-43b3-b092-4216ff026dab
+GET http://localhost:4002/pessoas/3
 
 ###
-PUT http://localhost:4002/pessoas/b4ab981e-339f-43b3-b092-4216ff026dab
+PUT http://localhost:4002/pessoas
 content-type: application/json
 
     {
-        "name": "Jose Horta Monteiro de Castro",
+        "id": "3",
+        "nome": "João Pedro",
         "rua": "Rua 86", 
         "numero": "203",
         "complemento": "Novo Horizonte, Timóteo", 
         "documento": "MG-43.323.431",
-        "cidade_id": "f1b9cd97-a9a2-4ee2-a495-d0403ec60f20",
-        "tipo_id": ""
+        "cidade_id": "3",
+        "tipo_id": "3"
     } 
 
 ###
-DELETE http://localhost:4002/pessoas/b4ab981e-339f-43b3-b092-4216ff026dab
+DELETE http://localhost:4002/pessoas/3
 
-
-//Metodos para Tipos Sanguínos
+//Metodos para Doacão
 
 ###
-POST http://localhost:4002/tipossanguineos
+POST http://localhost:4002/doacoes
 content-type: application/json
 
     {
-        "tipo": "O",
-        "fator": "R"
+      "id": "3",
+      "data": "2022-10-14T02:29:59.683Z",
+      "pessoa_id": "2",
+      "local_id": "2"
     }
 
 ###
-GET http://localhost:4002/tipossanguineos/
-###
-GET http://localhost:4002/tipossanguineos/76a16136-424b-4bbb-9eed-9869623637ad
+GET http://localhost:4002/doacoes
 
 ###
-PUT http://localhost:4002/tipossanguineos/76a16136-424b-4bbb-9eed-9869623637ad
+GET http://localhost:4002/doacoes/2
+
+###
+PUT http://localhost:4002/doacoes
 content-type: application/json
 
     {
-        "tipo": "A",
-        "fator": "R+"    
+      "id": "2",
+      "data": "2022-10-14T02:29:59.683Z",
+      "pessoa_id": "2",
+      "local_id": "2"
     }
-###
-DELETE http://localhost:4002/tipossanguineos/76a16136-424b-4bbb-9eed-9869623637ad
 
+
+###
+DELETE http://localhost:4002/doacoes/3
 
