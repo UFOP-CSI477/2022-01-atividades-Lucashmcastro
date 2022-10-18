@@ -4,8 +4,7 @@ export class DeleteDoacaoController {
 
     async handle(request, response) {
 
-        let { id } = request.body.data;
-        id = parseInt(id);
+        const { id } = request.params;
 
         try {
             const doacao = await prismaClient.doacao.delete({

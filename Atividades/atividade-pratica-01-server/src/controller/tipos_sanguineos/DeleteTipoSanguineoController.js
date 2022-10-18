@@ -4,8 +4,7 @@ export class DeleteTipoSanguineoController {
 
     async handle(request, response) {
 
-        let { id } = request.body.data;
-        id = parseInt(id);
+        const { id } = request.params;
 
         try {
             const tipoSanguineo = await prismaClient.tipoSanguineo.delete({

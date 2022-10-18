@@ -4,8 +4,7 @@ export class DeleteLocalColetaController {
 
     async handle(request, response) {
 
-        let { id } = request.body.data;
-        id = parseInt(id);
+        const { id } = request.params;
 
         try {
             const localColeta = await prismaClient.localColeta.delete({

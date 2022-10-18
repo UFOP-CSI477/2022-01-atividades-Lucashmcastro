@@ -4,8 +4,7 @@ export class DeleteEstadoController {
 
     async handle(request, response) {
 
-        const { id } = request.body.data;
-        //id = id
+        const { id } = request.params;
 
         try {
             const estado = await prismaClient.estado.delete({

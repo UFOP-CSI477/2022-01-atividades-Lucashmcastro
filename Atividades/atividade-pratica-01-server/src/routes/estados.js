@@ -16,6 +16,6 @@ estadoRouter.post('/estados', createEstadoController.handle);
 estadoRouter.get('/estados', getAllEstadoController.handle);
 estadoRouter.get('/estados/:id', getByIdEstadoController.handle);
 estadoRouter.put('/estados', updateEstadoController.handle);
-estadoRouter.delete('/estados', deleteEstadoController.handle);
+estadoRouter.delete('/estados/:id', deleteEstadoController.handle);
 
 export { estadoRouter };
