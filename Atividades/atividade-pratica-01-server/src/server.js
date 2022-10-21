@@ -8,6 +8,9 @@ import { mainRouter } from './routes/main.js';
 import { pessoaRouter } from './routes/pessoas.js';
 import { tipoSanguineoRouter } from './routes/tipos_sanguineos.js';
 import { userRouter } from './routes/users.js';
+import { distribuicaoRouter } from './routes/distribuicoes.js';
+import { produtoRouter } from './routes/produtos.js';
+import { unidadeRouter } from './routes/unidades.js';
 
 import cors from 'cors';
 import * as dotenv from "dotenv";
@@ -28,6 +31,9 @@ app.use(localColetaRouter);
 app.use(mainRouter);
 app.use(pessoaRouter);
 app.use(userRouter);
+app.use(distribuicaoRouter);
+app.use(produtoRouter);
+app.use(unidadeRouter);
 
 app.listen(PORT, () =>{
     console.log(`[SERVER] Servidor rodando na porta ${PORT}`);

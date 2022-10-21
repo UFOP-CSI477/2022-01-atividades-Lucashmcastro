@@ -207,3 +207,110 @@ content-type: application/json
 ###
 DELETE http://localhost:4002/doacoes/3
 
+
+
+//Metodos para Produtos
+
+###
+POST http://localhost:4002/produtos
+content-type: application/json
+
+    {
+      "id": "3",
+      "etiqueta": "Cadeira",
+      "validade": "2022-10-14T02:29:59.683Z",
+      "doacao_id": "1"
+    }
+
+###
+GET http://localhost:4002/produtos
+
+###
+GET http://localhost:4002/produtos/2
+
+###
+PUT http://localhost:4002/produtos
+content-type: application/json
+
+    {
+      "id": "1",
+      "etiqueta": "Bolsa de Sangue",
+      "validade": "2022-10-14T02:29:59.683Z",
+      "doacao_id": "2"
+    }
+
+
+###
+DELETE http://localhost:4002/produtos/3
+
+
+
+//Metodos para Unidades
+
+###
+POST http://localhost:4002/unidades
+content-type: application/json
+
+    {
+      "id": "3",
+      "nome": "Unidade Médica De Doação",
+      "numero": "104",
+      "complemento": "Esquina 3",
+      "cidade_id": "3"
+    }
+
+###
+GET http://localhost:4002/unidades
+
+###
+GET http://localhost:4002/unidades/3
+
+###
+PUT http://localhost:4002/unidades
+content-type: application/json
+
+    {
+      "id": "3",
+      "nome": "Unidade Médica Padre Anchieta",
+      "numero": "104",
+      "complemento": "Esquina 20",
+      "cidade_id": "2"
+    }
+
+
+###
+DELETE http://localhost:4002/unidades/3
+
+
+//Metodos para Distribuicoes
+
+###
+POST http://localhost:4002/distribuicoes
+content-type: application/json
+
+    {
+      "id": "1",
+      "data": "2022-10-14T02:29:59.683Z",
+      "produto_id": "2",
+      "unidade_id": "1"
+    }
+
+###
+GET http://localhost:4002/distribuicoes
+
+###
+GET http://localhost:4002/distribuicoes/2
+
+###
+PUT http://localhost:4002/distribuicoes
+content-type: application/json
+
+    {
+      "id": "1",
+      "data": "",
+      "produto_id": "",
+      "unidade_id": ""
+    }
+
+###
+DELETE http://localhost:4002/distribuicoes/3

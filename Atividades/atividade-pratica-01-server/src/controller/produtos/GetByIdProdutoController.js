@@ -14,7 +14,7 @@ export class GetByIdProdutoController{
                 id: true,
                 etiqueta: true,
                 validade: true,
-                created_at:true,
+                created_at: true,
                 doacao: true
             }
 
