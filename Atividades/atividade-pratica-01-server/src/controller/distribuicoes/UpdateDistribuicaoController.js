@@ -8,18 +8,18 @@ export class UpdateDistribuicaoController {
         const distribuicao = await prismaClient.distribuicoes.update({
 
             where: {
-                id: id
+                id: parseInt(id)
             },
             data: {
                 data,
                 produto: {
                     connect: {
-                        id: produto_id
+                        id: parseInt(produto_id)
                     }
                 },
                 unidade: {
                     connect: {
-                        id: unidade_id
+                        id: parseInt(unidade_id)
                     }
                 }
             }

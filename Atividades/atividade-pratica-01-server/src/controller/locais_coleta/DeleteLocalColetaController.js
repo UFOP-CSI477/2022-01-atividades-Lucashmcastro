@@ -9,7 +9,7 @@ export class DeleteLocalColetaController {
         try {
             const localColeta = await prismaClient.localColeta.delete({
                 where: {
-                    id: id
+                    id: parseInt(id)
                 }
             });
 

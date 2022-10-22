@@ -12,12 +12,12 @@ export class CreateDistribuicaoController {
                 data,
                 produto: {
                     connect: {
-                        id: produto_id
+                        id: parseInt(produto_id)
                     }
                 }, 
                 unidade: {
                     connect: {
-                        id: unidade_id
+                        id: parseInt(unidade_id)
                     }
                 }
             }

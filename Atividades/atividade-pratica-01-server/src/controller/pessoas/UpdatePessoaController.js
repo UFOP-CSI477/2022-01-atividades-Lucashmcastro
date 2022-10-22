@@ -9,7 +9,7 @@ export class UpdatePessoaController {
         const pessoa = await prismaClient.pessoa.update({
 
             where: {
-                id: id
+                id: parseInt(id)
             },
             data: {
                 nome,
@@ -19,12 +19,12 @@ export class UpdatePessoaController {
                 documento,
                 cidade: {
                     connect: {
-                        id: cidade_id
+                        id: parseInt(cidade_id)
                     }
                 },
                 tipoSanguineo: {
                     connect: {
-                        id: tipo_id
+                        id: parseInt(tipo_id)
                     }
                 }
             }

@@ -12,12 +12,12 @@ export class CreateDoacaoController {
                 data,
                 pessoa: {
                     connect: {
-                        id: pessoa_id
+                        id: parseInt(pessoa_id)
                     }
                 }, 
                 local: {
                     connect: {
-                        id: local_id
+                        id: parseInt(local_id)
                     }
                 }
             }

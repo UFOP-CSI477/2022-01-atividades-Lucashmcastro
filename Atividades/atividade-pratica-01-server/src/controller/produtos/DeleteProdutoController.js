@@ -9,7 +9,7 @@ export class DeleteProdutoController {
         try {
             const produto = await prismaClient.produto.delete({
                 where: {
-                    id: id
+                    id: parseInt(id)
                 }
             });
 

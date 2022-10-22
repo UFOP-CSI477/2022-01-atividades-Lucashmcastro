@@ -13,7 +13,7 @@ export class CreateProdutoController {
                 validade,
                 doacao: {
                     connect: {
-                        id : doacao_id
+                        id :parseInt(doacao_id)
                     }
                 }
             }

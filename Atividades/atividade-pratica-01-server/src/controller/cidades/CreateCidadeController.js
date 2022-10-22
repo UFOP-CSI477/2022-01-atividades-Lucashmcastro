@@ -12,7 +12,7 @@ export class CreateCidadeController {
                 nome,
                 estado: {
                     connect: {
-                        id : estado_id
+                        id : parseInt(estado_id)
                     }
                 }
             }

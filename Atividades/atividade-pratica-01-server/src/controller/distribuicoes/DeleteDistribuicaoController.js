@@ -9,7 +9,7 @@ export class DeleteDistribuicaoController {
         try {
             const distribuicao = await prismaClient.distribuicoes.delete({
                 where: {
-                    id: id
+                    id: parseInt(id)
                 }
             });
 

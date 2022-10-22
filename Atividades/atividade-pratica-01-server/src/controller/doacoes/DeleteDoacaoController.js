@@ -9,7 +9,7 @@ export class DeleteDoacaoController {
         try {
             const doacao = await prismaClient.doacao.delete({
                 where: {
-                    id: id
+                    id: parseInt(id)
                 }
             });
 

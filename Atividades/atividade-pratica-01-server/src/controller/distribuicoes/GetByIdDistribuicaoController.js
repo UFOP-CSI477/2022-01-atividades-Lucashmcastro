@@ -8,7 +8,7 @@ export class GetByIdDistribuicaoController{
 
         const distribuicao = await prismaClient.distribuicoes.findUnique({
             where: { 
-                id : id
+                id : parseInt(id)
             }
         });
 

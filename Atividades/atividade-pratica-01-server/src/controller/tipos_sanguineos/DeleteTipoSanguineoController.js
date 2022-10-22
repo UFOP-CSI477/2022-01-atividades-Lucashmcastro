@@ -9,7 +9,7 @@ export class DeleteTipoSanguineoController {
         try {
             const tipoSanguineo = await prismaClient.tipoSanguineo.delete({
                 where: {
-                    id: id
+                    id: parseInt(id)
                 }
             });
 

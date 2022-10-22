@@ -8,7 +8,7 @@ export class UpdateLocalColetaController {
         const localColeta = await prismaClient.localColeta.update({
 
             where: {
-                id: id
+                id: parseInt(id)
             },
             data: {
                 nome,
@@ -17,7 +17,7 @@ export class UpdateLocalColetaController {
                 complemento,
                 cidade: {
                     connect: {
-                        id: cidade_id
+                        id: parseInt(cidade_id)
                     }
                 }
             }

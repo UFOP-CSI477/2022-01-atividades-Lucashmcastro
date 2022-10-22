@@ -8,7 +8,7 @@ export class UpdateUnidadeController {
         const unidade = await prismaClient.unidade.update({
 
             where: {
-                id: id
+                id: parseInt(id)
             },
             data: {
                 nome,
@@ -16,7 +16,7 @@ export class UpdateUnidadeController {
                 complemento,
                 cidade: {
                     connect: {
-                        id: cidade_id
+                        id: parseInt(cidade_id)
                     }
                 }
             }

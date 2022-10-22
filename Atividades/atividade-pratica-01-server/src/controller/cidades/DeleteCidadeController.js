@@ -9,7 +9,7 @@ export class DeleteCidadeController {
         try {
             const cidade = await prismaClient.cidade.delete({
                 where: {
-                    id: id
+                    id: parseInt(id)
                 }
             });
 

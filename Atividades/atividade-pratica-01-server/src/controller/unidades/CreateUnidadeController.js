@@ -14,7 +14,7 @@ export class CreateUnidadeController {
                 complemento,           
                 cidade: {
                     connect: {
-                        id : cidade_id
+                        id : parseInt(cidade_id)
                     }
                 }
             }

@@ -8,7 +8,7 @@ export class UpdateTipoSanguineoController {
         const tipoSanguineo = await prismaClient.tipoSanguineo.update({
 
             where: {
-                id: id
+                id: parseInt(id)
             },
             data: {
                 tipo,

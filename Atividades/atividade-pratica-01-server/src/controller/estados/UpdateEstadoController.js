@@ -8,7 +8,7 @@ export class UpdateEstadoController {
         const estado = await prismaClient.estado.update({
 
             where: {
-                id: id
+                id: parseInt(id)
             },
             data: {
                 nome,

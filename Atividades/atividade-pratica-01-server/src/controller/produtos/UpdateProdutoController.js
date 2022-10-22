@@ -8,14 +8,14 @@ export class UpdateProdutoController {
         const produto = await prismaClient.produto.update({
 
             where: {
-                id: id
+                id: parseInt(id)
             },
             data: {
                 etiqueta,
                 validade,
                 doacao: {
                     connect: {
-                        id: doacao_id
+                        id: parseInt(doacao_id)
                     }
                 }
             }

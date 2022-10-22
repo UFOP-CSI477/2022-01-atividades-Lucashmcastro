@@ -8,7 +8,7 @@ export class GetByIdUnidadeController{
 
         const unidade = await prismaClient.unidade.findUnique({
             where: { 
-                id : id
+                id : parseInt(id)
             },
             select: { 
                 id: true,

@@ -8,13 +8,13 @@ export class UpdateCidadeController {
         const cidade = await prismaClient.cidade.update({
 
             where: {
-                id: id
+                id: parseInt(id)
             },
             data: {
                 nome,
                 estado: {
                     connect: {
-                        id: estado_id
+                        id: parseInt(estado_id)
                     }
                 }
             }

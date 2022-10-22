@@ -16,12 +16,12 @@ export class CreatePessoaController {
             documento,
             cidade: {
                 connect: {
-                    id: cidade_id
+                    id: parseInt(cidade_id)
                 }
             }, 
             tipoSanguineo: {
                 connect: {
-                    id: tipoSanguineo_id 
+                    id: parseInt(tipoSanguineo_id)
                 }
             }
         }
