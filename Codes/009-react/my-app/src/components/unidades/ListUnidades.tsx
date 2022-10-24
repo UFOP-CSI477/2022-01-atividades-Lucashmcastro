@@ -1,19 +1,21 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api'
-import { EstadoModel } from '../estados/ListEstados';
+import { CidadeModel } from '../cidades/ListCidades';
 
-export interface CidadeModel {
+export interface UnidadeModel {
     id: number;
     nome: string;
+    numero: string;
+    complemento: string;
     created_at: string;
-    estado_id: number;
-    estado: EstadoModel;
+    cidade_id: number;
+    cidade: CidadeModel;
 }
 
-const ListCidades = () => {
+const ListUnidades = () => {
 
-    const [ cidades, setCidades ] = useState<CidadeModel[]>([]);
+    const [ unidades, setUnidades ] = useState<UnidadeModel[]>([]);
 
     useEffect(() => {
         loadData();
@@ -21,16 +23,16 @@ const ListCidades = () => {
 
     const loadData = () => {
 
-        api.get('/cidades')        
+        api.get('/unidades')        
             .then(response => {
-                setCidades(response.data);
+                setUnidades(response.data);
             } );
 
     }
 
-    const handleDeleteCidade = async (id : number) => {
+    const handleDeleteUnidade = async (id : number) => {
         
-        if(!window.confirm("Confirma a Exclusão da Cidade?")) {
+        if(!window.confirm("Confirma a Exclusão da Unidade?")) {
             return;
         }
 
@@ -39,19 +41,19 @@ const ListCidades = () => {
         }
 
         try {
-            await api.delete('/cidades', {
+            await api.delete('/unidades', {
                 data: {
                     data
                 }
             });
-            window.alert("Cidade excluída com sucesso!");
+            window.alert("Unidade excluída com sucesso!");
             
             //loadData();
 
-            setCidades(cidades.filter(item => item.id !== id));
+            setUnidades(unidades.filter(item => item.id !== id));
 
         } catch (error) {
-            window.alert("Erro ao excluir a Cidade!");
+            window.alert("Erro ao excluir a Unidade!");
             console.error(error);
         }
     }
@@ -63,7 +65,9 @@ const ListCidades = () => {
                     <tr>
                         <th>Id</th>
                         <th>Nome</th>
-                        <th>Estado</th>
+                        <th>Numero</th>
+                        <th>Complemento</th>
+                        <th>Cidade</th>
                         <th>Criação</th>
                         <th>Ação</th>
                         <th>Excluir</th>
@@ -72,15 +76,15 @@ const ListCidades = () => {
 
                 <tbody>
 
-                    { cidades.map( item => (
+                    { unidades.map( item => (
                             <tr>
                                 <td>{item.id}</td>
-                                <td><Link to={`/cidades/show/${item.id}`}>{item.nome}</Link></td>
-                                <td>{item.estado.nome}-{item.estado.sigla}</td>
+                                <td><Link to={`/unidades/show/${item.id}`}>{item.nome}</Link></td>
+                                <td>{item.cidade.nome}-{item.cidade.nome}</td>
                                 <td>{item.created_at}</td>
-                                <td><Link to={`/cidades/show/${item.id}`}>Visualizar</Link> </td>
+                                <td><Link to={`/unidades/show/${item.id}`}>Visualizar</Link> </td>
                                 <td><button type="button" onClick={e => {
-                                        handleDeleteCidade(item.id);
+                                        handleDeleteUnidade(item.id);
                                     }}>Excluir</button>
                                 </td>
                             </tr>
@@ -97,4 +101,4 @@ const ListCidades = () => {
 
 }
 
-export default ListCidades;
+export default ListUnidades;

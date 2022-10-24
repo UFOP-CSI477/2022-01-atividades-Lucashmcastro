@@ -1,23 +1,23 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import api from "../../services/api";
-import { CidadeModel } from "./ListCidades";
+import { UnidadeModel } from "./ListUnidades";
 
-interface SelectCidadesProps {
+interface SelectUnidadesProps {
     id: number;
     setId: Dispatch<SetStateAction<number>>;
 }
 
-const SelectCidades = (props: SelectCidadesProps) => {
+const SelectUnidades = (props: SelectUnidadesProps) => {
 
-    const [cidades, setCidades] = useState<CidadeModel[]>([]);
+    const [unidades, setUnidades] = useState<UnidadeModel[]>([]);
 
     // const [ id, setId ] = useState(0)
 
     useEffect(() => {
 
-        api.get('/cidades')
+        api.get('/unidades')
             .then(response => {
-                setCidades(response.data);
+                setUnidades(response.data);
             })
 
     }, []);
@@ -26,17 +26,17 @@ const SelectCidades = (props: SelectCidadesProps) => {
 
         <div>
             <div>
-                <label htmlFor="cidade">Selecione a Cidade:</label>
+                <label htmlFor="unidade">Selecione a Unidade:</label>
             </div>
             <div>
-                <select name="cidade"
-                    id="cidade"
+                <select name="unidade"
+                    id="unidade"
                     value={props.id}
                     onChange={e => props.setId(parseInt(e.target.value))}>
 
                     {
-                        cidades.map(item => (
-                            <option value={item.id}>{item.nome}-{item.estado_id}</option>
+                        unidades.map(item => (
+                            <option value={item.id}>{item.nome}-{item.cidade_id}</option>
                         ))
                     }
 
@@ -49,4 +49,4 @@ const SelectCidades = (props: SelectCidadesProps) => {
 
 }
 
-export default SelectCidades;
+export default SelectUnidades;  

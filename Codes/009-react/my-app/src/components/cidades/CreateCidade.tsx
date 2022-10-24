@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import api from '../../services/api';
-import { EstadoModel } from '../estados/ListEstados';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../../services/api";
+import { EstadoModel } from "../estados/ListEstados";
 import SelectEstados from "../estados/SelectEstados";
 
 const CreateCidade = () => {

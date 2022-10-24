@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api'
-import { EstadoModel } from '../estados/ListEstados';
+import { CidadeModel } from '../cidades/ListCidades';
 
-export interface CidadeModel {
+export interface LocalColetaModel {
     id: number;
     nome: string;
+    rua: string;
+    numero: string;
+    complemento: string;
     created_at: string;
-    estado_id: number;
-    estado: EstadoModel;
+    cidade_id: number;
+    cidade: CidadeModel;
 }
 
-const ListCidades = () => {
+const ListLocaisColeta = () => {
 
-    const [ cidades, setCidades ] = useState<CidadeModel[]>([]);
+    const [ locaisColeta, setLocaisColeta ] = useState<LocalColetaModel[]>([]);
 
     useEffect(() => {
         loadData();
@@ -21,16 +24,16 @@ const ListCidades = () => {
 
     const loadData = () => {
 
-        api.get('/cidades')        
+        api.get('/locaisColeta')        
             .then(response => {
-                setCidades(response.data);
+                setLocaisColeta(response.data);
             } );
 
     }
 
-    const handleDeleteCidade = async (id : number) => {
+    const handleDeleteLocalColeta = async (id : number) => {
         
-        if(!window.confirm("Confirma a Exclusão da Cidade?")) {
+        if(!window.confirm("Confirma a Exclusão do Local Coleta?")) {
             return;
         }
 
@@ -39,19 +42,19 @@ const ListCidades = () => {
         }
 
         try {
-            await api.delete('/cidades', {
+            await api.delete('/locaisColeta', {
                 data: {
                     data
                 }
             });
-            window.alert("Cidade excluída com sucesso!");
+            window.alert("Local Coleta excluído com sucesso!");
             
             //loadData();
 
-            setCidades(cidades.filter(item => item.id !== id));
+            setLocaisColeta(locaisColeta.filter(item => item.id !== id));
 
         } catch (error) {
-            window.alert("Erro ao excluir a Cidade!");
+            window.alert("Erro ao excluir o Local de Coleta!");
             console.error(error);
         }
     }
@@ -63,7 +66,10 @@ const ListCidades = () => {
                     <tr>
                         <th>Id</th>
                         <th>Nome</th>
-                        <th>Estado</th>
+                        <th>Rua</th>
+                        <th>Numero</th>
+                        <th>Complemento</th>
+                        <th>Cidade</th>
                         <th>Criação</th>
                         <th>Ação</th>
                         <th>Excluir</th>
@@ -72,15 +78,15 @@ const ListCidades = () => {
 
                 <tbody>
 
-                    { cidades.map( item => (
+                    { locaisColeta.map( item => (
                             <tr>
                                 <td>{item.id}</td>
-                                <td><Link to={`/cidades/show/${item.id}`}>{item.nome}</Link></td>
-                                <td>{item.estado.nome}-{item.estado.sigla}</td>
+                                <td><Link to={`/locaisColeta/show/${item.id}`}>{item.nome}</Link></td>
+                                <td>{item.cidade.nome}-{item.cidade.nome}</td>
                                 <td>{item.created_at}</td>
-                                <td><Link to={`/cidades/show/${item.id}`}>Visualizar</Link> </td>
+                                <td><Link to={`/locaisColeta/show/${item.id}`}>Visualizar</Link> </td>
                                 <td><button type="button" onClick={e => {
-                                        handleDeleteCidade(item.id);
+                                        handleDeleteLocalColeta(item.id);
                                     }}>Excluir</button>
                                 </td>
                             </tr>
@@ -97,4 +103,4 @@ const ListCidades = () => {
 
 }
 
-export default ListCidades;
+export default ListLocaisColeta;
