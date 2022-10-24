@@ -16,6 +16,18 @@ import CreateUnidade from './components/unidades/CreateUnidade';
 import ListUnidades from "./components/unidades/ListUnidades";
 import ShowUnidade from "./components/unidades/ShowUnidade";
 import UpdateUnidade from "./components/unidades/UpdateUnidade";
+
+import CreateLocalColeta from './components/locais_coleta/CreateLocalColeta';
+import ListLocaisColeta from "./components/locais_coleta/ListLocaisColeta";
+import ShowLocalColeta from "./components/locais_coleta/ShowLocalColeta";
+import UpdateLocalColeta from "./components/locais_coleta/UpdateLocalColeta";
+
+import CreateTipoSanguineo from './components/tipos_sanguineos/CreateTipoSanguineo';
+import ListTiposSanguineos from "./components/tipos_sanguineos/ListTiposSanguineos";
+import ShowTipoSanguineo from "./components/tipos_sanguineos/ShowTipoSanguineo";
+import UpdateTipoSanguineo from "./components/tipos_sanguineos/UpdateTipoSanguineo";
+
+
 //import LoginUser from "./components/users/LoginUser";
 
 const AppRoutes = () => {
@@ -40,6 +52,8 @@ const AppRoutes = () => {
 
                 <Route path="/estados/update/:id" element={<UpdateEstado />} />
 
+                
+                
                 <Route path="/cidades" element={<ListCidades />} />
 
                 <Route path="/cidades/create" element={<CreateCidade />} />
@@ -48,6 +62,8 @@ const AppRoutes = () => {
 
                 <Route path="/cidades/update/:id" element={<UpdateCidade />} />
 
+                
+                
                 <Route path="/unidades" element={<ListUnidades />} />
 
                 <Route path="/unidades/create" element={<CreateUnidade />} />
@@ -55,6 +71,26 @@ const AppRoutes = () => {
                 <Route path="/unidades/show/:id" element={<ShowUnidade /> } />
 
                 <Route path="/unidades/update/:id" element={<UpdateUnidade />} />
+
+                
+                
+                <Route path="/locaisColeta" element={<ListLocaisColeta />} />
+
+                <Route path="/locaisColeta/create" element={<CreateLocalColeta />} />
+
+                <Route path="/locaisColeta/show/:id" element={<ShowLocalColeta /> } />
+
+                <Route path="/locaisColeta/update/:id" element={<UpdateLocalColeta />} />
+
+
+
+                <Route path="/tiposSanguineos" element={<ListTiposSanguineos />} />
+
+                <Route path="/tiposSanguineos/create" element={<CreateTipoSanguineo />} />
+
+                <Route path="/tiposSanguineos/show/:id" element={<ShowTipoSanguineo /> } />
+
+                <Route path="/tiposSanguineos/update/:id" element={<UpdateTipoSanguineo />} />
 
 
             </Routes>
