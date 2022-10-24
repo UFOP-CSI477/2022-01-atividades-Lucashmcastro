@@ -17,6 +17,9 @@ const Menu = () => {
                 <li><Link to="/unidades/create">Criar Unidade</Link></li>
                 <li><Link to="/locaisColeta">Listar Locais Coleta</Link></li>
                 <li><Link to="/locaisColeta/create">Criar Locais de Coleta</Link></li>
+                <li><Link to="/doacoes">Listar Doações</Link></li>
+                <li><Link to="/doacoes/create">Criar Doações</Link></li>
+
             </ul>
         </div>
     );

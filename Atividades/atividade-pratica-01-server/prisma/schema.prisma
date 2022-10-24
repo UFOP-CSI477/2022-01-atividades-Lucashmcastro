@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Estado {
-  id         String      @id 
+  id         Int      @default(autoincrement()) @id
   nome       String
   sigla      String
   created_at DateTime @default(now())
@@ -22,9 +22,9 @@ model Estado {
 }
 
 model Cidade {
-  id        String      @id 
+  id        Int      @default(autoincrement()) @id 
   nome      String
-  estado_id String
+  estado_id Int
 
   pessoa      Pessoa[]
   localColeta LocalColeta[]
@@ -36,7 +36,7 @@ model Cidade {
 }
 
 model TipoSanguineo {
-  id         String      @id 
+  id         Int      @default(autoincrement()) @id 
   tipo       String
   fator      String
   created_at DateTime @default(now())
@@ -47,14 +47,14 @@ model TipoSanguineo {
 }
 
 model Pessoa {
-  id               String      @id 
+  id               Int      @default(autoincrement()) @id 
   nome             String
   rua              String
   numero           String
   complemento      String
   documento        String
-  cidade_id        String
-  tipoSanguineo_id String 
+  cidade_id        Int
+  tipoSanguineo_id Int 
 
   doacao Doacao[]
 
@@ -65,12 +65,12 @@ model Pessoa {
 }
 
 model LocalColeta {
-  id               String      @id 
+  id               Int      @default(autoincrement()) @id 
   nome             String
   rua              String
   numero           String
   complemento      String
-  cidade_id        String
+  cidade_id        Int      
 
   doacao Doacao[]
 
@@ -81,9 +81,9 @@ model LocalColeta {
 }
 
 model Doacao {
-  id               String      @id 
-  pessoa_id        String
-  local_id         String
+  id               Int      @default(autoincrement()) @id 
+  pessoa_id        Int
+  local_id         Int
   data             DateTime
 
   produto Produto[]
@@ -96,7 +96,7 @@ model Doacao {
 }
 
 model User {
-  id          String  @id 
+  id          Int      @default(autoincrement()) @id
   nome        String
   email       String  @unique
   password    String
@@ -106,10 +106,10 @@ model User {
 
 
 model Produto {
-  id          String @id
+  id          Int      @default(autoincrement()) @id
   etiqueta    String
   validade    DateTime 
-  doacao_id   String
+  doacao_id   Int
   
   distribuicoes Distribuicoes[]
 
@@ -120,11 +120,11 @@ model Produto {
 }
 
 model Unidade {
-  id            String @id
+  id            Int      @default(autoincrement()) @id
   nome          String
   numero        String   
   complemento   String     
-  cidade_id     String
+  cidade_id     Int
   
   distribuicoes Distribuicoes[]
 
@@ -135,10 +135,10 @@ model Unidade {
 } 
 
 model Distribuicoes {
-  id             String @id
-  Data           DateTime  
-  produto_id     String
-  unidade_id     String
+  id             Int      @default(autoincrement()) @id
+  data           DateTime  
+  produto_id     Int
+  unidade_id     Int
 
   produto Produto @relation(fields: [produto_id], references: [id])
   unidade Unidade @relation(fields: [unidade_id], references: [id])

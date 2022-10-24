@@ -4,16 +4,15 @@ POST http://localhost:4002/estados
 content-type: application/json
 
 {
-    "id": "6",
-    "nome": "Ceara",
-    "sigla": "CE"
+    "nome": "Maranhão",
+    "sigla": "MA"
 }
 
 ###
 GET http://localhost:4002/estados
 
 ###
-GET http://localhost:4002/estados/5
+GET http://localhost:4002/estados/6
 
 
 ###
@@ -21,9 +20,9 @@ PUT http://localhost:4002/estados
 content-type: application/json
 
 {   
-    "id": "5",
-    "nome": "Santa Catarina",
-    "sigla": "SC"
+    "id": "6",
+    "nome": "Maranhão",
+    "sigla": "MA"
 }
 
 ###
@@ -37,9 +36,8 @@ POST http://localhost:4002/cidades
 content-type: application/json
 
 {   
-    "id": "4",
-    "nome": "Cidade Teste",
-    "estado_id": "2"
+    "nome": "Cidade das Estrelas",
+    "estado_id": "3"
 }
 
 ###
@@ -54,9 +52,9 @@ PUT http://localhost:4002/cidades
 content-type: application/json
 
 {
-    "id": "3",
-    "nome": "Governador Valadares",
-    "estado_id": "2"
+    "id": "4",
+    "nome": "Cidade de Deus",
+    "estado_id": "1"
 }
 
 ###
@@ -70,7 +68,6 @@ POST http://localhost:4002/tiposSanguineos
 content-type: application/json
 
     {
-        "id": "4",
         "tipo": "AB",
         "fator": "Positivo"
     }
@@ -86,7 +83,7 @@ content-type: application/json
 
     {
         "id": "3",
-        "tipo": "O",
+        "tipo": "AB",
         "fator": "Negativo"    
     }
 
@@ -102,8 +99,7 @@ POST http://localhost:4002/locaisColeta
 content-type: application/json
 
    {
-        "id": "4",
-        "nome": "Minha Casa",
+        "nome": "Intituto De Coleta Joaozinho",
         "rua": "Rua 36",
         "numero": "115",
         "complemento": "Centro",
@@ -121,8 +117,8 @@ PUT http://localhost:4002/locaisColeta
 content-type: application/json
     
     {
-        "id": "2",
-        "nome": "UFV",
+        "id": "4",
+        "nome": "Intituto de Coleta Joãozinho e Maria",
         "rua": "Rua 36",
         "numero": "115",
         "complemento": "Loanda, João Monlevade",
@@ -140,8 +136,7 @@ POST http://localhost:4002/pessoas
 content-type: application/json
 
     {
-        "id": "3",
-        "nome": "Lucas Horta Monteiro de Castro",
+        "nome": "Denis Flávio Almeida",
         "rua": "Rua 86", 
         "numero": "203",
         "complemento": "Novo Horizonte, Timóteo", 
@@ -180,10 +175,9 @@ POST http://localhost:4002/doacoes
 content-type: application/json
 
     {
-      "id": "3",
       "data": "2022-10-14T02:29:59.683Z",
-      "pessoa_id": "2",
-      "local_id": "2"
+      "pessoa_id": "1",
+      "local_id": "1"
     }
 
 ###
@@ -199,7 +193,7 @@ content-type: application/json
     {
       "id": "2",
       "data": "2022-10-14T02:29:59.683Z",
-      "pessoa_id": "2",
+      "pessoa_id": "1",
       "local_id": "2"
     }
 
@@ -216,8 +210,7 @@ POST http://localhost:4002/produtos
 content-type: application/json
 
     {
-      "id": "3",
-      "etiqueta": "Cadeira",
+      "etiqueta": "Pasta de Arqwivamento",
       "validade": "2022-10-14T02:29:59.683Z",
       "doacao_id": "1"
     }
@@ -226,22 +219,22 @@ content-type: application/json
 GET http://localhost:4002/produtos
 
 ###
-GET http://localhost:4002/produtos/2
+GET http://localhost:4002/produtos/4
 
 ###
 PUT http://localhost:4002/produtos
 content-type: application/json
 
     {
-      "id": "1",
-      "etiqueta": "Bolsa de Sangue",
+      "id": "4",
+      "etiqueta": "Pasta de Arquivamento",
       "validade": "2022-10-14T02:29:59.683Z",
       "doacao_id": "2"
     }
 
 
 ###
-DELETE http://localhost:4002/produtos/3
+DELETE http://localhost:4002/produtos/4
 
 
 
@@ -252,8 +245,7 @@ POST http://localhost:4002/unidades
 content-type: application/json
 
     {
-      "id": "3",
-      "nome": "Unidade Médica De Doação",
+      "nome": "Unidade Médica De Doação Lucas Castro",
       "numero": "104",
       "complemento": "Esquina 3",
       "cidade_id": "3"
@@ -271,7 +263,7 @@ content-type: application/json
 
     {
       "id": "3",
-      "nome": "Unidade Médica Padre Anchieta",
+      "nome": "Unidade Médica Padre Lucas Castro",
       "numero": "104",
       "complemento": "Esquina 20",
       "cidade_id": "2"
@@ -289,10 +281,9 @@ POST http://localhost:4002/distribuicoes
 content-type: application/json
 
     {
-      "id": "1",
       "data": "2022-10-14T02:29:59.683Z",
-      "produto_id": "2",
-      "unidade_id": "1"
+      "produto_id": "1",
+      "unidade_id": "2"
     }
 
 ###
@@ -306,10 +297,10 @@ PUT http://localhost:4002/distribuicoes
 content-type: application/json
 
     {
-      "id": "1",
-      "data": "",
-      "produto_id": "",
-      "unidade_id": ""
+      "id": "2",
+      "data": "2022-10-14T02:29:59.683Z",
+      "produto_id": "1",
+      "unidade_id": "2"
     }
 
 ###

@@ -32,6 +32,10 @@ import ListProdutos from "./components/produtos/ListProdutos";
 import ShowProduto from "./components/produtos/ShowProduto";
 import UpdateProduto from "./components/produtos/UpdateProduto";
 
+import CreateDoacao from './components/doacoes/CreateDoacao';
+import ListDoacoes from "./components/doacoes/ListDoacoes";
+import ShowDoacao from "./components/doacoes/ShowDoacao";
+import UpdateDoacao from "./components/doacoes/UpdateDoacao";
 
 //import LoginUser from "./components/users/LoginUser";
 
@@ -105,6 +109,15 @@ const AppRoutes = () => {
                 <Route path="/produtos/show/:id" element={<ShowProduto /> } />
 
                 <Route path="/produtos/update/:id" element={<UpdateProduto />} />
+
+
+                <Route path="/doacoes" element={<ListDoacoes />} />
+
+                <Route path="/doacoes/create" element={<CreateDoacao />} />
+
+                <Route path="/doacoes/show/:id" element={<ShowDoacao /> } />
+
+                <Route path="/doacoes/update/:id" element={<UpdateDoacao />} />
 
 
             </Routes>
