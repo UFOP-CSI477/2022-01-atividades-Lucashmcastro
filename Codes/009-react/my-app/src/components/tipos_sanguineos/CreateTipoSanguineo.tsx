@@ -26,7 +26,7 @@ const CreateTipoSanguineo = () => {
 
             await api.post('/tiposSanguineos', data);
             alert('Tipo Sanguineo Inserido com Sucesso!');
-            navigate('/esttiposSanguineosdos');
+            navigate('/tiposSanguineos');
 
         } catch(error) {
             alert('Erro ao cadastrar o Tipo Sanguineo!');

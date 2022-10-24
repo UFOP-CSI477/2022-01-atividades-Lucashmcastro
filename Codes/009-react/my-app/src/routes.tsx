@@ -42,6 +42,11 @@ import ListDistribuicoes from './components/distribuicoes/ListDistribuicoes';
 import ShowDistribuicao from "./components/distribuicoes/ShowDistribuicao";
 import UpdateDistribuicao from './components/distribuicoes/UpdateDistribuicao';
 
+import CreatePessoa from './components/pessoas/CreatePessoa';
+import ListPessoas from './components/pessoas/ListPessoas';
+import ShowPessoa from "./components/pessoas/ShowPessoa";
+import UpdatePessoa from './components/pessoas/UpdatePessoa';
+
 //import LoginUser from "./components/users/LoginUser";
 
 const AppRoutes = () => {
@@ -98,6 +103,10 @@ const AppRoutes = () => {
                 <Route path="/distribuicoes/show/:id" element={<ShowDistribuicao /> } />
                 <Route path="/distribuicoes/update/:id" element={<UpdateDistribuicao /> } />
 
+                <Route path="/pessoas" element={<ListPessoas />} />
+                <Route path="/pessoas/create" element={<CreatePessoa />} />
+                <Route path="/pessoas/show/:id" element={<ShowPessoa /> } />
+                <Route path="/pessoas/update/:id" element={<UpdatePessoa /> } />
 
             </Routes>
 
