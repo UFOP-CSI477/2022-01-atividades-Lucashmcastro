@@ -27,6 +27,11 @@ import ListTiposSanguineos from "./components/tipos_sanguineos/ListTiposSanguine
 import ShowTipoSanguineo from "./components/tipos_sanguineos/ShowTipoSanguineo";
 import UpdateTipoSanguineo from "./components/tipos_sanguineos/UpdateTipoSanguineo";
 
+import CreateProduto from './components/produtos/CreateProduto';
+import ListProdutos from "./components/produtos/ListProdutos";
+import ShowProduto from "./components/produtos/ShowProduto";
+import UpdateProduto from "./components/produtos/UpdateProduto";
+
 
 //import LoginUser from "./components/users/LoginUser";
 
@@ -91,6 +96,15 @@ const AppRoutes = () => {
                 <Route path="/tiposSanguineos/show/:id" element={<ShowTipoSanguineo /> } />
 
                 <Route path="/tiposSanguineos/update/:id" element={<UpdateTipoSanguineo />} />
+
+
+                <Route path="/produtos" element={<ListProdutos />} />
+
+                <Route path="/produtos/create" element={<CreateProduto />} />
+
+                <Route path="/produtos/show/:id" element={<ShowProduto /> } />
+
+                <Route path="/produtos/update/:id" element={<UpdateProduto />} />
 
 
             </Routes>
