@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { PessoaModel } from "./ListPessoas";
 
@@ -15,6 +15,33 @@ const ShowPessoa = () => {
                 setPessoa(response.data);
             })
     }, [id]);
+
+    const navigate = useNavigate();
+
+    const handleDeletePessoa = async() => {
+
+        if (!window.confirm("Confirma exclusão da Pessoa?")) {
+            return;
+        }
+
+        const data = {
+            id
+        }
+
+        try {
+            await api.delete(`/pessoas/${id}`, {
+                data: {
+                    data
+                }
+            })
+            navigate('/pessoas');
+
+        } catch(error) {
+            alert('Erro ao excluir Pessoa!');
+            console.error(error);
+        }
+
+    }
 
     return(
         <div>
@@ -33,6 +60,10 @@ const ShowPessoa = () => {
             <div>
                 <Link to={`/pessoas/update/${pessoa?.id}`}>Atualizar</Link>
             </div>
+            <div>
+                <button className="btn btn-danger" onClick={handleDeletePessoa}>Excluir</button>
+            </div>
+
 
         </div>
     )

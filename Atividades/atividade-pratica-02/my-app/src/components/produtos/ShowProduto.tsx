@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { ProdutoModel } from "./ListProdutos";
 
@@ -16,6 +16,33 @@ const ShowProduto = () => {
             })
     }, [id]);
 
+    const navigate = useNavigate();
+
+    const handleDeleteProduto = async() => {
+
+        if (!window.confirm("Confirma exclusão do Produto?")) {
+            return;
+        }
+
+        const data = {
+            id
+        }
+
+        try {
+            await api.delete(`/produtos/${id}`, {
+                data: {
+                    data
+                }
+            })
+            navigate('/produtos');
+
+        } catch(error) {
+            alert('Erro ao excluir o Produto!');
+            console.error(error);
+        }
+
+    }
+
     return(
         <div>
             <h2>Dados do Produto</h2>
@@ -28,6 +55,9 @@ const ShowProduto = () => {
 
             <div>
                 <Link to={`/produtos/update/${produto?.id}`}>Atualizar</Link>
+            </div>
+            <div>
+                <button className="btn btn-danger" onClick={handleDeleteProduto}>Excluir</button>
             </div>
 
         </div>

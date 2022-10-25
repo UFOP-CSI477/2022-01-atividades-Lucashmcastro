@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { LocalColetaModel } from "./ListLocaisColeta";
 
@@ -16,6 +16,33 @@ const ShowLocalColeta = () => {
             })
     }, [id]);
 
+    const navigate = useNavigate();
+
+    const handleDeleteLocalColeta = async() => {
+
+        if (!window.confirm("Confirma exclusão do Local de Coleta?")) {
+            return;
+        }
+
+        const data = {
+            id
+        }
+
+        try {
+            await api.delete(`/locaisColeta/${id}`, {
+                data: {
+                    data
+                }
+            })
+            navigate('/locaisColeta');
+
+        } catch(error) {
+            alert('Erro ao excluir o Local de Coleta!');
+            console.error(error);
+        }
+
+    }
+
     return(
         <div>
             <h2>Dados do Local de Coleta</h2>
@@ -31,6 +58,10 @@ const ShowLocalColeta = () => {
             <div>
                 <Link to={`/locaisColeta/update/${localColeta?.id}`}>Atualizar</Link>
             </div>
+            <div>
+                <button  className="btn btn-danger" onClick={handleDeleteLocalColeta}>Excluir</button>
+            </div>
+
 
         </div>
     )

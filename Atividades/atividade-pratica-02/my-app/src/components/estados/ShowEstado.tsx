@@ -28,7 +28,7 @@ const ShowEstado = () => {
 
     const handleDeleteEstado = async() => {
 
-        if (!window.confirm("Confirma exclusão do estado?")) {
+        if (!window.confirm("Confirma exclusão do Estado?")) {
             return;
         }
 
@@ -37,7 +37,7 @@ const ShowEstado = () => {
         }
 
         try {
-            await api.delete('/estados/' , {
+            await api.delete(`/estados/${id}`, {
                 data: {
                     data
                 }
@@ -50,7 +50,6 @@ const ShowEstado = () => {
 
     }
 
-
     return(
         <div>
             <h2>Dados do Estado: {id}-{nome} / {estado?.sigla}</h2>
@@ -59,15 +58,12 @@ const ShowEstado = () => {
             <p>Sigla: {sigla}</p>
             <p>Data de inserção: {estado?.created_at}</p>
 
-
             <div>
                 <Link to={`/estados/update/${id}`}>Atualizar</Link>
             </div>
             <div>
-                <button onClick={handleDeleteEstado}>Excluir</button>
+                <button className="btn btn-danger" onClick={handleDeleteEstado}>Excluir</button>
             </div>
-
-
 
         </div>
     );

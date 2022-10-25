@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { UnidadeModel } from "./ListUnidades";
 
@@ -16,6 +16,33 @@ const ShowUnidade = () => {
             })
     }, [id]);
 
+    const navigate = useNavigate();
+
+    const handleDeleteUnidade = async() => {
+
+        if (!window.confirm("Confirma exclusão da Unidade?")) {
+            return;
+        }
+
+        const data = {
+            id
+        }
+
+        try {
+            await api.delete(`/unidades/${id}`, {
+                data: {
+                    data
+                }
+            })
+            navigate('/unidades');
+
+        } catch(error) {
+            alert('Erro ao excluir a Unidade!');
+            console.error(error);
+        }
+
+    }
+
     return(
         <div>
             <h2>Dados da Unidade</h2>
@@ -30,7 +57,9 @@ const ShowUnidade = () => {
             <div>
                 <Link to={`/unidades/update/${unidade?.id}`}>Atualizar</Link>
             </div>
-
+            <div >
+                <button type="button"  className="btn btn-danger" onClick={handleDeleteUnidade}>Excluir</button>
+            </div>
         </div>
     )
 

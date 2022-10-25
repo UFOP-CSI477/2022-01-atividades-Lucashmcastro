@@ -37,7 +37,7 @@ const ShowTipoSanguineo = () => {
         }
 
         try {
-            await api.delete('/tiposSanguineos/' , {
+            await api.delete(`/tiposSanguineos/${id}`, {
                 data: {
                     data
                 }
@@ -49,7 +49,6 @@ const ShowTipoSanguineo = () => {
         }
 
     }
-
 
     return(
         <div>
@@ -64,7 +63,7 @@ const ShowTipoSanguineo = () => {
                 <Link to={`/tiposSanguineos/update/${id}`}>Atualizar</Link>
             </div>
             <div>
-                <button onClick={handleDeleteTipoSanguineo}>Excluir</button>
+                <button className="btn btn-danger" onClick={handleDeleteTipoSanguineo}>Excluir</button>
             </div>
 
 

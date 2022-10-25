@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { CidadeModel } from "./ListCidades";
 
@@ -16,6 +16,33 @@ const ShowCidade = () => {
             })
     }, [id]);
 
+    const navigate = useNavigate();
+
+    const handleDeleteCidade = async() => {
+
+        if (!window.confirm("Confirma exclusão da cidade?")) {
+            return;
+        }
+
+        const data = {
+            id
+        }
+
+        try {
+            await api.delete(`/cidades/${id}`, {
+                data: {
+                    data
+                }
+            })
+            navigate('/cidades');
+
+        } catch(error) {
+            alert('Erro ao excluir o Cidade!');
+            console.error(error);
+        }
+
+    }
+
     return(
         <div>
             <h2>Dados da Cidade</h2>
@@ -27,6 +54,10 @@ const ShowCidade = () => {
 
             <div>
                 <Link to={`/cidades/update/${cidade?.id}`}>Atualizar</Link>
+            </div>
+
+            <div>
+                <button className="btn btn-danger" onClick={handleDeleteCidade}>Excluir</button>
             </div>
 
         </div>

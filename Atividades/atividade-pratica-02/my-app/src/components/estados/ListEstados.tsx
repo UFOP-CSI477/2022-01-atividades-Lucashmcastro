@@ -38,6 +38,7 @@ const ListEstados = () => {
                     <tr>
                         <th>Id</th>
                         <th>Nome</th>
+                        <th>Sigla</th>
                         <th>Criação</th>
                         <th>Ação</th>
                     </tr>
@@ -48,6 +49,7 @@ const ListEstados = () => {
                         <tr key={item.id}>
                             <td>{item.id}</td>
                             <td>{item.nome}</td>
+                            <td>{item.sigla}</td>
                             <td>{item.created_at}</td>
                             <td><Link
                                 to={`/estados/show/${item.id}`}>Visualizar</Link></td>
