@@ -36,7 +36,7 @@ const SelectDoacoes = (props: SelectDoacoesProps) => {
 
                     {
                         doacoes.map(item => (
-                            <option value={item.id}>{item.pessoa?.nome}-{item.localColeta?.nome}</option>
+                            <option value={item.id}>{item.pessoa?.nome}-{item.local?.nome}</option>
                         ))
                     }
 

@@ -21,7 +21,7 @@ const ShowDistribuicao = () => {
             <h2>Dados da Distribuição</h2>
 
             <p>Id: {distribuicao?.id}</p>
-            <p>Data: {distribuicao?.data}</p>
+            <p>Data: {distribuicao?.date}</p>
             <p>Produto: {distribuicao?.produto.etiqueta}</p>
             <p>Unidade: {distribuicao?.unidade.nome}</p>
             <p>Data de inserção: {distribuicao?.created_at}</p>

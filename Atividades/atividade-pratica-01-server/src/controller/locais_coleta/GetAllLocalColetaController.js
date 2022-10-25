@@ -9,6 +9,7 @@ export class GetAllLocalColetaController {
                 id: true,
                 nome: true,
                 rua: true,
+                numero: true,
                 complemento: true,
                 created_at: true,
                 cidade: true

@@ -33,7 +33,7 @@ const ListEstados = () => {
         <div>
             <h2>Lista dos Estados</h2>
 
-            <table>
+            <table className="table table-hove">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -54,16 +54,10 @@ const ListEstados = () => {
                         </tr>
                     ))}
 
-
-
                 </tbody>
-
-
             </table>
-
         </div>
     );
-
 }
 
 export default ListEstados;

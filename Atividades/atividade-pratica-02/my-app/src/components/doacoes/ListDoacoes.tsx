@@ -4,15 +4,14 @@ import api from '../../services/api'
 import { PessoaModel } from '../pessoas/ListPessoas';
 import { LocalColetaModel } from '../locais_coleta/ListLocaisColeta';
 
-
 export interface DoacaoModel {
     id: number;
-    data: string;
+    date: string;
     created_at: string;
     pessoa_id: number;
     pessoa: PessoaModel;
     localColeta_id: number;
-    localColeta: LocalColetaModel;
+    local: LocalColetaModel;
 }
 
 const ListDoacoes = () => {
@@ -62,7 +61,7 @@ const ListDoacoes = () => {
 
     return(
         <div>
-            <table>
+            <table className="table table-hove">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -71,7 +70,6 @@ const ListDoacoes = () => {
                         <th>Local Coleta</th>
                         <th>Criação</th>
                         <th>Ação</th>
-                        <th>Excluir</th>
                     </tr>
                 </thead>
 
@@ -80,23 +78,17 @@ const ListDoacoes = () => {
                     { doacoes.map( item => (
                             <tr key={item.id}>
                                 <td>{item.id}</td>
-                                <td><Link to={`/doacoes/show/${item.id}`}>{item.data}</Link></td>
+                                <td><Link to={`/doacoes/show/${item.id}`}>{item.date}</Link></td>
                                 <td>{item.pessoa?.nome}</td>
-                                <td>{item.localColeta?.nome}</td>
+                                <td>{item.local.nome}</td>
                                 <td>{item.created_at}</td>
                                 <td><Link to={`/doacoes/show/${item.id}`}>Visualizar</Link> </td>
-                                <td><button type="button" onClick={e => {
-                                        handleDeleteDoacao(item.id);
-                                    }}>Excluir</button>
-                                </td>
                             </tr>
                         )  
                       )
                     }
 
                 </tbody>
-
-
             </table>
         </div>
     );

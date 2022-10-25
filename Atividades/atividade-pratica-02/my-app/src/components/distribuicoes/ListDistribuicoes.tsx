@@ -7,7 +7,7 @@ import { UnidadeModel } from '../unidades/ListUnidades';
 
 export interface DistribuicaoModel {
     id: number;
-    data: string;
+    date: string;
     created_at: string;
     produto_id: number;
     produto: ProdutoModel;
@@ -62,7 +62,7 @@ const ListDistribuicoes = () => {
 
     return(
         <div>
-            <table>
+            <table className="table table-hove">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -71,7 +71,6 @@ const ListDistribuicoes = () => {
                         <th>Unidade</th>
                         <th>Criação</th>
                         <th>Ação</th>
-                        <th>Excluir</th>
                     </tr>
                 </thead>
 
@@ -80,15 +79,11 @@ const ListDistribuicoes = () => {
                     { distribuicoes.map( item => (
                             <tr key={item.id}>
                                 <td>{item.id}</td>
-                                <td><Link to={`/distribuicoes/show/${item.id}`}>{item.data}</Link></td>
-                                <td>{item.produto.etiqueta}</td>
-                                <td>{item.unidade.nome}</td>
+                                <td><Link to={`/distribuicoes/show/${item.id}`}>{item.date}</Link></td>
+                                <td>{item.produto?.etiqueta}</td>
+                                <td>{item.unidade?.nome}</td>
                                 <td>{item.created_at}</td>
-                                <td><Link to={`/distribuicoes/show/${item.id}`}>Visualizar</Link> </td>
-                                <td><button type="button" onClick={e => {
-                                        handleDeleteDistribuicao(item.id);
-                                    }}>Excluir</button>
-                                </td>
+                                <td><Link to={`/distribuicoes/show/${item.id}`}>Visualizar</Link> </td>                                
                             </tr>
                         )  
                       )

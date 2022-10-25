@@ -33,7 +33,7 @@ const ListTiposSanguineos = () => {
         <div>
             <h2>Lista dos Tipos Sanguineos</h2>
 
-            <table>
+            <table className="table table-hove">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -51,8 +51,7 @@ const ListTiposSanguineos = () => {
                             <td>{item.tipo}</td>
                             <td>{item.fator}</td>
                             <td>{item.created_at}</td>
-                            <td><Link
-                                to={`/tiposSanguineos/show/${item.id}`}>Visualizar</Link></td>
+                            <td><Link to={`/tiposSanguineos/show/${item.id}`}>Visualizar</Link></td>
                         </tr>
                     ))}
 

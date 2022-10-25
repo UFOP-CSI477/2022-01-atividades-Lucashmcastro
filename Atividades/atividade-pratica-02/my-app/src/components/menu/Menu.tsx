@@ -42,7 +42,7 @@ const Menu = () => {
 
                     <div className="card" style={{width: "18rem"}}>
                         <div className="card-body">
-                            <h5 className="card-title">Local Coleta</h5>
+                            <h5 className="card-title">Locais de Coleta</h5>
                             <h6 className="card-subtitle mb-2 text-muted">Local Coleta Doação de Sangue</h6>
                             <p className="card-text">Aqui você pode criar e listar os locais de coleta pertencentes a doação de sangue.</p>
                             <Link className="card-link" to="/locaisColeta/create">Novo </Link>

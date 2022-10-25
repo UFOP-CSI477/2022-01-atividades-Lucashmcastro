@@ -59,7 +59,7 @@ const ListProdutos = () => {
 
     return(
         <div>
-            <table>
+            <table className="table table-hove">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -68,7 +68,6 @@ const ListProdutos = () => {
                         <th>Doacao</th>
                         <th>Criação</th>
                         <th>Ação</th>
-                        <th>Excluir</th>
                     </tr>
                 </thead>
 
@@ -77,15 +76,11 @@ const ListProdutos = () => {
                     { produtos.map( item => (
                             <tr key={item.id}>
                                 <td>{item.id}</td>
-                                <td><Link to={`/produtos/show/${item.id}`}>{item.etiqueta}</Link></td>
+                                <td>{item.etiqueta}</td>
                                 <td>{item.validade}</td>
-                                <td>{item.doacao.data}</td>
+                                <td>{item.doacao.date}</td>
                                 <td>{item.created_at}</td>
-                                <td><Link to={`/produtos/show/${item.id}`}>Visualizar</Link> </td>
-                                <td><button type="button" onClick={e => {
-                                        handleDeleteProduto(item.id);
-                                    }}>Excluir</button>
-                                </td>
+                                <td><Link to={`/produtos/show/${item.id}`}>Visualizar</Link> </td>                               
                             </tr>
                         )  
                       )

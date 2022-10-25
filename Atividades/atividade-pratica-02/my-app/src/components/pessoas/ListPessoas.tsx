@@ -66,7 +66,7 @@ const ListPessoas = () => {
 
     return(
         <div>
-            <table>
+            <table className="table table-hove">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -76,10 +76,9 @@ const ListPessoas = () => {
                         <th>Complemento</th>
                         <th>Documento</th>
                         <th>Cidade</th>
-                        <th>Tipo Sanguineo</th>
+                        <th>Tipo</th>
                         <th>Criação</th>
                         <th>Ação</th>
-                        <th>Excluir</th>
                     </tr>
                 </thead>
 
@@ -88,7 +87,6 @@ const ListPessoas = () => {
                     { pessoas.map( item => (
                             <tr key={item.id}>
                                 <td>{item.id}</td>
-                                <td><Link to={`/pessoas/show/${item.id}`}>{item.nome}</Link></td>
                                 <td>{item.nome}</td>
                                 <td>{item.rua}</td>
                                 <td>{item.numero}</td>
@@ -97,11 +95,7 @@ const ListPessoas = () => {
                                 <td>{item.cidade.nome}</td>
                                 <td>{item.tipoSanguineo.tipo}</td>
                                 <td>{item.created_at}</td>
-                                <td><Link to={`/pessoas/show/${item.id}`}>Visualizar</Link> </td>
-                                <td><button type="button" onClick={e => {
-                                        handleDeletePessoa(item.id);
-                                    }}>Excluir</button>
-                                </td>
+                                <td><Link to={`/pessoas/show/${item.id}`}>Visualizar</Link> </td>                               
                             </tr>
                         )  
                       )

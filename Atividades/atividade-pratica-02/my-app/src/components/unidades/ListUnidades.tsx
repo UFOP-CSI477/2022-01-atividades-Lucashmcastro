@@ -60,7 +60,7 @@ const ListUnidades = () => {
 
     return(
         <div>
-            <table>
+            <table className="table table-hove">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -70,7 +70,6 @@ const ListUnidades = () => {
                         <th>Cidade</th>
                         <th>Criação</th>
                         <th>Ação</th>
-                        <th>Excluir</th>
                     </tr>
                 </thead>
 
@@ -79,14 +78,12 @@ const ListUnidades = () => {
                     { unidades.map( item => (
                             <tr>
                                 <td>{item.id}</td>
-                                <td><Link to={`/unidades/show/${item.id}`}>{item.nome}</Link></td>
-                                <td>{item.cidade.nome}-{item.cidade.nome}</td>
+                                <td>{item.nome}</td>
+                                <td>{item.numero}</td>
+                                <td>{item.complemento}</td>
+                                <td>{item.cidade.nome}</td>
                                 <td>{item.created_at}</td>
                                 <td><Link to={`/unidades/show/${item.id}`}>Visualizar</Link> </td>
-                                <td><button type="button" onClick={e => {
-                                        handleDeleteUnidade(item.id);
-                                    }}>Excluir</button>
-                                </td>
                             </tr>
                         )  
                       )

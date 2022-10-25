@@ -21,9 +21,9 @@ const ShowDoacao = () => {
             <h2>Dados da Doação</h2>
 
             <p>Id: {doacao?.id}</p>
-            <p>Data: {doacao?.data}</p>
+            <p>Data: {doacao?.date}</p>
             <p>Pessoa: {doacao?.pessoa.nome}</p>
-            <p>Local Coleta: {doacao?.localColeta.nome}</p>
+            <p>Local Coleta: {doacao?.local.nome}</p>
             <p>Data de inserção: {doacao?.created_at}</p>
 
             <div>

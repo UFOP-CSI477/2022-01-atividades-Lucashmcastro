@@ -58,15 +58,14 @@ const ListCidades = () => {
 
     return(
         <div>
-            <table>
+            <table className="table table-hove">
                 <thead>
                     <tr>
                         <th>Id</th>
                         <th>Nome</th>
                         <th>Estado</th>
                         <th>Criação</th>
-                        <th>Ação</th>
-                        <th>Excluir</th>
+                        <th>Ação</th>                     
                     </tr>
                 </thead>
 
@@ -78,11 +77,7 @@ const ListCidades = () => {
                                 <td><Link to={`/cidades/show/${item.id}`}>{item.nome}</Link></td>
                                 <td>{item.estado.nome}-{item.estado.sigla}</td>
                                 <td>{item.created_at}</td>
-                                <td><Link to={`/cidades/show/${item.id}`}>Visualizar</Link> </td>
-                                <td><button type="button" onClick={e => {
-                                        handleDeleteCidade(item.id);
-                                    }}>Excluir</button>
-                                </td>
+                                <td><Link to={`/cidades/show/${item.id}`}>Visualizar</Link> </td>                               
                             </tr>
                         )  
                       )
