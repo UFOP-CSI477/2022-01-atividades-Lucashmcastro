@@ -54,90 +54,63 @@ const CreateDoacao = () => {
         <div>
             <h3>Cadastrar Doacao</h3>
 
-            <form onSubmit={handleNewDoacao}>
+            <form onSubmit={handleNewDoacao} className="row g-3">
 
-                <div>
-                    <label htmlFor="dataDoacao">Data</label>
-                    <input
-                        type="text"
-                        name="dataDoacao"
-                        id="dataDoacao"
-                        placeholder="Data da Doacao"
-                        value={dataDoacao}
-                        onChange={e => setDataDoacao(e.target.value)} />
-                </div>
+                            <div className="col-md-6">
+                                <label htmlFor="dataDoacao" className="form-label">Data da Doação</label>
+                                <input type="date" className="form-control" 
+                                    id="dataDoacao" 
+                                    placeholder="Data de Distribuição"
+                                    onChange={e => setDataDoacao(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="pessoaId">pessoaId</label>
-                    <input
-                        type="text"
-                        name="pessoaId"
-                        id="pessoaId"
-                        placeholder="Oessoa ID da Doacao"
-                        value={pessoaId}
-                        onChange={e => setPessoaId(parseInt(e.target.value))} />
-                </div>
+                            <div className="col-md-4">
+                                <label htmlFor="pessoa" className="form-label">Pessoa</label>
+                                <select id="pessoa" className="form-select"
+                                
+                                onChange={e => setPessoaId(parseInt(e.target.value))}>
+                                <option
+                                value="0" selected>Selecione</option>
 
-                <div>
-                    <select name="pessoa"
-                        id="pessoa"
-                        value={pessoaId}
-                        onChange={e => setPessoaId(parseInt(e.target.value))}
-                    >
-                        <option
-                            value="0" selected>Selecione</option>
+                                {
+                                    pessoas.map(item => (
+                                        <option value={item.id}>{item.nome}</option>
+                                    ))
+                                }
 
-                        {
-                            pessoas.map(item => (
-                                <option value={item.id}>{item.nome}</option>
-                            ))
-                        }
+                                </select>
+                            </div>
 
-                    </select>
-                </div>
+                            <div className="col-md-4">
+                                <label htmlFor="localColeta" className="form-label">Local da Coleta</label>
+                                <select id="localColeta" className="form-select"
+                                
+                                onChange={e => setLocalColetaId(parseInt(e.target.value))}>
+                                <option
+                                value="0" selected>Selecione</option>
 
-                <div>
-                    <label htmlFor="localColetaId">localColetaId</label>
-                    <input
-                        type="text"
-                        name="localColetaId"
-                        id="localColetaId"
-                        placeholder="Local Coleta ID da Doacao"
-                        value={localColetaId}
-                        onChange={e => setLocalColetaId(parseInt(e.target.value))} />
-                </div>
+                                {
+                                    locaisColeta.map(item => (
+                                        <option value={item.id}>{item.nome}</option>
+                                    ))
+                                }
+                                </select>
+                            </div>
 
-                <div>
-                    <select name="localColeta"
-                        id="localColeta"
-                        value={localColetaId}
-                        onChange={e => setLocalColetaId(parseInt(e.target.value))}
-                    >
-                        <option
-                            value="0" selected>Selecione</option>
+                             {/* <SelectPessoas 
+                                id={pessoaId} 
+                                setId={setPessoaId}
+                            />
 
-                        {
-                            locaisColeta.map(item => (
-                                <option value={item.id}>{item.nome}</option>
-                            ))
-                        }
+                            <SelectLocaisColeta 
+                                id={localColetaId} 
+                                setId={setLocalColetaId}
+                            />   */}
 
-                    </select>
-                </div>
-
-                <SelectPessoas 
-                    id={pessoaId} 
-                    setId={setPessoaId}
-                />
-
-                <SelectLocaisColeta 
-                    id={localColetaId} 
-                    setId={setLocalColetaId}
-                />  
-
-                <button type="submit">Cadastrar</button>
-                <button type="reset">Limpar</button>
-
+                        <div className="col-12">
+                            <button type="submit" className="btn btn-primary">Cadastrar</button>
+                            <button type="reset" className="btn btn-secundary">Limpar</button>
+                        </div>
             </form>
         </div>
     );

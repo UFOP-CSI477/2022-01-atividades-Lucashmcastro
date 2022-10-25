@@ -46,78 +46,60 @@ const CreateUnidade = () => {
         <div>
             <h3>Cadastrar Unidade</h3>
 
-            <form onSubmit={handleNewUnidade}>
+            <form onSubmit={handleNewUnidade} className="row g-3">
 
-                <div>
-                    <label htmlFor="nome">Nome</label>
-                    <input
-                        type="text"
-                        name="nome"
-                        id="nome"
-                        placeholder="Nome da unidade"
-                        value={nome}
-                        onChange={e => setNome(e.target.value)} />
-                </div>
+                <div>                           
+                            <div className="col-md-6">
+                                <label htmlFor="nome" className="form-label">Nome</label>
+                                <input type="text" className="form-control" 
+                                    id="nome" 
+                                    placeholder="Nome da Unidade"
+                                    onChange={e => setNome(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="numero">Numero</label>
-                    <input
-                        type="text"
-                        name="numero"
-                        id="numero"
-                        placeholder="Número da unidade"
-                        value={numero}
-                        onChange={e => setNumero(e.target.value)} />
-                </div>
+                            <div className="col-md-6">
+                                <label htmlFor="numero" className="form-label">Numero</label>
+                                <input type="text" className="form-control" 
+                                    id="numero" 
+                                    placeholder="Numero da Unidade"
+                                    onChange={e => setNumero(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="complemento">Complemento</label>
-                    <input
-                        type="text"
-                        name="complemento"
-                        id="complemento"
-                        placeholder="Complemento da unidade"
-                        value={complemento}
-                        onChange={e => setComplemento(e.target.value)} />
-                </div>
+                            <div className="col-md-6">
+                                <label htmlFor="complemento" className="form-label">Complemento</label>
+                                <input type="text" className="form-control" 
+                                    id="complemento" 
+                                    placeholder="Complemento da Unidade"
+                                    onChange={e => setComplemento(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="cidadeId">cidadeId</label>
-                    <input
-                        type="text"
-                        name="cidadeId"
-                        id="cidadeId"
-                        placeholder="Cidade ID da unidade"
-                        value={cidadeId}
-                        onChange={e => setCidadeId(parseInt(e.target.value))} />
-                </div>
+                           
+                            <div className="col-md-4">
+                                <label htmlFor="cidadeId" className="form-label">Cidade</label>
+                                <select id="cidadeId" className="form-select"
+                                
+                                onChange={e => setCidadeId(parseInt(e.target.value))}
+                                >
+                                    <option
+                                        value="0" selected>Selecione</option>
+                                    {
+                                        cidades.map(item => (
+                                            <option key={item.id} value={item.id}>{item.nome}</option>
+                                        ))
+                                    }
+                                </select>
+                            </div>                          
 
-                <div>
-                    <select name="cidade"
-                        id="cidade"
-                        value={cidadeId}
-                        onChange={e => setCidadeId(parseInt(e.target.value))}
-                    >
-                        <option
-                            value="0" selected>Selecione</option>
+                        <div className="col-12">
+                            <button type="submit" className="btn btn-primary">Cadastrar</button>
+                            <button type="reset" className="btn btn-secundary">Limpar</button>
+                        </div>
+                </div>                 
 
-                        {
-                            cidades.map(item => (
-                                <option value={item.id}>{item.nome}</option>
-                            ))
-                        }
-
-                    </select>
-                </div>
-
-                <SelectCidades 
+                {/* <SelectCidades 
                     id={cidadeId} 
                     setId={setCidadeId}
-                />
-
-                <button type="submit">Cadastrar</button>
-                <button type="reset">Limpar</button>
-
+                /> */}
             </form>
         </div>
     );

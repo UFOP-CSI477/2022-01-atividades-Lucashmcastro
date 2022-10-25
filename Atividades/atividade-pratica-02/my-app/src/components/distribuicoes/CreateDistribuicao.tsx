@@ -55,78 +55,62 @@ const CreateDistribuicao = () => {
         <div>
             <h3>Cadastrar Distribuição</h3>
 
-            <form onSubmit={handleNewDistribuicao}>
+            <form onSubmit={handleNewDistribuicao} className="row g-3">
 
-                <div>
-                    <label htmlFor="dataDoacao">Data da Distribuição</label>
-                    <input
-                        type="text"
-                        name="dataDistribuicao"
-                        id="dataDistribuicao"
-                        placeholder="Data da Distribuição"
-                        value={dataDistribuicao}
-                        onChange={e => setDataDistribuicao(e.target.value)} />
+            <div>                           
+                            <div className="col-md-6">
+                                <label htmlFor="dataDistribuicao" className="form-label">Data da Distribuição</label>
+                                <input type="date" className="form-control" 
+                                    id="dataDistribuicao" 
+                                    placeholder="Data de Distribuição"
+                                    value={dataDistribuicao}
+                                    onChange={e => setDataDistribuicao(e.target.value)}/>
+                            </div>
+
+                            <div className="col-md-4">
+                                <label htmlFor="produto" className="form-label">Produto</label>
+                                <select id="produto" className="form-select"
+                                
+                                onChange={e => setProdutoId(parseInt(e.target.value))}>
+                                <option
+                                    value="0" selected>Selecione</option>
+
+                            {
+                                    produtos.map(item => (
+                                        <option value={item.id}>{item.etiqueta}</option>
+                                    ))
+                                }
+                                </select>
+                            </div>
+
+                            <div className="col-md-4">
+                                <label htmlFor="unidade" className="form-label">Unidade</label>
+                                <select id="unidade" className="form-select"
+                                
+                                onChange={e => setUnidadeId(parseInt(e.target.value))}>
+                                <option
+                                value="0" selected>Selecione</option>
+
+                                {
+                                    unidades.map(item => (
+                                        <option value={item.id}>{item.nome}</option>
+                                    ))
+                                }
+                                </select>
+                            </div>
+
+                            {/* <SelectEstados 
+                                id={estadoId} 
+                                setId={setEstadoId}
+                            /> */}
+
+                        <div className="col-12">
+                            <button type="submit" className="btn btn-primary">Cadastrar</button>
+                            <button type="reset" className="btn btn-secundary">Limpar</button>
+                        </div>
                 </div>
-
-                <div>
-                    <label htmlFor="produtoId">pessoaId</label>
-                    <input
-                        type="text"
-                        name="produtoId"
-                        id="produtoId"
-                        placeholder="Produto ID da Distribuicao"
-                        value={produtoId}
-                        onChange={e => setProdutoId(parseInt(e.target.value))} />
-                </div>
-
-                <div>
-                    <select name="produto"
-                        id="produto"
-                        value={produtoId}
-                        onChange={e => setProdutoId(parseInt(e.target.value))}
-                    >
-                        <option
-                            value="0" selected>Selecione</option>
-
-                        {
-                            produtos.map(item => (
-                                <option value={item.id}>{item.etiqueta}</option>
-                            ))
-                        }
-
-                    </select>
-                </div>
-
-                <div>
-                    <label htmlFor="unidadeId">unidadeId</label>
-                    <input 
-                        type="text"
-                        name="unidadeId"
-                        id="unidadeId"
-                        placeholder="Unidade da Distribuição"
-                        value={unidadeId}
-                        onChange={e => setUnidadeId(parseInt(e.target.value))} />
-                </div>
-
-                <div>
-                    <select name="unidade"
-                        id="unidade"
-                        value={unidadeId}
-                        onChange={e => setUnidadeId(parseInt(e.target.value))}
-                    >
-                        <option
-                            value="0" selected>Selecione</option>
-
-                        {
-                            unidades.map(item => (
-                                <option value={item.id}>{item.nome}</option>
-                            ))
-                        }
-
-                    </select>
-                </div>
-
-                <SelectProdutos 
+                                                        
+                {/* <SelectProdutos 
                     id={produtoId} 
                     setId={setProdutoId}
                 />
@@ -134,10 +118,7 @@ const CreateDistribuicao = () => {
                 <SelectUnidades 
                     id={unidadeId} 
                     setId={setUnidadeId}
-                />  
-
-                <button type="submit">Cadastrar</button>
-                <button type="reset">Limpar</button>
+                />   */}
 
             </form>
         </div>

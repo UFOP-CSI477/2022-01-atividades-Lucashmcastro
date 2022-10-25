@@ -26,9 +26,10 @@ const CreateProduto = () => {
 
         const data = {
             etiqueta,
-            validade,
+            validade: new Date (validade).toLocaleDateString(),
             doacao_id: doacaoId
         }
+        console.log(data);
 
         try {
             await api.post('/produtos', data);
@@ -44,67 +45,52 @@ const CreateProduto = () => {
         <div>
             <h3>Cadastrar Produto</h3>
 
-            <form onSubmit={handleNewProduto}>
+            <form onSubmit={handleNewProduto} className="row g-3">
 
-                <div>
-                    <label htmlFor="etiqueta">Etiqueta</label>
-                    <input
-                        type="text"
-                        name="etiqueta"
-                        id="etiqueta"
-                        placeholder="Etiqueta do Produto"
-                        value={etiqueta}
-                        onChange={e => setEtiqueta(e.target.value)} />
-                </div>
+            <div>                           
+                            <div className="col-md-6">
+                                <label htmlFor="etiqueta" className="form-label">Etiqueta</label>
+                                <input type="text" className="form-control" 
+                                    id="etiqueta" 
+                                    placeholder="Etiqueta do produto"
+                                    onChange={e => setEtiqueta(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="validade">Validade</label>
-                    <input
-                        type="text"
-                        name="validade"
-                        id="validade"
-                        placeholder="Validade do Produto"
-                        value={validade}
-                        onChange={e => setValidade(e.target.value)} />
-                </div>
+                            <div className="col-md-6">
+                                <label htmlFor="validade" className="form-label">Validade</label>
+                                <input type="date" className="form-control" 
+                                    id="validade" 
+                                    placeholder="Validade do produto"
+                                    onChange={e => setValidade(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="doacaoId">doacaoId</label>
-                    <input
-                        type="text"
-                        name="doacaoId"
-                        id="doacaoId"
-                        placeholder="Doacao ID do produto"
-                        value={doacaoId}
-                        onChange={e => setDoacaoId(parseInt(e.target.value))} />
-                </div>
+                            <div className="col-md-4">
+                                <label htmlFor="doacao" className="form-label">Doação</label>
+                                <select id="doacao" className="form-select"
+                                
+                                onChange={e => setDoacaoId(parseInt(e.target.value))}
+                                >
+                                    <option
+                                        value="0" selected>Selecione</option>
 
-                <div>
-                    <select name="doacao"
-                        id="doacao"
-                        value={doacaoId}
-                        onChange={e => setDoacaoId(parseInt(e.target.value))}
-                    >
-                        <option
-                            value="0" selected>Selecione</option>
+                                    {
+                                        doacoes.map(item => (
+                                            <option key={item.id} value={item.id}>{item.id}</option>
+                                        ))
+                                    }
+                                </select>
+                            </div>
 
-                        {
-                            doacoes.map(item => (
-                                <option value={item.id}>{item.id}</option>
-                            ))
-                        }
+                            {/* <SelectDoacoes 
+                                id={doacaoId} 
+                                setId={setDoacaoId}
+                            /> */}
 
-                    </select>
-                </div>
-
-                <SelectDoacoes 
-                    id={doacaoId} 
-                    setId={setDoacaoId}
-                />
-
-                <button type="submit">Cadastrar</button>
-                <button type="reset">Limpar</button>
-
+                        <div className="col-12">
+                            <button type="submit" className="btn btn-primary">Cadastrar</button>
+                            <button type="reset" className="btn btn-secundary">Limpar</button>
+                        </div>
+                </div>                                         
             </form>
         </div>
     );

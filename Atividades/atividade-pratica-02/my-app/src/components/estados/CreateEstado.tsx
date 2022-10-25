@@ -63,38 +63,30 @@ const CreateEstado = () => {
     return (
         <div>
             <h3>Cadastrar Estado: {nome}-{sigla}</h3>
-            <form onSubmit={handleNewEstado}>
+            <form onSubmit={handleNewEstado} className="row g-3">
 
-                <div>
-                    <label 
-                        htmlFor="nome"
-                    >Nome</label>
+                <div>                           
+                            <div className="col-md-6">
+                                <label htmlFor="nome" className="form-label">Nome</label>
+                                <input type="text" className="form-control" 
+                                    id="nome" 
+                                    placeholder="Nome do estado"
+                                    onChange={e => setNome(e.target.value)}/>
+                            </div>
 
-                    <input type="text" 
-                        name="nome" 
-                        id="nome"
-                        value={nome}
-                        onChange={e => setNome(e.target.value)}
-                        placeholder="Nome do estado"
-                        />
+                            <div className="col-md-6">
+                                <label htmlFor="sigla" className="form-label">Sigla</label>
+                                <input type="text" className="form-control" 
+                                    id="sigla" 
+                                    placeholder="Sigla do estado"
+                                    onChange={e => setSigla(e.target.value)}/>
+                            </div>
+
+                        <div className="col-12">
+                            <button type="submit" className="btn btn-primary">Cadastrar</button>
+                            <button type="reset" className="btn btn-secundary">Limpar</button>
+                        </div>
                 </div>
-
-                <div>
-                    <label 
-                        htmlFor="sigla"
-                    >Sigla</label>
-
-                    <input type="text" 
-                        name="sigla" 
-                        id="sigla" 
-                        value={sigla}
-                        onChange={e => setSigla(e.target.value)}
-                        placeholder="Sigla do Estado/UF"
-                        />
-                </div>
-
-                <button type="submit">Cadastrar</button>
-                <button type="reset">Limpar</button>
 
             </form>
         </div>

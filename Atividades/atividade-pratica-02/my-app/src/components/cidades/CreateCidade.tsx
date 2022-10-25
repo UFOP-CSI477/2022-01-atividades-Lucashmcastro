@@ -42,58 +42,46 @@ const CreateCidade = () => {
         <div>
             <h3>Cadastrar Cidade</h3>
 
-            <form onSubmit={handleNewCidade}>
+            <form onSubmit={handleNewCidade} className="row g-3">
 
-                <div>
-                    <label htmlFor="nome">Nome</label>
-                    <input
-                        type="text"
-                        name="nome"
-                        id="nome"
-                        placeholder="Nome da cidade"
-                        value={nome}
-                        onChange={e => setNome(e.target.value)} />
+                <div>                           
+                            <div className="col-md-6">
+                                <label htmlFor="nome" className="form-label">Nome</label>
+                                <input type="text" className="form-control" 
+                                    id="nome" 
+                                    placeholder="Nome da cidade"
+                                    onChange={e => setNome(e.target.value)}/>
+                            </div>
+
+                            <div className="col-md-4">
+                                <label htmlFor="estado" className="form-label">Estado</label>
+                                <select id="estado" className="form-select"                               
+                                onChange={e => setEstadoId(parseInt(e.target.value))}>
+                                <option
+                                value="0" selected>Selecione</option>
+
+                            {
+                                estados.map(item => (
+                                    <option key={item.id} value={item.id}>{item.nome}</option>
+                                ))
+                            }
+                                </select>
+                            </div>
+
+                            {/* <SelectEstados 
+                                id={estadoId} 
+                                setId={setEstadoId}
+                            /> */}
+
+                        <div className="col-12">
+                            <button type="submit" className="btn btn-primary">Cadastrar</button>
+                            <button type="reset" className="btn btn-secundary">Limpar</button>
+                        </div>
                 </div>
-
-                <div>
-                    <label htmlFor="estadoId">estadoId</label>
-                    <input
-                        type="text"
-                        name="estadoId"
-                        id="estadoId"
-                        placeholder="Estado ID da cidade"
-                        value={estadoId}
-                        onChange={e => setEstadoId(parseInt(e.target.value))} />
-                </div>
-
-                <div>
-                    <select name="estado"
-                        id="estado"
-                        value={estadoId}
-                        onChange={e => setEstadoId(parseInt(e.target.value))}
-                    >
-                        <option
-                            value="0" selected>Selecione</option>
-
-                        {
-                            estados.map(item => (
-                                <option value={item.id}>{item.nome}</option>
-                            ))
-                        }
-
-                    </select>
-                </div>
-
-                <SelectEstados 
-                    id={estadoId} 
-                    setId={setEstadoId}
-                />
-
-                <button type="submit">Cadastrar</button>
-                <button type="reset">Limpar</button>
-
             </form>
+
         </div>
+                
     );
 
 }

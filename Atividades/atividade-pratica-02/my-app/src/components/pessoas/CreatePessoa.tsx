@@ -64,123 +64,89 @@ const CreatePessoa = () => {
         <div>
             <h3>Cadastrar Pessoas</h3>
 
-            <form onSubmit={handleNewPessoa}>
+            <form onSubmit={handleNewPessoa} className="row g-3">
 
-                <div>
-                    <label htmlFor="nome">Nome da Pessoa</label>
-                    <input
-                        type="text"
-                        name="nome"
-                        id="nome"
-                        placeholder="Nome da Pessoa"
-                        value={nome}
-                        onChange={e => setNome(e.target.value)} />
-                </div>
+            <div>                           
+                            <div className="col-md-6">
+                                <label htmlFor="nome" className="form-label">Nome</label>
+                                <input type="text" className="form-control" 
+                                    id="nome" 
+                                    placeholder="Nome da Pessoa"
+                                    onChange={e => setNome(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="rua">Rua da Pessoa</label>
-                    <input
-                        type="text"
-                        name="rua"
-                        id="rua"
-                        placeholder="Rua da Pessoa"
-                        value={rua}
-                        onChange={e => setRua(e.target.value)} />
-                </div>
+                            <div className="col-md-6">
+                                <label htmlFor="rua" className="form-label">Rua</label>
+                                <input type="text" className="form-control" 
+                                    id="rua" 
+                                    placeholder="Rua da Pessoa"
+                                    onChange={e => setRua(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="numero">Numero da Pessoa</label>
-                    <input
-                        type="text"
-                        name="numero"
-                        id="numero"
-                        placeholder="Numero da Pessoa"
-                        value={numero}
-                        onChange={e => setNumero(e.target.value)} />
-                </div>
+                            <div className="col-md-6">
+                                <label htmlFor="numero" className="form-label">Numero</label>
+                                <input type="text" className="form-control" 
+                                    id="numero" 
+                                    placeholder="Numero da Pessoa"
+                                    onChange={e => setNumero(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="complemento">Complemento da Pessoa</label>
-                    <input
-                        type="text"
-                        name="complemento"
-                        id="complemento"
-                        placeholder="Complemento da Pessoa"
-                        value={complemento}
-                        onChange={e => setComplemento(e.target.value)} />
-                </div>
-                
+                            <div className="col-md-6">
+                                <label htmlFor="complemento" className="form-label">Complemento</label>
+                                <input type="text" className="form-control" 
+                                    id="complemento" 
+                                    placeholder="Complemento da Pessoa"
+                                    onChange={e => setComplemento(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="documento">Documento da Pessoa</label>
-                    <input
-                        type="text"
-                        name="documento"
-                        id="documento"
-                        placeholder="Documento da Pessoa"
-                        value={documento}
-                        onChange={e => setDocumento(e.target.value)} />
-                </div>
+                            <div className="col-md-6">
+                                <label htmlFor="documento" className="form-label">Documento</label>
+                                <input type="text" className="form-control" 
+                                    id="documento" 
+                                    placeholder="Documento da Pessoa"
+                                    onChange={e => setDocumento(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="cidadeId">cidadeId</label>
-                    <input
-                        type="text"
-                        name="cidadeId"
-                        id="cidadeId"
-                        placeholder="Cidade ID da Pessoa"
-                        value={cidadeId}
-                        onChange={e => setCidadeId(parseInt(e.target.value))} />
-                </div>
+                            <div className="col-md-4">
+                                <label htmlFor="cidadeId" className="form-label">Cidade</label>
+                                <select id="cidadeId" className="form-select"
+                                
+                                onChange={e => setCidadeId(parseInt(e.target.value))}
+                                >
+                                    <option
+                                        value="0" selected>Selecione</option>
+                                    {
+                                        cidades.map(item => (
+                                            <option value={item.id}>{item.nome}</option>
+                                        ))
+                                    }
+                                </select>
+                            </div>
 
-                <div>
-                    <select name="cidade"
-                        id="cidade"
-                        value={cidadeId}
-                        onChange={e => setCidadeId(parseInt(e.target.value))}
-                    >
-                        <option
-                            value="0" selected>Selecione</option>
+                            <div className="col-md-4">
+                                <label htmlFor="tipoSanguineoId" className="form-label">Tipo Sanguineo</label>
+                                <select id="tipoSanguineoId" className="form-select"
+                                
+                                onChange={e => setTipoSanguineoId(parseInt(e.target.value))}
+                                >
+                                    <option
+                                        value="0" selected>Selecione</option>
 
-                        {
-                            cidades.map(item => (
-                                <option value={item.id}>{item.nome}</option>
-                            ))
-                        }
+                                    {
+                                        tiposSanguineos.map(item => (
+                                            <option value={item.id}>{item.tipo}</option>
+                                        ))
+                                    }
+                                </select>
+                            </div>
 
-                    </select>
-                </div>
+                        <div className="col-12">
+                            <button type="submit" className="btn btn-primary">Cadastrar</button>
+                            <button type="reset" className="btn btn-secundary">Limpar</button>
+                        </div>
+                </div>               
 
-                <div>
-                    <label htmlFor="tipoSanguineoId">unidadeId</label>
-                    <input 
-                        type="text"
-                        name="tipoSanguineoId"
-                        id="tipoSanguineoId"
-                        placeholder="Tipo Sanguineo da Pessoa"
-                        value={tipoSanguineoId}
-                        onChange={e => setTipoSanguineoId(parseInt(e.target.value))} />
-                </div>
-
-                <div>
-                    <select name="tipoSanguineo"
-                        id="tipoSanguineo"
-                        value={tipoSanguineoId}
-                        onChange={e => setTipoSanguineoId(parseInt(e.target.value))}
-                    >
-                        <option
-                            value="0" selected>Selecione</option>
-
-                        {
-                            tiposSanguineos.map(item => (
-                                <option value={item.id}>{item.tipo}</option>
-                            ))
-                        }
-
-                    </select>
-                </div>
-
-                <SelectCidades 
+                {/* <SelectCidades 
                     id={cidadeId} 
                     setId={setCidadeId}
                 />
@@ -188,10 +154,7 @@ const CreatePessoa = () => {
                 <SelectTiposSanguineos 
                     id={tipoSanguineoId} 
                     setId={setTipoSanguineoId}
-                />  
-
-                <button type="submit">Cadastrar</button>
-                <button type="reset">Limpar</button>
+                />   */}
 
             </form>
         </div>

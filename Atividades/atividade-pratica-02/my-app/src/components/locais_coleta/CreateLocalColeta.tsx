@@ -48,88 +48,68 @@ const CreateLocalColeta = () => {
         <div>
             <h3>Cadastrar Local de Coleta</h3>
 
-            <form onSubmit={handleNewLocalColeta}>
+            <form onSubmit={handleNewLocalColeta} className="row g-3">
+               
+                <div>                           
+                            <div className="col-md-6">
+                                <label htmlFor="nome" className="form-label">Nome</label>
+                                <input type="text" className="form-control" 
+                                    id="nome" 
+                                    placeholder="Nome do Local da Coleta"
+                                    onChange={e => setNome(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="nome">Nome</label>
-                    <input
-                        type="text"
-                        name="nome"
-                        id="nome"
-                        placeholder="Nome do local da coleta"
-                        value={nome}
-                        onChange={e => setNome(e.target.value)} />
-                </div>
+                            <div className="col-md-6">
+                                <label htmlFor="rua" className="form-label">Rua</label>
+                                <input type="text" className="form-control" 
+                                    id="rua" 
+                                    placeholder="Rua do Local da Coleta"
+                                    onChange={e => setRua(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="rua">Rua</label>
-                    <input
-                        type="text"
-                        name="rua"
-                        id="rua"
-                        placeholder="Rua do local da coleta"
-                        value={rua}
-                        onChange={e => setRua(e.target.value)} />
-                </div>
+                            <div className="col-md-6">
+                                <label htmlFor="numero" className="form-label">Numero</label>
+                                <input type="text" className="form-control" 
+                                    id="numero" 
+                                    placeholder="Numero do Local da Coleta"
+                                    onChange={e => setNumero(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="numero">Numero</label>
-                    <input
-                        type="text"
-                        name="numero"
-                        id="numero"
-                        placeholder="Numero do local da coleta"
-                        value={numero}
-                        onChange={e => setNumero(e.target.value)} />
-                </div>
+                            <div className="col-md-6">
+                                <label htmlFor="complemento" className="form-label">Complemento</label>
+                                <input type="text" className="form-control" 
+                                    id="complemento" 
+                                    placeholder="Complemento do Local da Coleta"
+                                    onChange={e => setComplemento(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label htmlFor="complemento">Complemento</label>
-                    <input
-                        type="text"
-                        name="complemento"
-                        id="complemento"
-                        placeholder="Complemento do local da coleta"
-                        value={complemento}
-                        onChange={e => setComplemento(e.target.value)} />
-                </div>
+                            <div className="col-md-4">
+                                <label htmlFor="cidadeid" className="form-label">Cidade da Coleta</label>
+                                <select id="cidadeid" className="form-select"
+                                
+                                onChange={e => setCidadeId(parseInt(e.target.value))}
+                                >
+                                    <option
+                                        value="0" selected>Selecione</option>
+                                    {
+                                        cidades.map(item => (
+                                            <option value={item.id}>{item.nome}</option>
+                                        ))
+                                    }
+                                </select>
+                            </div>
 
-                <div>
-                    <label htmlFor="cidadeId">cidadeId</label>
-                    <input
-                        type="text"
-                        name="cidadeId"
-                        id="cidadeId"
-                        placeholder="Cidade ID do Local de Coleta"
-                        value={cidadeId}
-                        onChange={e => setCidadeId(parseInt(e.target.value))} />
-                </div>
 
-                <div>
-                    <select name="cidade"
-                        id="cidade"
-                        value={cidadeId}
-                        onChange={e => setCidadeId(parseInt(e.target.value))}
-                    >
-                        <option
-                            value="0" selected>Selecione</option>
+                        <div className="col-12">
+                            <button type="submit" className="btn btn-primary">Cadastrar</button>
+                            <button type="reset" className="btn btn-secundary">Limpar</button>
+                        </div>
+                </div>               
 
-                        {
-                            cidades.map(item => (
-                                <option value={item.id}>{item.nome}</option>
-                            ))
-                        }
-
-                    </select>
-                </div>
-
-                <SelectCidades 
+                {/* <SelectCidades 
                     id={cidadeId} 
                     setId={setCidadeId}
-                />
-
-                <button type="submit">Cadastrar</button>
-                <button type="reset">Limpar</button>
+                /> */}
 
             </form>
         </div>

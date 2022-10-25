@@ -63,39 +63,30 @@ const CreateTipoSanguineo = () => {
     return (
         <div>
             <h3>Cadastrar Tipo Sanguineo: {tipo}-{fator}</h3>
-            <form onSubmit={handleNewTipoSanguineo}>
+            <form onSubmit={handleNewTipoSanguineo} className="row g-3">
 
-                <div>
-                    <label 
-                        htmlFor="tipo"
-                    >Tipo</label>
+                <div>                           
+                            <div className="col-md-6">
+                                <label htmlFor="tipo" className="form-label">Tipo</label>
+                                <input type="text" className="form-control" 
+                                    id="tipo" 
+                                    placeholder="Tipo do Sangue"
+                                    onChange={e => setTipo(e.target.value)}/>
+                            </div>
 
-                    <input type="text" 
-                        name="tipo" 
-                        id="tipo"
-                        value={tipo}
-                        onChange={e => setTipo(e.target.value)}
-                        placeholder="Tipo Sanguineo"
-                        />
-                </div>
+                            <div className="col-md-6">
+                                <label htmlFor="fator" className="form-label">Fator</label>
+                                <input type="text" className="form-control" 
+                                    id="fator" 
+                                    placeholder="Fator do Sangue"
+                                    onChange={e => setFator(e.target.value)}/>
+                            </div>
 
-                <div>
-                    <label 
-                        htmlFor="fator"
-                    >Fator</label>
-
-                    <input type="text" 
-                        name="fator" 
-                        id="fator" 
-                        value={fator}
-                        onChange={e => setFator(e.target.value)}
-                        placeholder="Fator do Tipo Sanguineo"
-                        />
-                </div>
-
-                <button type="submit">Cadastrar</button>
-                <button type="reset">Limpar</button>
-
+                        <div className="col-12">
+                            <button type="submit" className="btn btn-primary">Cadastrar</button>
+                            <button type="reset" className="btn btn-secundary">Limpar</button>
+                        </div>
+                </div>       
             </form>
         </div>
     );
