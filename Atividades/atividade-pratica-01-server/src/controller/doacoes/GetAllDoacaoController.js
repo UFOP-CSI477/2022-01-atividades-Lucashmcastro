@@ -8,7 +8,7 @@ export class GetAllDoacaoController {
         const doacao = await prismaClient.doacao.findMany({
             select: {
                 id: true,
-                data: true,
+                date: true,
                 created_at: true,
                 local: true,
                 pessoa: true

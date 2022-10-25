@@ -84,7 +84,7 @@ model Doacao {
   id               Int      @default(autoincrement()) @id 
   pessoa_id        Int
   local_id         Int
-  data             DateTime
+  date             DateTime
 
   produto Produto[]
 
@@ -136,7 +136,7 @@ model Unidade {
 
 model Distribuicoes {
   id             Int      @default(autoincrement()) @id
-  data           DateTime  
+  date           DateTime  
   produto_id     Int
   unidade_id     Int
 

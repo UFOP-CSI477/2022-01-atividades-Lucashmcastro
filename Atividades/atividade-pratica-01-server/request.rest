@@ -1,11 +1,12 @@
 //Metodos para Estados
 
+###
 POST http://localhost:4002/estados
 content-type: application/json
 
 {
-    "nome": "Maranhão",
-    "sigla": "MA"
+    "nome": "São Paulo",
+    "sigla": "SP"
 }
 
 ###
@@ -36,8 +37,8 @@ POST http://localhost:4002/cidades
 content-type: application/json
 
 {   
-    "nome": "Cidade das Estrelas",
-    "estado_id": "3"
+    "nome": "São Paulo",
+    "estado_id": "4"
 }
 
 ###
@@ -68,8 +69,8 @@ POST http://localhost:4002/tiposSanguineos
 content-type: application/json
 
     {
-        "tipo": "AB",
-        "fator": "Positivo"
+        "tipo": "A",
+        "fator": "Negativo"
     }
 
 ###
@@ -99,11 +100,11 @@ POST http://localhost:4002/locaisColeta
 content-type: application/json
 
    {
-        "nome": "Intituto De Coleta Joaozinho",
+        "nome": "Intituto De Coleta Sangue",
         "rua": "Rua 36",
         "numero": "115",
         "complemento": "Centro",
-        "cidade_id": "1"
+        "cidade_id": "2"
     }
 
 ###
@@ -136,13 +137,13 @@ POST http://localhost:4002/pessoas
 content-type: application/json
 
     {
-        "nome": "Denis Flávio Almeida",
+        "nome": "Lucas Horta Almeida",
         "rua": "Rua 86", 
         "numero": "203",
         "complemento": "Novo Horizonte, Timóteo", 
         "documento": "MG-43.323.431",
-        "cidade_id": "3",
-        "tipoSanguineo_id": "3"
+        "cidade_id": "1",
+        "tipoSanguineo_id": "1"
     } 
 
 ###
@@ -175,9 +176,9 @@ POST http://localhost:4002/doacoes
 content-type: application/json
 
     {
-      "data": "2022-10-14T02:29:59.683Z",
+      "date": "20/08/2022",
       "pessoa_id": "1",
-      "local_id": "1"
+      "local_id": "2"
     }
 
 ###
@@ -192,14 +193,14 @@ content-type: application/json
 
     {
       "id": "2",
-      "data": "2022-10-14T02:29:59.683Z",
+      "date": "25/10/2022",
       "pessoa_id": "1",
-      "local_id": "2"
+      "local_id": "1"
     }
 
 
 ###
-DELETE http://localhost:4002/doacoes/3
+DELETE http://localhost:4002/doacoes/1
 
 
 
@@ -210,8 +211,8 @@ POST http://localhost:4002/produtos
 content-type: application/json
 
     {
-      "etiqueta": "Pasta de Arqwivamento",
-      "validade": "2022-10-14T02:29:59.683Z",
+      "etiqueta": "Bolsa de Sangue",
+      "validade": "20/10/2022",
       "doacao_id": "1"
     }
 
@@ -226,9 +227,9 @@ PUT http://localhost:4002/produtos
 content-type: application/json
 
     {
-      "id": "4",
+      "id": "1",
       "etiqueta": "Pasta de Arquivamento",
-      "validade": "2022-10-14T02:29:59.683Z",
+      "validade": "25/10/2022",
       "doacao_id": "2"
     }
 
@@ -245,10 +246,10 @@ POST http://localhost:4002/unidades
 content-type: application/json
 
     {
-      "nome": "Unidade Médica De Doação Lucas Castro",
-      "numero": "104",
-      "complemento": "Esquina 3",
-      "cidade_id": "3"
+      "nome": "Unidade Médica Postinho",
+      "numero": "14",
+      "complemento": "Posto 3",
+      "cidade_id": "2"
     }
 
 ###
@@ -281,7 +282,7 @@ POST http://localhost:4002/distribuicoes
 content-type: application/json
 
     {
-      "data": "2022-10-14T02:29:59.683Z",
+      "date": "22/10/2022",
       "produto_id": "1",
       "unidade_id": "2"
     }
@@ -298,10 +299,10 @@ content-type: application/json
 
     {
       "id": "2",
-      "data": "2022-10-14T02:29:59.683Z",
+      "date": "25/10/2022",
       "produto_id": "1",
       "unidade_id": "2"
     }
 
 ###
-DELETE http://localhost:4002/distribuicoes/3
+DELETE http://localhost:4002/distribuicoes/2

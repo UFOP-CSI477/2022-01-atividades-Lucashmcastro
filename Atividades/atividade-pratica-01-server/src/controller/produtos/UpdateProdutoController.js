@@ -1,5 +1,5 @@
 import { prismaClient } from '../../database/client.js';
-
+import { getDateBR } from '../../util/getDateBr.js';
 export class UpdateProdutoController {
     async handle(request, response) {
 
@@ -12,7 +12,7 @@ export class UpdateProdutoController {
             },
             data: {
                 etiqueta,
-                validade,
+                validade: getDateBR(validade),
                 doacao: {
                     connect: {
                         id: parseInt(doacao_id)
