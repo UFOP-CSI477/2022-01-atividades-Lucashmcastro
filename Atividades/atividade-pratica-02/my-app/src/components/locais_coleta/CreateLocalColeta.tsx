@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { CidadeModel } from "../cidades/ListCidades";
-import SelectCidades from "../cidades/SelectCidades";
 
 const CreateLocalColeta = () => {
 

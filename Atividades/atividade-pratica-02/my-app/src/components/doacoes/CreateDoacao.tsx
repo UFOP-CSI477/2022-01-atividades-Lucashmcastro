@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { LocalColetaModel } from "../locais_coleta/ListLocaisColeta";
-import SelectLocaisColeta from "../locais_coleta/SelectLocaisColeta";
 import { PessoaModel } from "../pessoas/ListPessoas";
-import SelectPessoas from "../pessoas/SelectPessoas";
 
 const CreateDoacao = () => {
 
@@ -36,7 +34,7 @@ const CreateDoacao = () => {
         e.preventDefault();
 
         const data = {
-            date: dataDoacao,
+            date: new Date (dataDoacao).toLocaleDateString(),
             local_id: localColetaId,
             pessoa_id: pessoaId
         }

@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { ProdutoModel } from "../produtos/ListProdutos";
-import SelectProdutos from "../produtos/SelectProdutos";
 import { UnidadeModel } from "../unidades/ListUnidades";
-import SelectUnidades from "../unidades/SelectUnidades";
 
 const CreateDistribuicao = () => {
 
@@ -36,7 +34,7 @@ const CreateDistribuicao = () => {
         e.preventDefault();
 
         const data = {
-            date: dataDistribuicao,
+            date: new Date (dataDistribuicao).toLocaleDateString(),
             produto_id: produtoId,
             unidade_id: unidadeId
         }
@@ -77,7 +75,7 @@ const CreateDistribuicao = () => {
 
                             {
                                     produtos.map(item => (
-                                        <option value={item.id}>{item.etiqueta}</option>
+                                        <option key={item.id} value={item.id}>{item.etiqueta}</option>
                                     ))
                                 }
                                 </select>
@@ -93,7 +91,7 @@ const CreateDistribuicao = () => {
 
                                 {
                                     unidades.map(item => (
-                                        <option value={item.id}>{item.nome}</option>
+                                        <option key={item.id} value={item.id}>{item.nome}</option>
                                     ))
                                 }
                                 </select>
