@@ -9,6 +9,16 @@ export class GetByIdPessoaController{
         const pessoa = await prismaClient.pessoa.findUnique({
             where: { 
                 id : parseInt(id)
+            },
+            select: {
+                nome: true,
+                rua: true,
+                numero: true,
+                complemento: true,
+                documento: true,
+                created_at: true,
+                cidade: true,
+                tipoSanguineo: true
             }
         });
 

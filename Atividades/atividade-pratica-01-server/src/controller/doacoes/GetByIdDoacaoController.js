@@ -9,6 +9,12 @@ export class GetByIdDoacaoController{
         const doacao = await prismaClient.doacao.findUnique({
             where: { 
                 id : parseInt(id)
+            },
+            select: {
+                date: true,
+                created_at: true,
+                pessoa: true,
+                local: true
             }
         });
 
