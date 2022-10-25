@@ -1,23 +1,21 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api'
-import { PessoaModel } from '../pessoas/ListPessoas';
-import { LocalColetaModel } from '../locais_coleta/ListLocaisColeta';
+import { CidadeModel } from '../cidades/ListCidades';
 
-
-export interface DoacaoModel {
+export interface UnidadeModel {
     id: number;
-    data: string;
+    nome: string;
+    numero: string;
+    complemento: string;
     created_at: string;
-    pessoa_id: number;
-    pessoa: PessoaModel;
-    localColeta_id: number;
-    localColeta: LocalColetaModel;
+    cidade_id: number;
+    cidade: CidadeModel;
 }
 
-const ListDoacoes = () => {
+const ListUnidades = () => {
 
-    const [ doacoes, setDoacoes ] = useState<DoacaoModel[]>([]);
+    const [ unidades, setUnidades ] = useState<UnidadeModel[]>([]);
 
     useEffect(() => {
         loadData();
@@ -25,16 +23,16 @@ const ListDoacoes = () => {
 
     const loadData = () => {
 
-        api.get('/doacoes')        
+        api.get('/unidades')        
             .then(response => {
-                setDoacoes(response.data);
+                setUnidades(response.data);
             } );
 
     }
 
-    const handleDeleteDoacao = async (id : number) => {
+    const handleDeleteUnidade = async (id : number) => {
         
-        if(!window.confirm("Confirma a Exclusão da Doação?")) {
+        if(!window.confirm("Confirma a Exclusão da Unidade?")) {
             return;
         }
 
@@ -43,19 +41,19 @@ const ListDoacoes = () => {
         }
 
         try {
-            await api.delete('/doacoes', {
+            await api.delete('/unidades', {
                 data: {
                     data
                 }
             });
-            window.alert("Doacão excluída com sucesso!");
+            window.alert("Unidade excluída com sucesso!");
             
             //loadData();
 
-            setDoacoes(doacoes.filter(item => item.id !== id));
+            setUnidades(unidades.filter(item => item.id !== id));
 
         } catch (error) {
-            window.alert("Erro ao excluir a Doação!");
+            window.alert("Erro ao excluir a Unidade!");
             console.error(error);
         }
     }
@@ -66,9 +64,10 @@ const ListDoacoes = () => {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Data</th>
-                        <th>Pessoa</th>
-                        <th>Local Coleta</th>
+                        <th>Nome</th>
+                        <th>Numero</th>
+                        <th>Complemento</th>
+                        <th>Cidade</th>
                         <th>Criação</th>
                         <th>Ação</th>
                         <th>Excluir</th>
@@ -77,16 +76,15 @@ const ListDoacoes = () => {
 
                 <tbody>
 
-                    { doacoes.map( item => (
+                    { unidades.map( item => (
                             <tr>
                                 <td>{item.id}</td>
-                                <td><Link to={`/doacoes/show/${item.id}`}>{item.data}</Link></td>
-                                <td>{item.pessoa.nome}</td>
-                                <td>{item.localColeta.nome}</td>
+                                <td><Link to={`/unidades/show/${item.id}`}>{item.nome}</Link></td>
+                                <td>{item.cidade.nome}-{item.cidade.nome}</td>
                                 <td>{item.created_at}</td>
-                                <td><Link to={`/doacoes/show/${item.id}`}>Visualizar</Link> </td>
+                                <td><Link to={`/unidades/show/${item.id}`}>Visualizar</Link> </td>
                                 <td><button type="button" onClick={e => {
-                                        handleDeleteDoacao(item.id);
+                                        handleDeleteUnidade(item.id);
                                     }}>Excluir</button>
                                 </td>
                             </tr>
@@ -103,4 +101,4 @@ const ListDoacoes = () => {
 
 }
 
-export default ListDoacoes;
+export default ListUnidades;

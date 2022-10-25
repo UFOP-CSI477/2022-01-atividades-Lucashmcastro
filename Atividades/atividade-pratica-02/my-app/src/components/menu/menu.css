@@ -1,0 +1,7 @@
+  .sides li{
+    flex: 0 0 auto;
+    width:100%;
+    background-color: rgb(245, 239, 239);
+    color: rgb(16, 15, 15);
+  }
+

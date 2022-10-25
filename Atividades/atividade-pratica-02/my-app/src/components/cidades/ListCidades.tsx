@@ -1,23 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api'
-import { PessoaModel } from '../pessoas/ListPessoas';
-import { LocalColetaModel } from '../locais_coleta/ListLocaisColeta';
+import { EstadoModel } from '../estados/ListEstados';
 
-
-export interface DoacaoModel {
+export interface CidadeModel {
     id: number;
-    data: string;
+    nome: string;
     created_at: string;
-    pessoa_id: number;
-    pessoa: PessoaModel;
-    localColeta_id: number;
-    localColeta: LocalColetaModel;
+    estado_id: number;
+    estado: EstadoModel;
 }
 
-const ListDoacoes = () => {
+const ListCidades = () => {
 
-    const [ doacoes, setDoacoes ] = useState<DoacaoModel[]>([]);
+    const [ cidades, setCidades ] = useState<CidadeModel[]>([]);
 
     useEffect(() => {
         loadData();
@@ -25,16 +21,16 @@ const ListDoacoes = () => {
 
     const loadData = () => {
 
-        api.get('/doacoes')        
+        api.get('/cidades')        
             .then(response => {
-                setDoacoes(response.data);
+                setCidades(response.data);
             } );
 
     }
 
-    const handleDeleteDoacao = async (id : number) => {
+    const handleDeleteCidade = async (id : number) => {
         
-        if(!window.confirm("Confirma a Exclusão da Doação?")) {
+        if(!window.confirm("Confirma a Exclusão da Cidade?")) {
             return;
         }
 
@@ -43,19 +39,19 @@ const ListDoacoes = () => {
         }
 
         try {
-            await api.delete('/doacoes', {
+            await api.delete('/cidades', {
                 data: {
                     data
                 }
             });
-            window.alert("Doacão excluída com sucesso!");
+            window.alert("Cidade excluída com sucesso!");
             
             //loadData();
 
-            setDoacoes(doacoes.filter(item => item.id !== id));
+            setCidades(cidades.filter(item => item.id !== id));
 
         } catch (error) {
-            window.alert("Erro ao excluir a Doação!");
+            window.alert("Erro ao excluir a Cidade!");
             console.error(error);
         }
     }
@@ -66,9 +62,8 @@ const ListDoacoes = () => {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Data</th>
-                        <th>Pessoa</th>
-                        <th>Local Coleta</th>
+                        <th>Nome</th>
+                        <th>Estado</th>
                         <th>Criação</th>
                         <th>Ação</th>
                         <th>Excluir</th>
@@ -77,16 +72,15 @@ const ListDoacoes = () => {
 
                 <tbody>
 
-                    { doacoes.map( item => (
+                    { cidades.map( item => (
                             <tr>
                                 <td>{item.id}</td>
-                                <td><Link to={`/doacoes/show/${item.id}`}>{item.data}</Link></td>
-                                <td>{item.pessoa.nome}</td>
-                                <td>{item.localColeta.nome}</td>
+                                <td><Link to={`/cidades/show/${item.id}`}>{item.nome}</Link></td>
+                                <td>{item.estado.nome}-{item.estado.sigla}</td>
                                 <td>{item.created_at}</td>
-                                <td><Link to={`/doacoes/show/${item.id}`}>Visualizar</Link> </td>
+                                <td><Link to={`/cidades/show/${item.id}`}>Visualizar</Link> </td>
                                 <td><button type="button" onClick={e => {
-                                        handleDeleteDoacao(item.id);
+                                        handleDeleteCidade(item.id);
                                     }}>Excluir</button>
                                 </td>
                             </tr>
@@ -103,4 +97,4 @@ const ListDoacoes = () => {
 
 }
 
-export default ListDoacoes;
+export default ListCidades;

@@ -4,12 +4,11 @@ import api from "../../services/api";
 import { CidadeModel } from "../cidades/ListCidades";
 import SelectCidades from "../cidades/SelectCidades";
 
-const CreateLocalColeta = () => {
+const CreateUnidade = () => {
 
     const navigate = useNavigate();
 
     const [nome, setNome] = useState('');
-    const [rua, setRua] = useState('');
     const [numero, setNumero] = useState('');
     const [complemento, setComplemento] = useState('');
     const [cidadeId, setCidadeId] = useState(0);
@@ -23,22 +22,21 @@ const CreateLocalColeta = () => {
             })
     }, []);
 
-    const handleNewLocalColeta = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleNewUnidade = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const data = {
             nome,
-            rua,
             numero,
             complemento,
             cidade_id: cidadeId
         }
 
         try {
-            await api.post('/locaisColeta', data);
-            navigate('/locaisColeta');
+            await api.post('/unidades', data);
+            navigate('/unidades');
         } catch (error) {
-            alert('Erro ao cadastrar o Local da Coleta!');
+            alert('Erro ao cadastrar a unidade!');
             console.error(error);
         }
 
@@ -46,9 +44,9 @@ const CreateLocalColeta = () => {
 
     return (
         <div>
-            <h3>Cadastrar Local de Coleta</h3>
+            <h3>Cadastrar Unidade</h3>
 
-            <form onSubmit={handleNewLocalColeta}>
+            <form onSubmit={handleNewUnidade}>
 
                 <div>
                     <label htmlFor="nome">Nome</label>
@@ -56,20 +54,9 @@ const CreateLocalColeta = () => {
                         type="text"
                         name="nome"
                         id="nome"
-                        placeholder="Nome do local da coleta"
+                        placeholder="Nome da unidade"
                         value={nome}
                         onChange={e => setNome(e.target.value)} />
-                </div>
-
-                <div>
-                    <label htmlFor="rua">Rua</label>
-                    <input
-                        type="text"
-                        name="rua"
-                        id="rua"
-                        placeholder="Rua do local da coleta"
-                        value={rua}
-                        onChange={e => setRua(e.target.value)} />
                 </div>
 
                 <div>
@@ -78,7 +65,7 @@ const CreateLocalColeta = () => {
                         type="text"
                         name="numero"
                         id="numero"
-                        placeholder="Numero do local da coleta"
+                        placeholder="Número da unidade"
                         value={numero}
                         onChange={e => setNumero(e.target.value)} />
                 </div>
@@ -89,7 +76,7 @@ const CreateLocalColeta = () => {
                         type="text"
                         name="complemento"
                         id="complemento"
-                        placeholder="Complemento do local da coleta"
+                        placeholder="Complemento da unidade"
                         value={complemento}
                         onChange={e => setComplemento(e.target.value)} />
                 </div>
@@ -100,7 +87,7 @@ const CreateLocalColeta = () => {
                         type="text"
                         name="cidadeId"
                         id="cidadeId"
-                        placeholder="Cidade ID do Local de Coleta"
+                        placeholder="Cidade ID da unidade"
                         value={cidadeId}
                         onChange={e => setCidadeId(parseInt(e.target.value))} />
                 </div>
@@ -137,4 +124,4 @@ const CreateLocalColeta = () => {
 
 }
 
-export default CreateLocalColeta;
+export default CreateUnidade;
