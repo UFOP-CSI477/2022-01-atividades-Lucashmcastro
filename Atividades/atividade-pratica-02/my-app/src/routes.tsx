@@ -59,57 +59,58 @@ const AppRoutes = () => {
 
             <Header name={userName} />
 
-            <Routes>
+            <div className="container">
+                <Routes>
 
-                <Route path="/" element={ <App /> } />
+                    <Route path="/" element={ <App /> } />
 
-                <Route path="/estados" element={<ListEstados />} />
-                <Route path="/estados/create" element={<CreateEstado />} />
-                <Route path="/estados/show/:id" element={<ShowEstado /> } />
-                <Route path="/estados/update/:id" element={<UpdateEstado />} />
-        
-                <Route path="/cidades" element={<ListCidades />} />
-                <Route path="/cidades/create" element={<CreateCidade />} />
-                <Route path="/cidades/show/:id" element={<ShowCidade /> } />
-                <Route path="/cidades/update/:id" element={<UpdateCidade />} />        
-                
-                <Route path="/unidades" element={<ListUnidades />} />
-                <Route path="/unidades/create" element={<CreateUnidade />} />
-                <Route path="/unidades/show/:id" element={<ShowUnidade /> } />
-                <Route path="/unidades/update/:id" element={<UpdateUnidade />} />       
-                
-                <Route path="/locaisColeta" element={<ListLocaisColeta />} />
-                <Route path="/locaisColeta/create" element={<CreateLocalColeta />} />
-                <Route path="/locaisColeta/show/:id" element={<ShowLocalColeta /> } />
-                <Route path="/locaisColeta/update/:id" element={<UpdateLocalColeta />} />
+                    <Route path="/estados" element={<ListEstados />} />
+                    <Route path="/estados/create" element={<CreateEstado />} />
+                    <Route path="/estados/show/:id" element={<ShowEstado /> } />
+                    <Route path="/estados/update/:id" element={<UpdateEstado />} />
+            
+                    <Route path="/cidades" element={<ListCidades />} />
+                    <Route path="/cidades/create" element={<CreateCidade />} />
+                    <Route path="/cidades/show/:id" element={<ShowCidade /> } />
+                    <Route path="/cidades/update/:id" element={<UpdateCidade />} />        
+                    
+                    <Route path="/unidades" element={<ListUnidades />} />
+                    <Route path="/unidades/create" element={<CreateUnidade />} />
+                    <Route path="/unidades/show/:id" element={<ShowUnidade /> } />
+                    <Route path="/unidades/update/:id" element={<UpdateUnidade />} />       
+                    
+                    <Route path="/locaisColeta" element={<ListLocaisColeta />} />
+                    <Route path="/locaisColeta/create" element={<CreateLocalColeta />} />
+                    <Route path="/locaisColeta/show/:id" element={<ShowLocalColeta /> } />
+                    <Route path="/locaisColeta/update/:id" element={<UpdateLocalColeta />} />
 
-                <Route path="/tiposSanguineos" element={<ListTiposSanguineos />} />
-                <Route path="/tiposSanguineos/create" element={<CreateTipoSanguineo />} />
-                <Route path="/tiposSanguineos/show/:id" element={<ShowTipoSanguineo /> } />
-                <Route path="/tiposSanguineos/update/:id" element={<UpdateTipoSanguineo />} />
+                    <Route path="/tiposSanguineos" element={<ListTiposSanguineos />} />
+                    <Route path="/tiposSanguineos/create" element={<CreateTipoSanguineo />} />
+                    <Route path="/tiposSanguineos/show/:id" element={<ShowTipoSanguineo /> } />
+                    <Route path="/tiposSanguineos/update/:id" element={<UpdateTipoSanguineo />} />
 
-                <Route path="/produtos" element={<ListProdutos />} />
-                <Route path="/produtos/create" element={<CreateProduto />} />
-                <Route path="/produtos/show/:id" element={<ShowProduto /> } />
-                <Route path="/produtos/update/:id" element={<UpdateProduto />} />
+                    <Route path="/produtos" element={<ListProdutos />} />
+                    <Route path="/produtos/create" element={<CreateProduto />} />
+                    <Route path="/produtos/show/:id" element={<ShowProduto /> } />
+                    <Route path="/produtos/update/:id" element={<UpdateProduto />} />
 
-                <Route path="/doacoes" element={<ListDoacoes />} />
-                <Route path="/doacoes/create" element={<CreateDoacao />} />
-                <Route path="/doacoes/show/:id" element={<ShowDoacao /> } />
-                <Route path="/doacoes/update/:id" element={<UpdateDoacao />} />             
-                
-                <Route path="/distribuicoes" element={<ListDistribuicoes />} />
-                <Route path="/distribuicoes/create" element={<CreateDistribuicao />} />
-                <Route path="/distribuicoes/show/:id" element={<ShowDistribuicao /> } />
-                <Route path="/distribuicoes/update/:id" element={<UpdateDistribuicao /> } />
+                    <Route path="/doacoes" element={<ListDoacoes />} />
+                    <Route path="/doacoes/create" element={<CreateDoacao />} />
+                    <Route path="/doacoes/show/:id" element={<ShowDoacao /> } />
+                    <Route path="/doacoes/update/:id" element={<UpdateDoacao />} />             
+                    
+                    <Route path="/distribuicoes" element={<ListDistribuicoes />} />
+                    <Route path="/distribuicoes/create" element={<CreateDistribuicao />} />
+                    <Route path="/distribuicoes/show/:id" element={<ShowDistribuicao /> } />
+                    <Route path="/distribuicoes/update/:id" element={<UpdateDistribuicao /> } />
 
-                <Route path="/pessoas" element={<ListPessoas />} />
-                <Route path="/pessoas/create" element={<CreatePessoa />} />
-                <Route path="/pessoas/show/:id" element={<ShowPessoa /> } />
-                <Route path="/pessoas/update/:id" element={<UpdatePessoa /> } />
+                    <Route path="/pessoas" element={<ListPessoas />} />
+                    <Route path="/pessoas/create" element={<CreatePessoa />} />
+                    <Route path="/pessoas/show/:id" element={<ShowPessoa /> } />
+                    <Route path="/pessoas/update/:id" element={<UpdatePessoa /> } />
 
-            </Routes>
-
+                </Routes>
+            </div>
         </BrowserRouter>
 
     );

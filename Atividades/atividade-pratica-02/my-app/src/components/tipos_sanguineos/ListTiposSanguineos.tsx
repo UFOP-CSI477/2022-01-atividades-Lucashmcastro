@@ -16,34 +16,18 @@ const ListTiposSanguineos = () => {
     // State -> armazenar os dados dos tiposSanguineos 
     const [tiposSanguineos, setTiposSanguineos] = useState<TipoSanguineoModel[]>([]);
 
-    const navigate = useNavigate();
-
-    // Effect -> carregar os dados
     useEffect(() => {
-        // Component -> effect -> state -> render()
-        const token = window.localStorage.getItem('token') || undefined
+        loadData();
+    }, []);
 
-        if (token === undefined) {
-            navigate('/login');
-        }
+    const loadData = () => {
 
-        const header = window.localStorage.getItem('header');
+        api.get('/tiposSanguineos')        
+            .then(response => {
+                setTiposSanguineos(response.data);
+            } );
 
-        const config = {
-            headers: {
-                "Authorization": `Bearer ${header} ${token}`
-            }
-        }
-
-        api.get('/tiposSanguineos', config)
-            .then(reponse => {
-                // atualizar o state
-                console.log(reponse.data);
-                setTiposSanguineos(reponse.data);
-            })
-
-    }, [navigate])
-
+    }
 
     return (
         <div>

@@ -78,11 +78,11 @@ const ListDoacoes = () => {
                 <tbody>
 
                     { doacoes.map( item => (
-                            <tr>
+                            <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td><Link to={`/doacoes/show/${item.id}`}>{item.data}</Link></td>
-                                <td>{item.pessoa.nome}</td>
-                                <td>{item.localColeta.nome}</td>
+                                <td>{item.pessoa?.nome}</td>
+                                <td>{item.localColeta?.nome}</td>
                                 <td>{item.created_at}</td>
                                 <td><Link to={`/doacoes/show/${item.id}`}>Visualizar</Link> </td>
                                 <td><button type="button" onClick={e => {

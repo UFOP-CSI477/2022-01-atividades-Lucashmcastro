@@ -79,7 +79,7 @@ const ListLocaisColeta = () => {
                 <tbody>
 
                     { locaisColeta.map( item => (
-                            <tr>
+                            <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td><Link to={`/locaisColeta/show/${item.id}`}>{item.nome}</Link></td>
                                 <td>{item.cidade.nome}-{item.cidade.nome}</td>

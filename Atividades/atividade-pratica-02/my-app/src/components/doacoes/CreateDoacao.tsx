@@ -36,8 +36,8 @@ const CreateDoacao = () => {
         e.preventDefault();
 
         const data = {
-            dataDoacao,
-            localColeta_id: localColetaId,
+            date: dataDoacao,
+            local_id: localColetaId,
             pessoa_id: pessoaId
         }
 
@@ -48,7 +48,6 @@ const CreateDoacao = () => {
             alert('Erro ao cadastrar a Doacao!');
             console.error(error);
         }
-
     }
 
     return (

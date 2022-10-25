@@ -36,7 +36,7 @@ const CreateDistribuicao = () => {
         e.preventDefault();
 
         const data = {
-            dataDistribuicao,
+            date: dataDistribuicao,
             produto_id: produtoId,
             unidade_id: unidadeId
         }

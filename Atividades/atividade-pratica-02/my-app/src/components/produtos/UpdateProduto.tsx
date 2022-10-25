@@ -66,6 +66,17 @@ const UpdateProduto = () => {
                         onChange={e => setEtiqueta(e.target.value)} />
                 </div>
 
+                <div>
+                    <label htmlFor="validade">Validade</label>
+                    <input
+                        type="text"
+                        name="validade"
+                        id="validade"
+                        placeholder="Validade do Produto"
+                        value={validade}
+                        onChange={e => setValidade(e.target.value)} />
+                </div>
+
                 <SelectDoacoes 
                     id={doacaoId}
                     setId={setDoacaoId}

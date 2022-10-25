@@ -78,7 +78,7 @@ const ListDistribuicoes = () => {
                 <tbody>
 
                     { distribuicoes.map( item => (
-                            <tr>
+                            <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td><Link to={`/distribuicoes/show/${item.id}`}>{item.data}</Link></td>
                                 <td>{item.produto.etiqueta}</td>

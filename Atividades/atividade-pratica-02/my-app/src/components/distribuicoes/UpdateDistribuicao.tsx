@@ -35,7 +35,7 @@ const UpdateDistribuicao = () => {
         // Validações:
         const data = {
             id : intId,
-            dataDistribuicao,
+            date: dataDistribuicao,
             produto_id : produtoId,
             unidade_id : unidadeId
         }

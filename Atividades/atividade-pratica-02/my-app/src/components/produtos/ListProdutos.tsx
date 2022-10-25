@@ -75,7 +75,7 @@ const ListProdutos = () => {
                 <tbody>
 
                     { produtos.map( item => (
-                            <tr>
+                            <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td><Link to={`/produtos/show/${item.id}`}>{item.etiqueta}</Link></td>
                                 <td>{item.validade}</td>

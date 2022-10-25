@@ -86,7 +86,7 @@ const ListPessoas = () => {
                 <tbody>
 
                     { pessoas.map( item => (
-                            <tr>
+                            <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td><Link to={`/pessoas/show/${item.id}`}>{item.nome}</Link></td>
                                 <td>{item.nome}</td>

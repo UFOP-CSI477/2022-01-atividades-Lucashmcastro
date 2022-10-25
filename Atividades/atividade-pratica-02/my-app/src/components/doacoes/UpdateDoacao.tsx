@@ -31,13 +31,13 @@ const UpdateDoacao = () => {
         e.preventDefault();
         
         const intId = parseInt(String(id));
-
+        
         // Validações:
         const data = {
             id : intId,
-            dataDoacao,
+            date: dataDoacao,
             pessoa_id : pessoaId,
-            localColeta_id : localColetaId
+            local_id : localColetaId
         }
 
         try {

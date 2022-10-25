@@ -73,7 +73,7 @@ const ListCidades = () => {
                 <tbody>
 
                     { cidades.map( item => (
-                            <tr>
+                            <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td><Link to={`/cidades/show/${item.id}`}>{item.nome}</Link></td>
                                 <td>{item.estado.nome}-{item.estado.sigla}</td>

@@ -16,34 +16,18 @@ const ListEstados = () => {
     // State -> armazenar os dados dos estados (uf)
     const [estados, setEstados] = useState<EstadoModel[]>([]);
 
-    const navigate = useNavigate();
-
-    // Effect -> carregar os dados
     useEffect(() => {
-        // Component -> effect -> state -> render()
-        const token = window.localStorage.getItem('token') || undefined
+        loadData();
+    }, []);
 
-        if (token === undefined) {
-            navigate('/login');
-        }
+    const loadData = () => {
 
-        const header = window.localStorage.getItem('header');
+        api.get('/estados')        
+            .then(response => {
+                setEstados(response.data);
+            } );
 
-        const config = {
-            headers: {
-                "Authorization": `Bearer ${header} ${token}`
-            }
-        }
-
-        api.get('/estados', config)
-            .then(reponse => {
-                // atualizar o state
-                console.log(reponse.data);
-                setEstados(reponse.data);
-            })
-
-    }, [navigate])
-
+    }
 
     return (
         <div>
