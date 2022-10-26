@@ -79,7 +79,7 @@ model Empresa {
 model Cotacao {
   id        Int      @default(autoincrement()) @id 
   valor     String
-  data      DateTime
+  date      DateTime
   bolsa_id  Int
   empresa_id  Int
   created_at DateTime @default(now())
