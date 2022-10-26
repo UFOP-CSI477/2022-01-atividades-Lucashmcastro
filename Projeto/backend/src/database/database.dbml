@@ -1,0 +1,73 @@
+//// -- LEVEL 1
+//// -- Schemas, Tables and References
+
+// Creating tables
+// You can define the tables with full schema names
+
+Table bolsas as BOL {
+  id int [pk, increment] // auto-increment
+  nome varchar
+  origem varchar
+  status varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table indicadores as IND {
+  id int [pk, increment] // auto-increment
+  nome varchar
+  tipo varchar
+  valor varchar
+  bolsas_id int [ref:> BOL.id]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table ativos as AT {
+  id int [pk, increment] // auto-increment
+  tipo varchar
+  descricao varchar
+  bolsas_id int [ref:> BOL.id]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table acoes as AC {
+  id int [pk, increment] // auto-increment
+  nome varchar
+  descricao varchar
+  ativos_id int [ref:> AT.id]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table empresas as EMP {
+  id int [pk, increment] // auto-increment
+  nome varchar
+  setor varchar
+  sigla varchar
+  bolsas_id int [ref:> BOL.id]
+  created_at timestamp
+  updated_at timestamp
+}
+
+
+Table cotacoes as COT {
+  id int [pk, increment] // auto-increment   
+  valor string
+  empresas_id int [ref:> EMP.id]  
+  bolsas_id int [ref:> BOL.id]
+  data datetime
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table carteiras as CAR {
+  id int [pk, increment] // auto-increment   
+  nome varchar
+  cpf varchar
+  ativos_id int [ref:> AT.id]
+  status varchar
+  created_at timestamp
+  updated_at timestamp
+}

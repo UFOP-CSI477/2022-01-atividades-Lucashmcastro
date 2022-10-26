@@ -1,0 +1,107 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./app-carteiraInvestimento.sqlite"
+}
+
+model Bolsa {
+  id         Int      @default(autoincrement()) @id
+  nome       String
+  origem     String
+  status     String 
+  created_at DateTime @default(now())
+
+  indicador Indicador[]
+  ativo     Ativo[]
+  empresa   Empresa[]
+  cotacao   Cotacao[]
+
+  @@map("bolsas")
+}
+
+model Indicador {
+  id        Int      @default(autoincrement()) @id 
+  nome      String
+  tipo      String
+  valor     String
+  bolsa_id  Int
+  created_at DateTime @default(now())
+
+  bolsa Bolsa @relation(fields: [bolsa_id], references: [id])
+  @@map("indicadores")
+}
+
+model Ativo {
+  id        Int      @default(autoincrement()) @id 
+  tipo      String
+  descricao String
+  bolsa_id  Int
+  created_at DateTime @default(now())
+
+  acao Acao[]
+  carteira Carteira[]
+
+  bolsa Bolsa @relation(fields: [bolsa_id], references: [id])
+  @@map("ativos")
+}
+
+model Acao {
+  id        Int      @default(autoincrement()) @id 
+  nome      String
+  descricao String
+  ativo_id  Int
+  created_at DateTime @default(now())
+
+  ativo Ativo @relation(fields: [ativo_id], references: [id])
+  @@map("acoes")
+}
+
+model Empresa {
+  id        Int      @default(autoincrement()) @id 
+  nome      String
+  setor     String
+  sigla     String
+  bolsa_id  Int
+  created_at DateTime @default(now())
+
+  cotacao Cotacao[]
+
+  bolsa Bolsa @relation(fields: [bolsa_id], references: [id])
+  @@map("empresas")
+}
+
+model Cotacao {
+  id        Int      @default(autoincrement()) @id 
+  valor     String
+  data      DateTime
+  bolsa_id  Int
+  empresa_id  Int
+  created_at DateTime @default(now())
+
+  bolsa Bolsa @relation(fields: [bolsa_id], references: [id])
+  empresa Empresa @relation(fields: [empresa_id], references: [id])
+
+  @@map("cotacoes")
+}
+
+model Carteira {
+  id        Int      @default(autoincrement()) @id 
+  nome      String
+  cpf       String
+  status    String
+  ativo_id  Int
+  created_at DateTime @default(now())
+
+  ativo Ativo @relation(fields: [ativo_id], references: [id])
+
+  @@map("carteiras")
+}
+
+
+
