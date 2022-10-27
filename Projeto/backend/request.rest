@@ -1,0 +1,239 @@
+//Metodos para Bolsas
+
+###
+POST http://localhost:4002/bolsas
+content-type: application/json
+
+{
+    "nome": "Shanghai Stock Exchange",
+    "origem": "China",
+    "status": "Aberta"
+}
+
+###
+GET http://localhost:4002/bolsas
+
+###
+GET http://localhost:4002/bolsas/3
+
+
+###
+PUT http://localhost:4002/bolsas
+content-type: application/json
+
+{   
+    "id": "3",
+    "nome": "National Association of Securities Dealers Automated Quotations",
+    "origem": "Estados Unidas",
+    "status": "Aberta"
+}
+
+###
+DELETE http://localhost:4002/bolsas/4
+
+
+//Metodos para Empresas
+
+###
+POST http://localhost:4002/empresas
+content-type: application/json
+
+{   
+    "nome": "Meta Platforms",
+    "setor": "Tecnologia",
+    "sigla": "META",
+    "bolsa_id": "2"
+}
+
+###
+GET http://localhost:4002/empresas
+
+###
+GET http://localhost:4002/empresas/3
+
+
+###
+PUT http://localhost:4002/empresas
+content-type: application/json
+
+{
+    "id": "2",
+    "nome": "Cisco Systems",
+    "setor": "Tecnologia",
+    "sigla": "CISCO",
+    "bolsa_id": "2"
+}
+
+###
+DELETE http://localhost:4002/empresas/4
+
+
+//Metodos para Cotações
+
+###
+POST http://localhost:4002/cotacoes
+content-type: application/json
+
+    {
+        "valor": "320,48",
+        "date": "26/10/2022",
+        "bolsa_id": "2",
+        "empresa_id": "3"
+    }
+
+###
+GET http://localhost:4002/cotacoes
+###
+GET http://localhost:4002/cotacoes/2
+
+###
+PUT http://localhost:4002/cotacoes
+content-type: application/json
+
+    {
+        "id": "2",
+        "valor": "318,16",
+        "date": "26/10/2022",
+        "bolsa_id": "1",
+        "empresa_id": "1"   
+    }
+
+
+###
+DELETE http://localhost:4002/cotacoes/4
+
+
+//Metodos para Indicadores
+
+###
+POST http://localhost:4002/indicadores
+content-type: application/json
+
+   {
+        "nome": "Indicadore de Valuation",
+        "tipo": "P/L",
+        "valor": "9,16",
+        "bolsa_id": "5"
+    }
+
+###
+GET http://localhost:4002/indicadores
+
+###
+GET http://localhost:4002/indicadores/2
+
+###
+PUT http://localhost:4002/indicadores
+content-type: application/json
+    
+    {
+        "id": "4",
+        "nome": "Indicadore de Eficiência",
+        "tipo": "ROE",
+        "valor": "20,06%",
+        "bolsa_id": "5"
+    }
+
+###
+DELETE http://localhost:4002/indicadores/5
+
+
+//Metodos para Ativos
+
+###
+POST http://localhost:4002/ativos
+content-type: application/json
+
+    {
+        "tipo": "Opções",
+        "descricao": "Opções Binárias", 
+        "bolsa_id": "3"
+    } 
+
+###
+GET http://localhost:4002/ativos
+###
+GET http://localhost:4002/ativos/3
+
+###
+PUT http://localhost:4002/ativos
+content-type: application/json
+
+    {
+        "id": "3",
+         "tipo": "ETFs",
+        "descricao": "Exchange Traded Funds", 
+        "bolsa_id": "2"
+    } 
+
+###
+DELETE http://localhost:4002/ativos/5
+
+//Metodos para Carteiras
+
+###
+POST http://localhost:4002/carteiras
+content-type: application/json
+
+    {
+      "nome": "Maria Antonieta",
+      "cpf": "109.515.146-21",
+      "status": "Inativa",
+      "ativo_id": "3"
+    }
+
+###
+GET http://localhost:4002/carteiras
+
+###
+GET http://localhost:4002/carteiras/2
+
+###
+PUT http://localhost:4002/carteiras
+content-type: application/json
+
+    {
+      "id": "5",
+      "nome": "Pedro Horta Castro",
+      "cpf": "129.535.346-51",
+      "status": "Ativa",
+      "ativo_id": "5"
+    }
+
+
+###
+DELETE http://localhost:4002/carteiras/7
+
+
+//Metodos para Ações
+
+###
+POST http://localhost:4002/acoes
+content-type: application/json
+
+    {
+      "nome": "BRADESPAR PN",
+      "descricao": "BBDC4",
+      "ativo_id": "2"
+    }
+
+###
+GET http://localhost:4002/acoes
+
+###
+GET http://localhost:4002/acoes/2
+
+###
+PUT http://localhost:4002/acoes
+content-type: application/json
+
+    {
+      "id": "3",
+      "nome": "BRADESCO",
+      "descricao": "BBDC4",
+      "ativo_id": "3"
+    }
+
+
+###
+DELETE http://localhost:4002/acoes/5
