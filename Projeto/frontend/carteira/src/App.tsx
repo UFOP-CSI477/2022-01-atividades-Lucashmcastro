@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Menu from './components/menu/Menu';
+import Header from './components/header/Header';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           Learn React
         </a>
       </header> */}
-      
+      {/* < Header /> */}
       < Menu />
 
      
