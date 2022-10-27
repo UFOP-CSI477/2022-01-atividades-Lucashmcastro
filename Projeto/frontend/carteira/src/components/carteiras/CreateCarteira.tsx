@@ -16,7 +16,7 @@ const CreateCarteira = () => {
     const [ativos, setAtivos] = useState<AtivoModel[]>([]);
 
     useEffect(() => {
-        api.get('/carteiras')
+        api.get('/ativos')
             .then(response => {
                 setAtivos(response.data);
             })

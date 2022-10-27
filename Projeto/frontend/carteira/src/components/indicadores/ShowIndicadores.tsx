@@ -10,7 +10,7 @@ const ShowIndicador = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        api.get(`/empresas/${id}`)
+        api.get(`/indicadores/${id}`)
             .then(response => {
                 setIndicador(response.data);
             })

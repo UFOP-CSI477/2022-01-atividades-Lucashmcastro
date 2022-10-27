@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import api from "../../services/api";
 import { BolsaModel } from "./ListBolsas";
 
-const ShowBolsa = () => {
+const ShowBolsas = () => {
 
     const { id } = useParams();
 
@@ -19,8 +19,8 @@ const ShowBolsa = () => {
             .then(response => {
                 setBolsa(response.data);
                 setNome(response.data.nome);
-                setOrigem(response.data.sigla);
-                setStatus(response.data.sigla);
+                setOrigem(response.data.origem);
+                setStatus(response.data.status);
             })
 
     },[id]);
@@ -73,4 +73,4 @@ const ShowBolsa = () => {
 
 }
 
-export default ShowBolsa;
+export default ShowBolsas;

@@ -15,10 +15,10 @@ const CreateAtivo = () => {
     const [bolsas, setBolsas] = useState<BolsaModel[]>([]);
 
     useEffect(() => {
-        api.get('/ativos')
+        api.get('/bolsas')
             .then(response => {
                 setBolsas(response.data);
-            })
+             })
     }, []);
 
     const handleNewAtivos = async (e: React.FormEvent<HTMLFormElement>) => {
