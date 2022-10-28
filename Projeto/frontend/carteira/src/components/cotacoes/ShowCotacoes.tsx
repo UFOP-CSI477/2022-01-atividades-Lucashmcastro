@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";
+import { BolsaModel } from "../bolsas/ListBolsas";
+import { EmpresaModel } from "../empresas/ListEmpresas";
 import { CotacaoModel } from "./ListCotacoes";
 
 const ShowCotacao = () => {
 
-    const [ cotacao, setCotacoes ] = useState<CotacaoModel>()
+    const [valor, setValor] = useState('');
+    const [date, setDate] = useState('');
+
+    const [empresas, setEmpresas] = useState<EmpresaModel[]>([]);
+    const [bolsas, setBolsas] = useState<BolsaModel[]>([]);
+    const [cotacao, setCotacoes ] = useState<CotacaoModel>();
 
     const { id } = useParams();
 
@@ -13,8 +20,12 @@ const ShowCotacao = () => {
         api.get(`/cotacoes/${id}`)
             .then(response => {
                 setCotacoes(response.data);
+                setBolsas(response.data.bolsas);
+                setEmpresas(response.data.empresas);
+                setValor(response.data.valor);
+                setDate(response.data.date);
             })
-    }, [id]);
+    },[id]);
 
     const navigate = useNavigate();
 
@@ -43,20 +54,60 @@ const ShowCotacao = () => {
     }
 
     return(
-        <div>
-            <h2>Dados da Cotação</h2>
+        <div className="container">
 
-            <p>Id: {cotacao?.id}</p>
-            <p>Data: {cotacao?.valor}</p>
-            <p>Empresa: {cotacao?.empresa.nome}</p>
-            <p>Bolsa: {cotacao?.bolsa.nome}</p>
-            <p>Data de inserção: {cotacao?.created_at}</p>
+                <div className="section-header sectionPadding">               
+                    <h2> Dados da Cotação</h2>
+                </div>
 
-            <div>
-                <Link to={`/cotacoes/update/${cotacao?.id}`}>Atualizar</Link>
-            </div>
-            <div>
-                <button className="btn btn-danger" onClick={handleDeleteCotacao}>Excluir</button>
+                <div className="row createButtonBoth">
+                <ol className="list-group list-group-numbered col-md-6">
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Id</div>
+                    {id}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Valor</div>
+                    {valor}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Data</div>
+                    {date}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Empresa</div>
+                    {cotacao?.empresa.nome}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Bolsa</div>
+                    {cotacao?.bolsa.nome}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Data de inserção</div>
+                    {cotacao?.created_at}
+                    </div>
+                </li>
+                </ol> 
+            </div>       
+
+            <div className="row createButtonBoth">
+                <div className="col-md-2">
+                    <Link className="btn btn-primary"to={`/cotacoes/update/${id}`}>Atualizar</Link>
+                </div>
+                <div className="col-md-2">
+                    <button className="btn btn-danger" onClick={handleDeleteCotacao}>Excluir</button>
+                </div>
             </div>
 
         </div>

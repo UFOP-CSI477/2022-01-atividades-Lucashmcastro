@@ -10,7 +10,6 @@ const UpdateBolsa = () => {
     const [status, setStatus] = useState('');
     const [ bolsa, setBolsa ] = useState<BolsaModel>();
 
-
     const { id } = useParams();
     const navigate = useNavigate();
     
@@ -55,7 +54,7 @@ const UpdateBolsa = () => {
         <div className="container createForm">
 
                 <div className="section-header sectionPadding">               
-                    <h2> Atualizar Bolsa: {nome}  </h2>
+                    <h2> Atualizar Bolsa</h2>
                 </div>
 
             <form onSubmit={handleUpdateBolsa} className="row g-3">

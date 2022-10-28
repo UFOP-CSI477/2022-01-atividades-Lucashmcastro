@@ -54,12 +54,18 @@ const ShowBolsas = () => {
     return(
         <div className="container">
 
-                <div className="section-header sectionPadding">               
-                    <h2> Dados da Bolsa: {nome}  </h2>
-                </div>
+            <div className="section-header sectionPadding">               
+                <h2> Dados da Bolsa</h2>
+            </div>
 
             <div className="row createButtonBoth">
                 <ol className="list-group list-group-numbered col-md-6">
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Id</div>
+                    {id}
+                    </div>
+                </li>
                 <li className="list-group-item d-flex justify-content-between align-items-start">
                     <div className="ms-2 me-auto">
                     <div className="fw-bold">Origem</div>

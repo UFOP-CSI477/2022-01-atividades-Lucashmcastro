@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../services/api';
+import { BolsaModel } from '../bolsas/ListBolsas';
 import SelectBolsas from '../bolsas/SelectBolsas';
 
 const UpdateAtivo = () => {
 
     const [tipo, setTipo] = useState('');
     const [descricao, setDescricao] = useState('');
-
+    
     const [bolsaId, setBolsaId ] = useState(0);
+    const [bolsas, setBolsas] = useState<BolsaModel[]>([]);
+
 
     const { id } = useParams();
     const navigate = useNavigate();
@@ -50,14 +53,18 @@ const UpdateAtivo = () => {
     }
 
     return (
-        <div>
-            <h3>Atualizar Ativo: {tipo}</h3>
+        <div className="container createForm">
 
-            <form onSubmit={handleUpdateAtivo}>
+            <div className="section-header sectionPadding">               
+                <h2> Atualizar Ativo</h2>
+            </div>
+
+            <form onSubmit={handleUpdateAtivo} className="row g-3">
 
                 <div>
                     <label htmlFor="tipo">Tipo</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="tipo"
                         id="tipo"
@@ -69,6 +76,7 @@ const UpdateAtivo = () => {
                 <div>
                     <label htmlFor="descricao">Descrição</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="descricao"
                         id="descricao"
@@ -82,8 +90,14 @@ const UpdateAtivo = () => {
                     setId={setBolsaId}
                 />
 
-                <button type="submit">Atualizar</button>
-                <button type="reset">Limpar</button>
+                <div className="row createButtonBoth">
+                    <div className="col-md-3">
+                        <button type="submit" className="btn btn-success">Atualizar</button>
+                    </div>
+                    <div className="col-md-3">
+                        <button className="btn btn-danger" type="reset">Limpar</button>
+                    </div>
+                </div>
 
             </form>            
 

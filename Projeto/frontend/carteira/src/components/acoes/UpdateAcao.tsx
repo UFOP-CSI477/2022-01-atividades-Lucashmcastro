@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../services/api';
+import { AtivoModel } from '../ativos/ListAtivos';
 import SelectAtivos from '../ativos/SelectAtivos';
 
 const UpdateAcao = () => {
 
     const [nome, setNome] = useState('');
     const [descricao, setDescricao] = useState('');
+    const [ativos, setAtivos] = useState<AtivoModel[]>([]);
+
 
     const [ ativoId, setAtivoId ] = useState(0);
 
@@ -50,14 +53,19 @@ const UpdateAcao = () => {
     }
 
     return (
-        <div>
-            <h3>Atualizar Ação: {nome}</h3>
+        <div className="container createForm">
+            
+            
+            <div className="section-header sectionPadding">               
+                    <h2> Atualizar Ação</h2>
+            </div>
 
-            <form onSubmit={handleUpdateAcao}>
+            <form onSubmit={handleUpdateAcao} className="row g-3">
 
                 <div>
                     <label htmlFor="nome">Nome</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="nome"
                         id="nome"
@@ -69,6 +77,7 @@ const UpdateAcao = () => {
                 <div>
                     <label htmlFor="descricao">Descrição</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="descricao"
                         id="descricao"
@@ -82,8 +91,14 @@ const UpdateAcao = () => {
                     setId={setAtivoId}
                 />
 
-                <button type="submit">Atualizar</button>
-                <button type="reset">Limpar</button>
+                <div className="row createButtonBoth">
+                    <div className="col-md-3">
+                        <button type="submit" className="btn btn-success">Atualizar</button>
+                    </div>
+                    <div className="col-md-3">
+                        <button className="btn btn-danger" type="reset">Limpar</button>
+                    </div>
+                </div>
 
             </form>            
 

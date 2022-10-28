@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../services/api';
+import { AtivoModel } from '../ativos/ListAtivos';
 import SelectAtivos from '../ativos/SelectAtivos';
 
 const UpdateCarteira = () => {
@@ -10,6 +11,7 @@ const UpdateCarteira = () => {
     const [status, setStatus] = useState('');
 
     const [ ativoId, setAtivoId ] = useState(0);
+    const [ativos, setAtivos] = useState<AtivoModel[]>([]);
 
     const { id } = useParams();
     const navigate = useNavigate();
@@ -53,14 +55,18 @@ const UpdateCarteira = () => {
     }
 
     return (
-        <div>
-            <h3>Atualizar Carteira: {nome}</h3>
+        <div className="container createForm">
 
-            <form onSubmit={handleUpdateCarteira}>
+                <div className="section-header sectionPadding">               
+                    <h2> Atualizar Carteira </h2>
+                </div>
+
+            <form onSubmit={handleUpdateCarteira} className="row g-3">
 
                 <div>
                     <label htmlFor="nome">Nome</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="nome"
                         id="nome"
@@ -72,6 +78,7 @@ const UpdateCarteira = () => {
                 <div>
                     <label htmlFor="cpf">CPF</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="cpf"
                         id="cpf"
@@ -83,11 +90,12 @@ const UpdateCarteira = () => {
                 <div>
                     <label htmlFor="status">Status</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="status"
                         id="status"
                         placeholder="Status da Carteira"
-                        value={cpf}
+                        value={status}
                         onChange={e => setStatus(e.target.value)} />
                 </div>             
 
@@ -96,8 +104,14 @@ const UpdateCarteira = () => {
                     setId={setAtivoId}
                 />
 
-                <button type="submit">Atualizar</button>
-                <button type="reset">Limpar</button>
+                <div className="row createButtonBoth">
+                    <div className="col-md-3">
+                        <button type="submit" className="btn btn-success">Atualizar</button>
+                    </div>
+                    <div className="col-md-3">
+                        <button className="btn btn-danger" type="reset">Limpar</button>
+                    </div>
+                </div>
 
             </form>            
 

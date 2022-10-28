@@ -34,10 +34,11 @@ const SelectIndicadores = (props: SelectIndicadoresProps) => {
 
         <div>
             <div>
-                <label htmlFor="indicador">Selecione o Indicador:</label>
+                <label htmlFor="indicador">Selecione o Indicador</label>
             </div>
             <div>
                 <select name="indicador"
+                    className="form-control"
                     id="indicador"
                     value={props.id}
                     onChange={e => props.setId(parseInt(e.target.value))}>

@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../services/api';
 import SelectEmpresas from '../empresas/SelectEmpresas';
 import SelectBolsas from '../bolsas/SelectBolsas';
+import { BolsaModel } from '../bolsas/ListBolsas';
+import { EmpresaModel } from '../empresas/ListEmpresas';
 
 const UpdateCotacao = () => {
 
@@ -11,6 +13,9 @@ const UpdateCotacao = () => {
     
     const [ empresaId, setEmpresaId ] = useState(0);
     const [ bolsaId, setBolsaId ] = useState(0);
+
+    const [empresas, setEmpresas] = useState<EmpresaModel[]>([]);
+    const [bolsas, setBolsas] = useState<BolsaModel[]>([]);
 
     const { id } = useParams();
     const navigate = useNavigate();
@@ -54,14 +59,18 @@ const UpdateCotacao = () => {
     }
 
     return (
-        <div>
-            <h3>Atualizar Cotação: {valor}</h3>
+        <div className="container createForm">
 
-            <form onSubmit={handleUpdateCotacao}>
+            <div className="section-header sectionPadding">               
+                <h2> Atualizar Cotação</h2>
+            </div>
+
+            <form onSubmit={handleUpdateCotacao} className="row g-3">
 
                 <div>
                     <label htmlFor="valor">Valor</label>
                     <input
+                    className="form-control"
                         type="text"
                         name="valor"
                         id="valor"
@@ -73,7 +82,8 @@ const UpdateCotacao = () => {
                 <div>
                     <label htmlFor="date">Data</label>
                     <input
-                        type="text"
+                        className="form-control"
+                        type="date"
                         name="date"
                         id="date"
                         placeholder="Data da Cotação"
@@ -91,8 +101,14 @@ const UpdateCotacao = () => {
                     setId={setBolsaId}
                 />
 
-                <button type="submit">Atualizar</button>
-                <button type="reset">Limpar</button>
+                <div className="row createButtonBoth">
+                    <div className="col-md-3">
+                        <button type="submit" className="btn btn-success">Atualizar</button>
+                    </div>
+                    <div className="col-md-3">
+                        <button className="btn btn-danger" type="reset">Limpar</button>
+                    </div>
+                </div>
 
             </form>            
 

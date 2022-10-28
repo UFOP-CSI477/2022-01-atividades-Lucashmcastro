@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../../services/api";
+import { BolsaModel } from "../bolsas/ListBolsas";
 import SelectBolsas from "../bolsas/SelectBolsas";
+import { EmpresaModel } from "./ListEmpresas";
 
 const UpdateEmpresa = () => {
 
@@ -10,6 +12,10 @@ const UpdateEmpresa = () => {
     const [sigla, setSigla] = useState('');
 
     const [bolsaId, setBolsaId] = useState(0);
+    const [bolsas, setBolsas] = useState<BolsaModel[]>([]);
+    const [empresas, setEmpresas] = useState<EmpresaModel>();
+
+
 
     const { id } = useParams();
     const navigate = useNavigate();
@@ -17,10 +23,13 @@ const UpdateEmpresa = () => {
     
     useEffect(() => {
         
-        api.get(`/bolsas/${id}`)
+        api.get(`/empresas/${id}`)
         .then(response => {
             setNome(response.data.nome);
+            setSetor(response.data.setor);
+            setSigla(response.data.sigla);
                 setBolsaId(response.data.bolsa.id);
+                setEmpresas(response.data);
             })
 
     }, [id]);
@@ -52,14 +61,18 @@ const UpdateEmpresa = () => {
     }
 
     return (
-        <div>
-            <h3>Atualizar Empresa: {nome}</h3>
+        <div className="container createForm">
 
-            <form onSubmit={handleUpdateEmpresa}>
+                <div className="section-header sectionPadding">               
+                    <h2> Atualizar Empresa</h2>
+                </div>
+
+            <form onSubmit={handleUpdateEmpresa} className="row g-3">
 
                 <div>
                     <label htmlFor="nome">Nome</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="nome"
                         id="nome"
@@ -71,6 +84,7 @@ const UpdateEmpresa = () => {
                 <div>
                     <label htmlFor="nome">Setor</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="setor"
                         id="setor"
@@ -82,6 +96,7 @@ const UpdateEmpresa = () => {
                 <div>
                     <label htmlFor="sigla">Sigla</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="sigla"
                         id="sigla"
@@ -95,8 +110,14 @@ const UpdateEmpresa = () => {
                     setId={setBolsaId}
                 />
 
-                <button type="submit">Atualizar</button>
-                <button type="reset">Limpar</button>
+                <div className="row createButtonBoth">
+                    <div className="col-md-3">
+                        <button type="submit" className="btn btn-success">Atualizar</button>
+                    </div>
+                    <div className="col-md-3">
+                        <button className="btn btn-danger" type="reset">Limpar</button>
+                    </div>
+                </div>
 
             </form>            
 

@@ -68,8 +68,8 @@ const CreateIndicador = () => {
                             </div>
 
                             <div>
-                                <label htmlFor="valor" className="form-label">Valor</label>
-                                <input type="text" className="form-control" 
+                                <label htmlFor="valor" className="form-label">Valor (%)</label>
+                                <input type="number" step="0.01" className="form-control" 
                                     id="valor" 
                                     placeholder="Valor do Indicador"
                                     onChange={e => setValor(e.target.value)}/>

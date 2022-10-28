@@ -36,10 +36,11 @@ const SelectAcoes = (props: SelectAcoesProps) => {
 
         <div>
                 <div>               
-                    <label htmlFor="acao">Selecione a Ação:</label>
+                    <label htmlFor="acao">Selecione a Ação</label>
                 </div>
             <div>
                 <select name="acao"
+                    className="form-control"
                     id="acao"
                     value={props.id}
                     onChange={e => props.setId(parseInt(e.target.value))}>

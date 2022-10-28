@@ -62,11 +62,11 @@ const ListAcoes = () => {
         <div className="container">
 
             <div className="createButton">
-                <button type="button" className="btn btn-outline-warning"><Link to="/ativos/create">Cadastrar</Link></button>          
+                <button type="button" className="btn btn-outline-warning"><Link to="/acoes/create">Cadastrar</Link></button>          
             </div>
 
             <div className="section-header sectionPadding">               
-                    <h2> Listar Ativos</h2>
+                    <h2> Listar Ações</h2>
                 </div>
 
             <table className="table table-hove">

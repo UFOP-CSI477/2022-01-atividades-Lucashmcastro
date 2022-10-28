@@ -37,10 +37,11 @@ const SelectCarteiras = (props: SelectCarteirasProps) => {
 
         <div>
             <div>
-                <label htmlFor="carteira">Selecione a Carteira:</label>
+                <label htmlFor="carteira">Selecione a Carteira</label>
             </div>
             <div>
                 <select name="carteira"
+                    className="form-control"
                     id="carteira"
                     value={props.id}
                     onChange={e => props.setId(parseInt(e.target.value))}>

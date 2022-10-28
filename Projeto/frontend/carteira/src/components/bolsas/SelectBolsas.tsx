@@ -26,17 +26,18 @@ const SelectBolsas = (props: SelectBolsasProps) => {
 
         <div>
             <div>
-                <label htmlFor="bolsa">Selecione a Bolsa:</label>
+                <label htmlFor="bolsa">Selecione a Bolsa</label>
             </div>
             <div>
                 <select name="bolsa"
+                    className="form-control"
                     id="bolsa"
                     value={props.id}
                     onChange={e => props.setId(parseInt(e.target.value))}>
 
                     {
                         bolsas.map(item => (
-                            <option value={item.id}>{item.nome}-{item.origem}</option>
+                            <option value={item.id}>{item.nome}</option>
                         ))
                     }
 

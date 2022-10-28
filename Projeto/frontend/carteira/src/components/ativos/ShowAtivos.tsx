@@ -2,17 +2,25 @@ import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { AtivoModel } from "./ListAtivos";
+import {BolsaModel} from "../bolsas/ListBolsas";
 
 const ShowAtivos = () => {
 
-    const [ ativo, setAtivo ] = useState<AtivoModel>()
+    const [tipo, setTipo] = useState('');
+    const [descricao, setDescricao] = useState('');
+
+    const [bolsas, setBolsas] = useState<BolsaModel[]>([]);
+    const [ ativo, setAtivos ] = useState<AtivoModel>()
 
     const { id } = useParams();
 
     useEffect(() => {
         api.get(`/ativos/${id}`)
             .then(response => {
-                setAtivo(response.data);
+                setAtivos(response.data);
+                setBolsas(response.data.bolsas);
+                setTipo(response.data.tipo);
+                setDescricao(response.data.descricao);
             })
     }, [id]);
 
@@ -44,21 +52,54 @@ const ShowAtivos = () => {
     }
 
     return(
-        <div>
-            <h2>Dados do Ativo</h2>
-
-            <p>Id: {ativo?.id}</p>
-            <p>Tipo: {ativo?.tipo}</p>
-            <p>Descrição: {ativo?.descricao}</p>
-            <p>Bolsa: {ativo?.bolsa.nome}</p>
-            <p>Data de inserção: {ativo?.created_at}</p>
-
-            <div>
-                <Link to={`/ativos/update/${ativo?.id}`}>Atualizar</Link>
+        <div className="container">
+            
+            <div className="section-header sectionPadding">               
+                    <h2> Dados do Ativo{tipo}  </h2>
             </div>
 
-            <div>
-                <button className="btn btn-danger" onClick={handleDeleteAtivo}>Excluir</button>
+            <div className="row createButtonBoth">
+                <ol className="list-group list-group-numbered col-md-6">
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Id</div>
+                    {id}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Tipo</div>
+                    {tipo}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Descrição</div>
+                    {descricao}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Bolsa</div>
+                    {ativo?.bolsa.nome}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Data de inserção</div>
+                    {ativo?.created_at}
+                    </div>
+                </li>
+                </ol> 
+            </div>       
+
+            <div className="row createButtonBoth">
+                <div className="col-md-2">
+                    <Link className="btn btn-primary"to={`/ativos/update/${id}`}>Atualizar</Link>
+                </div>
+                <div className="col-md-2">
+                    <button className="btn btn-danger" onClick={handleDeleteAtivo}>Excluir</button>
+                </div>
             </div>
 
         </div>

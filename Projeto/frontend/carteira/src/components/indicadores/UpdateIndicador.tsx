@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../../services/api";
+import { BolsaModel } from "../bolsas/ListBolsas";
 import SelectBolsas from "../bolsas/SelectBolsas";
+import { IndicadorModel } from "./ListIndicadores";
 
 const UpdateIndicador = () => {
 
@@ -11,6 +13,8 @@ const UpdateIndicador = () => {
 
     const [bolsaId, setBolsaId] = useState(0);
 
+    const [bolsas, setBolsas] = useState<BolsaModel[]>([]);
+    const [indicadores, setIndicadores] = useState<IndicadorModel[]>([])
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -20,7 +24,10 @@ const UpdateIndicador = () => {
         api.get(`/indicadores/${id}`)
         .then(response => {
             setNome(response.data.nome);
+            setTipo(response.data.tipo);
+            setValor(response.data.valor);
                 setBolsaId(response.data.bolsa.id);
+                setIndicadores(response.data);
             })
 
     }, [id]);
@@ -52,14 +59,18 @@ const UpdateIndicador = () => {
     }
 
     return (
-        <div>
-            <h3>Atualizar Indicador: {nome}</h3>
+        <div className="container createForm">
 
-            <form onSubmit={handleUpdateIndicador}>
+        <div className="section-header sectionPadding">               
+            <h2> Atualizar Indicador</h2>
+        </div>
+
+            <form onSubmit={handleUpdateIndicador} className="row g-3">
 
                 <div>
                     <label htmlFor="nome">Nome</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="nome"
                         id="nome"
@@ -71,6 +82,7 @@ const UpdateIndicador = () => {
                 <div>
                     <label htmlFor="tipo">Tipo</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="tipo"
                         id="tipo"
@@ -80,9 +92,10 @@ const UpdateIndicador = () => {
                 </div>
 
                 <div>
-                    <label htmlFor="nome">Valor</label>
+                    <label htmlFor="nome">Valor (%)</label>
                     <input
-                        type="text"
+                        className="form-control"
+                        type="text" step="0.01"
                         name="valor"
                         id="valor"
                         placeholder="Valor  do Indicador"
@@ -95,8 +108,14 @@ const UpdateIndicador = () => {
                     setId={setBolsaId}
                 />
 
-                <button type="submit">Atualizar</button>
-                <button type="reset">Limpar</button>
+                <div className="row createButtonBoth">
+                    <div className="col-md-3">
+                        <button type="submit" className="btn btn-success">Atualizar</button>
+                    </div>
+                    <div className="col-md-3">
+                        <button className="btn btn-danger" type="reset">Limpar</button>
+                    </div>
+                </div>
 
             </form>            
 

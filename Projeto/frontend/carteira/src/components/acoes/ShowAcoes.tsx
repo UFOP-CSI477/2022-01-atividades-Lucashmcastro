@@ -56,7 +56,7 @@ const ShowAcoes = () => {
         <div className="container">
             
             <div className="section-header sectionPadding">               
-                    <h2> Dados da Ação: {nome}  </h2>
+                    <h2> Dados da Ação</h2>
             </div>
 
             <div className="row createButtonBoth">

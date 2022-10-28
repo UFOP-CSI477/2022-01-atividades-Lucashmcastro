@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";
+import { BolsaModel } from "../bolsas/ListBolsas";
 import { EmpresaModel } from "./ListEmpresas";
 
 const ShowEmpresa = () => {
 
-    const [ empresa, setEmpresa ] = useState<EmpresaModel>()
+    const [nome, setNome] = useState('');
+    const [setor, setSetor] = useState('');
+    const [sigla, setSigla] = useState('');
+
+    const [bolsas, setBolsas] = useState<BolsaModel[]>([]);
+    const [empresa, setEmpresa ] = useState<EmpresaModel>()
 
     const { id } = useParams();
 
@@ -13,6 +19,10 @@ const ShowEmpresa = () => {
         api.get(`/empresas/${id}`)
             .then(response => {
                 setEmpresa(response.data);
+                setBolsas(response.data.bolsas);
+                setNome(response.data.nome);
+                setSetor(response.data.setor);
+                setSigla(response.data.sigla);
             })
     }, [id]);
 
@@ -44,21 +54,60 @@ const ShowEmpresa = () => {
     }
 
     return(
-        <div>
-            <h2>Dados da Empresa</h2>
+        <div className="container">
 
-            <p>Id: {empresa?.id}</p>
-            <p>Nome: {empresa?.nome}</p>
-            <p>Setor: {empresa?.setor}</p>
-            <p>Sigla: {empresa?.sigla}</p>
-            <p>Data de inserção: {empresa?.created_at}</p>
-
-            <div>
-                <Link to={`/empresas/update/${empresa?.id}`}>Atualizar</Link>
+            <div className="section-header sectionPadding">               
+                <h2> Dados da Empresa</h2>
             </div>
 
-            <div>
-                <button className="btn btn-danger" onClick={handleDeleteEmpresa}>Excluir</button>
+            <div className="row createButtonBoth">
+                <ol className="list-group list-group-numbered col-md-6">
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Id</div>
+                    {id}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Nome</div>
+                    {nome}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Setor</div>
+                    {setor}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Sigla</div>
+                    {sigla}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Data de inserção</div>
+                    {empresa?.bolsa.nome}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Data de inserção</div>
+                    {empresa?.created_at}
+                    </div>
+                </li>
+                </ol> 
+            </div>       
+
+            <div className="row createButtonBoth">
+                <div className="col-md-2">
+                    <Link className="btn btn-primary"to={`/empresas/update/${id}`}>Atualizar</Link>
+                </div>
+                <div className="col-md-2">
+                    <button className="btn btn-danger" onClick={handleDeleteEmpresa}>Excluir</button>
+                </div>
             </div>
 
         </div>

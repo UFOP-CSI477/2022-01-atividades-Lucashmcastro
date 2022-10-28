@@ -11,8 +11,8 @@ const CreateAcao = () => {
     const [descricao, setDescricao] = useState('');
 
     const [ativoId, setAtivoId] = useState(0);
-
     const [ativos, setAtivos] = useState<AtivoModel[]>([]);
+
 
     useEffect(() => {
         api.get('/ativos')
