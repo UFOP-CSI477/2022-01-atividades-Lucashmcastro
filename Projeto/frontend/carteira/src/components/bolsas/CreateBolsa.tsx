@@ -31,13 +31,13 @@ const CreateBolsa = () => {
     }
 
     return (
-        <div>
+        <div className="container createForm">
             <h3>Cadastrar Bolsas</h3>
 
             <form onSubmit={handleNewBolsas} className="row g-3">
 
                 <div>                           
-                <div className="col-md-6">
+                            <div>
                                 <label htmlFor="nome" className="form-label">Nome</label>
                                 <input type="text" className="form-control" 
                                     id="nome" 
@@ -45,7 +45,7 @@ const CreateBolsa = () => {
                                     onChange={e => setNome(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-6">
+                            <div >
                                 <label htmlFor="origem" className="form-label">Origem</label>
                                 <input type="text" className="form-control" 
                                     id="origem" 
@@ -53,7 +53,7 @@ const CreateBolsa = () => {
                                     onChange={e => setOrigem(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-6">
+                            <div >
                                 <label htmlFor="status" className="form-label">Status</label>
                                 <input type="text" className="form-control" 
                                     id="status" 
@@ -61,17 +61,15 @@ const CreateBolsa = () => {
                                     onChange={e => setStatus(e.target.value)}/>
                             </div>                  
 
-                        <div className="col-12">
+                        <div className="createButton">
                             <button type="submit" className="btn btn-primary">Cadastrar</button>
                             <button type="reset" className="btn btn-secundary">Limpar</button>
                         </div>
                 </div>
             </form>
 
-        </div>
-                
+        </div>                
     );
-
 }
 
 export default CreateBolsa;

@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 // import Header from '../src/components/header/Header';
+import Footer from './components/footer/Footer';
+import Menu from './components/menu/Menu';
+import HomePage from './components/homePage/homePage';
 
 import CreateAcao from "./components/acoes/CreateAcao";
 import ListAcoes from "./components/acoes/ListAcoes";
@@ -43,53 +46,53 @@ const AppRoutes = () => {
 
     return(
 
-        <BrowserRouter>
+        <><BrowserRouter>
 
             {/* <Header name={userName} /> */}
-
-            <div className="container">
+            <Menu />          
                 <Routes>
 
-                    <Route path="/" element={ <App /> } />
+                    <Route path="/" element={<HomePage />} />
 
                     <Route path="/acoes" element={<ListAcoes />} />
                     <Route path="/acoes/create" element={<CreateAcao />} />
-                    <Route path="/acoes/show/:id" element={<ShowAcoes /> } />
+                    <Route path="/acoes/show/:id" element={<ShowAcoes />} />
                     <Route path="/acoes/update/:id" element={<UpdateAcao />} />
-            
+
                     <Route path="/ativos" element={<ListAtivos />} />
                     <Route path="/ativos/create" element={<CreateAtivo />} />
-                    <Route path="/ativos/show/:id" element={<ShowAtivos /> } />
-                    <Route path="/ativos/update/:id" element={<UpdateAtivo />} />        
-                    
+                    <Route path="/ativos/show/:id" element={<ShowAtivos />} />
+                    <Route path="/ativos/update/:id" element={<UpdateAtivo />} />
+
                     <Route path="/bolsas" element={<ListBolsas />} />
                     <Route path="/bolsas/create" element={<CreateBolsa />} />
-                    <Route path="/bolsas/show/:id" element={<ShowBolsas /> } />
-                    <Route path="/bolsas/update/:id" element={<UpdateBolsa />} />       
-                    
+                    <Route path="/bolsas/show/:id" element={<ShowBolsas />} />
+                    <Route path="/bolsas/update/:id" element={<UpdateBolsa />} />
+
                     <Route path="/carteiras" element={<ListCarteiras />} />
                     <Route path="/carteiras/create" element={<CreateCarteira />} />
-                    <Route path="/carteiras/show/:id" element={<ShowCarteiras /> } />
+                    <Route path="/carteiras/show/:id" element={<ShowCarteiras />} />
                     <Route path="/carteiras/update/:id" element={<UpdateCarteira />} />
 
                     <Route path="/cotacoes" element={<ListCotacoes />} />
                     <Route path="/cotacoes/create" element={<CreateCotacao />} />
-                    <Route path="/cotacoes/show/:id" element={<ShowCotacoes /> } />
+                    <Route path="/cotacoes/show/:id" element={<ShowCotacoes />} />
                     <Route path="/cotacoes/update/:id" element={<UpdateCotacao />} />
 
                     <Route path="/empresas" element={<ListEmpresas />} />
                     <Route path="/empresas/create" element={<CreateEmpresa />} />
-                    <Route path="/empresas/show/:id" element={<ShowEmpresas /> } />
+                    <Route path="/empresas/show/:id" element={<ShowEmpresas />} />
                     <Route path="/empresas/update/:id" element={<UpdateEmpresa />} />
 
                     <Route path="/indicadores" element={<ListIndicadores />} />
                     <Route path="/indicadores/create" element={<CreateIndicador />} />
-                    <Route path="/indicadores/show/:id" element={<ShowIndicadores /> } />
-                    <Route path="/indicadores/update/:id" element={<UpdateIndicador />} />             
+                    <Route path="/indicadores/show/:id" element={<ShowIndicadores />} />
+                    <Route path="/indicadores/update/:id" element={<UpdateIndicador />} />
 
                 </Routes>
-            </div>
+                <Footer />
         </BrowserRouter>
+        </>
 
     );
 

@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import AppRoutes from './routes';
+import './components/menu/menu.css';
 
 import reportWebVitals from './reportWebVitals';
 

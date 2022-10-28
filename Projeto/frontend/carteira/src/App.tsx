@@ -4,6 +4,7 @@ import './App.css';
 import Menu from './components/menu/Menu';
 import Header from './components/header/Header';
 
+
 function App() {
   return (
     <div className="App">
@@ -22,8 +23,6 @@ function App() {
         </a>
       </header> */}
       {/* < Header /> */}
-      < Menu />
-
      
     </div>
   );

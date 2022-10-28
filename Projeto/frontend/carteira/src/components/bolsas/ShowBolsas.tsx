@@ -52,21 +52,43 @@ const ShowBolsas = () => {
     }
 
     return(
-        <div>
-            <h2>Dados da Bolsa: {id}-{nome} / {bolsa?.nome}</h2>
+        <div className="container">
 
-            <p>Nome: {nome}</p>
-            <p>Origem: {origem}</p>
-            <p>Status: {status}</p>
-            <p>Data de inserção: {bolsa?.created_at}</p>
+                <div className="section-header sectionPadding">               
+                    <h2> Dados da Bolsa: {nome}  </h2>
+                </div>
 
-            <div>
-                <Link to={`/bolsas/update/${id}`}>Atualizar</Link>
+            <div className="row createButtonBoth">
+                <ol className="list-group list-group-numbered col-md-6">
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Origem</div>
+                    {origem}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Status</div>
+                    {status}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Data de inserção</div>
+                    {bolsa?.created_at}
+                    </div>
+                </li>
+                </ol> 
+            </div>       
+
+            <div className="row createButtonBoth">
+                <div className="col-md-2">
+                    <Link className="btn btn-primary"to={`/bolsas/update/${id}`}>Atualizar</Link>
+                </div>
+                <div className="col-md-2">
+                    <button className="btn btn-danger" onClick={handleDeleteBolsa}>Excluir</button>
+                </div>
             </div>
-            <div>
-                <button className="btn btn-danger" onClick={handleDeleteBolsa}>Excluir</button>
-            </div>
-
         </div>
     );
 

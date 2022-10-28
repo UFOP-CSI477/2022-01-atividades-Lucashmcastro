@@ -46,6 +46,7 @@ code {
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
 body {
   font-family: var(--font-default);
   color: var(--color-default);
@@ -2702,4 +2703,63 @@ section {
 
 .footer .footer-legal .credits a {
   color: var(--color-primary);
+}
+
+.sectionPadding {
+  padding: 40px 0px;
+}
+
+.createButton{
+  padding: 40px 100px !important;
+  display: flex !important; 
+  flex-direction: column !important;
+  align-content: initial !important;
+
+}
+
+.createButton > button > a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 14pt;
+}
+
+.createForm{
+  padding: 40px 300px !important;
+  display: flex !important; 
+  flex-direction: column !important;
+  align-content: center !important;
+}
+
+.createButtonBoth {
+  justify-content: center;
+  padding: 3rem;
+}
+
+.btn-get-started {
+  text-decoration: none;
+  color: #FFFFFF;
+  
+}
+
+.btn-get-started > a {
+  text-decoration: none;
+  color: #FFFFFF;
+  
+}
+
+.btn-get-started > a:hover {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.navbar > ul > li > a {
+  text-decoration: none;
+}
+
+.table > tbody > tr > td > a{
+  text-decoration: none;
 }

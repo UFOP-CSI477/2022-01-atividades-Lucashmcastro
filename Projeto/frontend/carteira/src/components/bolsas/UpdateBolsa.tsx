@@ -1,21 +1,27 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../services/api';
+import { BolsaModel } from "./ListBolsas";
 
 const UpdateBolsa = () => {
 
     const [nome, setNome] = useState('');
     const [origem, setOrigem] = useState('');
     const [status, setStatus] = useState('');
+    const [ bolsa, setBolsa ] = useState<BolsaModel>();
+
 
     const { id } = useParams();
     const navigate = useNavigate();
     
     useEffect(() => {
         
-        api.get(`/doacoes/${id}`)
+        api.get(`/bolsas/${id}`)
         .then(response => {
-            setNome(response.data.data);
+            setBolsa(response.data);
+            setNome(response.data.nome);
+            setOrigem(response.data.origem);
+            setStatus(response.data.status);
                 
             })
 
@@ -46,14 +52,18 @@ const UpdateBolsa = () => {
     }
 
     return (
-        <div>
-            <h3>Atualizar Bolsa: {nome}</h3>
+        <div className="container createForm">
 
-            <form onSubmit={handleUpdateBolsa}>
+                <div className="section-header sectionPadding">               
+                    <h2> Atualizar Bolsa: {nome}  </h2>
+                </div>
+
+            <form onSubmit={handleUpdateBolsa} className="row g-3">
 
                 <div>
                     <label htmlFor="nome">Nome</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="nome"
                         id="nome"
@@ -65,6 +75,7 @@ const UpdateBolsa = () => {
                 <div>
                     <label htmlFor="origem">Origem</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="origem"
                         id="origem"
@@ -76,16 +87,23 @@ const UpdateBolsa = () => {
                 <div>
                     <label htmlFor="status">Status</label>
                     <input
+                        className="form-control"
                         type="text"
                         name="status"
                         id="status"
                         placeholder="Status da Bolsa"
-                        value={origem}
+                        value={status}
                         onChange={e => setStatus(e.target.value)} />
-                </div>
+                </div>             
 
-                <button type="submit">Atualizar</button>
-                <button type="reset">Limpar</button>
+                <div className="row createButtonBoth">
+                    <div className="col-md-3">
+                        <button type="submit" className="btn btn-success">Atualizar</button>
+                    </div>
+                    <div className="col-md-3">
+                        <button className="btn btn-danger" type="reset">Limpar</button>
+                    </div>
+                </div>
 
             </form>            
 
