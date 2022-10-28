@@ -41,21 +41,21 @@ const CreateAcao = () => {
     }
 
     return (
-        <div>
+        <div className="container createForm">
             <h3>Cadastrar Ação</h3>
 
             <form onSubmit={handleNewAcao} className="row g-3">
 
                 <div>                           
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="nome" className="form-label">Nome</label>
                                 <input type="text" className="form-control" 
                                     id="nome" 
-                                    placeholder="Nome da cidade"
+                                    placeholder="Nome da Ação"
                                     onChange={e => setNome(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="descricao" className="form-label">Descrição</label>
                                 <input type="text" className="form-control" 
                                     id="descricao" 
@@ -63,7 +63,7 @@ const CreateAcao = () => {
                                     onChange={e => setDescricao(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-4">
+                            <div>
                                 <label htmlFor="ativo" className="form-label">Ativo</label>
                                 <select id="ativos" className="form-select"                               
                                 onChange={e => setAtivoId(parseInt(e.target.value))}>
@@ -78,10 +78,10 @@ const CreateAcao = () => {
                                 </select>
                             </div>                          
 
-                        <div className="col-12">
-                            <button type="submit" className="btn btn-primary">Cadastrar</button>
-                            <button type="reset" className="btn btn-secundary">Limpar</button>
-                        </div>
+                            <div className="createButton">
+                                <button type="submit" className="btn btn-primary">Cadastrar</button>
+                                <button type="reset" className="btn btn-secundary">Limpar</button>
+                            </div>
                 </div>
             </form>
 

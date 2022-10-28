@@ -45,13 +45,13 @@ const CreateIndicador = () => {
     }
 
     return (
-        <div>
+        <div className="container createForm">
             <h3>Cadastrar Indicador</h3>
 
             <form onSubmit={handleNewIndicador} className="row g-3">
 
                 <div>                           
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="nome" className="form-label">nome</label>
                                 <input type="text" className="form-control" 
                                     id="nome" 
@@ -59,7 +59,7 @@ const CreateIndicador = () => {
                                     onChange={e => setNome(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="tipo" className="form-label">Tipo</label>
                                 <input type="text" className="form-control" 
                                     id="tipo" 
@@ -67,7 +67,7 @@ const CreateIndicador = () => {
                                     onChange={e => setTipo(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="valor" className="form-label">Valor</label>
                                 <input type="text" className="form-control" 
                                     id="valor" 
@@ -75,7 +75,7 @@ const CreateIndicador = () => {
                                     onChange={e => setValor(e.target.value)}/>
                             </div>
                        
-                            <div className="col-md-4">
+                            <div>
                                 <label htmlFor="bolsa" className="form-label">Bolsa</label>
                                 <select id="bolsa" className="form-select"                               
                                 onChange={e => setBolsaId(parseInt(e.target.value))}>
@@ -90,7 +90,7 @@ const CreateIndicador = () => {
                                 </select>
                             </div>                
 
-                        <div className="col-12">
+                        <div className="createButton">
                             <button type="submit" className="btn btn-primary">Cadastrar</button>
                             <button type="reset" className="btn btn-secundary">Limpar</button>
                         </div>

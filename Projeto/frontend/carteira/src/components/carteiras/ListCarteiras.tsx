@@ -60,7 +60,15 @@ const ListCarteiras = () => {
 
    
     return(
-        <div>
+        <div className="container">
+            <div className="createButton">
+                <button type="button" className="btn btn-outline-warning"><Link to="/carteiras/create">Cadastrar</Link></button>          
+            </div>
+            
+            <div className="section-header sectionPadding">               
+                <h2> Listar Carteiras</h2>
+            </div>
+
             <table className="table table-hove">
                 <thead>
                     <tr>
@@ -84,7 +92,7 @@ const ListCarteiras = () => {
                                 <td>{item.status}</td>
                                 <td>{item.ativo?.tipo}</td>
                                 <td>{item.created_at}</td>
-                                <td><Link to={`/carteiras/show/${item.id}`}>Visualizar</Link> </td>
+                                <td><Link className="btn btn-primary" to={`/carteiras/show/${item.id}`}>Visualizar</Link> </td>
                             </tr>
                         )  
                       )

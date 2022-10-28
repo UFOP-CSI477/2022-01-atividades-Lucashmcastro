@@ -53,13 +53,13 @@ const CreateCotacao = () => {
     }
 
     return (
-        <div>
+        <div className="container createForm">
             <h3>Cadastrar Cotação</h3>
 
             <form onSubmit={handleNewCotacao} className="row g-3">
 
                 <div>                           
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="valor" className="form-label">Valor</label>
                                 <input type="text" className="form-control" 
                                     id="valor" 
@@ -67,7 +67,7 @@ const CreateCotacao = () => {
                                     onChange={e => setValor(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="dataCotacao" className="form-label">Data da Cotação</label>
                                 <input type="date" className="form-control" 
                                     id="dataCotacao" 
@@ -75,7 +75,7 @@ const CreateCotacao = () => {
                                     onChange={e => setDate(e.target.value)}/>
                             </div>
                        
-                            <div className="col-md-4">
+                            <div>
                                 <label htmlFor="bolsa" className="form-label">Bolsa</label>
                                 <select id="bolsa" className="form-select"                               
                                 onChange={e => setBolsaId(parseInt(e.target.value))}>
@@ -90,7 +90,7 @@ const CreateCotacao = () => {
                                 </select>
                             </div>   
 
-                            <div className="col-md-4">
+                            <div>
                                 <label htmlFor="empresa" className="form-label">Empresa</label>
                                 <select id="empresa" className="form-select"                               
                                 onChange={e => setEmpresaId(parseInt(e.target.value))}>
@@ -105,7 +105,7 @@ const CreateCotacao = () => {
                                 </select>
                             </div>                        
 
-                        <div className="col-12">
+                        <div className="createButton">
                             <button type="submit" className="btn btn-primary">Cadastrar</button>
                             <button type="reset" className="btn btn-secundary">Limpar</button>
                         </div>

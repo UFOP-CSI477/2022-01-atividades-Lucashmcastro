@@ -62,7 +62,15 @@ const ListCotacoes = () => {
 
    
     return(
-        <div>
+        <div className="container">
+            <div className="createButton">
+                <button type="button" className="btn btn-outline-warning"><Link to="/cotacoes/create">Cadastrar</Link></button>          
+            </div>
+            
+            <div className="section-header sectionPadding">               
+                <h2> Listar Cotações</h2>
+            </div>
+
             <table className="table table-hove">
                 <thead>
                     <tr>
@@ -86,7 +94,7 @@ const ListCotacoes = () => {
                                 <td>{item.empresa?.nome}</td>
                                 <td>{item.bolsa.nome}</td>
                                 <td>{item.created_at}</td>
-                                <td><Link to={`/cotacoes/show/${item.id}`}>Visualizar</Link> </td>
+                                <td><Link className="btn btn-primary" to={`/cotacoes/show/${item.id}`}>Visualizar</Link> </td>
                             </tr>
                         )  
                       )

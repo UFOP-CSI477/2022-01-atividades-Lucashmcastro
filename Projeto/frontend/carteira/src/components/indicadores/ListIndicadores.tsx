@@ -59,7 +59,15 @@ const ListIndicadores = () => {
     }
 
     return(
-        <div>
+        <div className="container">
+            <div className="createButton">
+                <button type="button" className="btn btn-outline-warning"><Link to="/indicadores/create">Cadastrar</Link></button>          
+            </div>
+            
+            <div className="section-header sectionPadding">               
+                <h2> Listar Indicadores</h2>
+            </div>
+        
             <table className="table table-hove">
                 <thead>
                     <tr>
@@ -83,7 +91,7 @@ const ListIndicadores = () => {
                                 <td>{item.valor}</td>
                                 <td>{item.bolsa.nome}-{item.bolsa.origem}</td>
                                 <td>{item.created_at}</td>
-                                <td><Link to={`/indicadores/show/${item.id}`}>Visualizar</Link> </td>                               
+                                <td><Link className="btn btn-primary" to={`/indicadores/show/${item.id}`}>Visualizar</Link> </td>                               
                             </tr>
                         )  
                       )

@@ -45,13 +45,13 @@ const CreateEmpresa = () => {
     }
 
     return (
-        <div>
+        <div className="container createForm">
             <h3>Cadastrar Empresa</h3>
 
             <form onSubmit={handleNewEmpresa} className="row g-3">
 
                 <div>                           
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="nome" className="form-label">Nome</label>
                                 <input type="text" className="form-control" 
                                     id="nome" 
@@ -59,7 +59,7 @@ const CreateEmpresa = () => {
                                     onChange={e => setNome(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="setor" className="form-label">Setor</label>
                                 <input type="text" className="form-control" 
                                     id="setor" 
@@ -67,7 +67,7 @@ const CreateEmpresa = () => {
                                     onChange={e => setSetor(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="sigla" className="form-label">Sigla</label>
                                 <input type="text" className="form-control" 
                                     id="sigla" 
@@ -75,7 +75,7 @@ const CreateEmpresa = () => {
                                     onChange={e => setSigla(e.target.value)}/>
                             </div>
                        
-                            <div className="col-md-4">
+                            <div>
                                 <label htmlFor="bolsa" className="form-label">Bolsa</label>
                                 <select id="bolsa" className="form-select"                               
                                 onChange={e => setBolsaId(parseInt(e.target.value))}>
@@ -90,7 +90,7 @@ const CreateEmpresa = () => {
                                 </select>
                             </div>                
 
-                        <div className="col-12">
+                        <div className="createButton">
                             <button type="submit" className="btn btn-primary">Cadastrar</button>
                             <button type="reset" className="btn btn-secundary">Limpar</button>
                         </div>

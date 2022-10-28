@@ -59,7 +59,16 @@ const ListAcoes = () => {
 
    
     return(
-        <div>
+        <div className="container">
+
+            <div className="createButton">
+                <button type="button" className="btn btn-outline-warning"><Link to="/ativos/create">Cadastrar</Link></button>          
+            </div>
+
+            <div className="section-header sectionPadding">               
+                    <h2> Listar Ativos</h2>
+                </div>
+
             <table className="table table-hove">
                 <thead>
                     <tr>
@@ -81,7 +90,7 @@ const ListAcoes = () => {
                                 <td>{item.descricao}</td>
                                 <td>{item.ativo?.tipo}</td>
                                 <td>{item.created_at}</td>
-                                <td><Link to={`/acoes/show/${item.id}`}>Visualizar</Link> </td>
+                                <td><Link className="btn btn-primary" to={`/acoes/show/${item.id}`}>Visualizar</Link> </td>
                             </tr>
                         )  
                       )

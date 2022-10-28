@@ -41,13 +41,13 @@ const CreateAtivo = () => {
     }
 
     return (
-        <div>
+        <div className="container createForm">
             <h3>Cadastrar Ativos</h3>
 
             <form onSubmit={handleNewAtivos} className="row g-3">
 
                 <div>                           
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="tipo" className="form-label">Tipo</label>
                                 <input type="text" className="form-control" 
                                     id="tipo" 
@@ -55,7 +55,7 @@ const CreateAtivo = () => {
                                     onChange={e => setTipo(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="descricao" className="form-label">Descrição</label>
                                 <input type="text" className="form-control" 
                                     id="descricao" 
@@ -63,7 +63,7 @@ const CreateAtivo = () => {
                                     onChange={e => setDescricao(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-4">
+                            <div>
                                 <label htmlFor="bolsa" className="form-label">Bolsa</label>
                                 <select id="bolsa" className="form-select"                               
                                 onChange={e => setBolsaId(parseInt(e.target.value))}>
@@ -78,7 +78,7 @@ const CreateAtivo = () => {
                                 </select>
                             </div>                          
 
-                        <div className="col-12">
+                        <div className="createButton">
                             <button type="submit" className="btn btn-primary">Cadastrar</button>
                             <button type="reset" className="btn btn-secundary">Limpar</button>
                         </div>

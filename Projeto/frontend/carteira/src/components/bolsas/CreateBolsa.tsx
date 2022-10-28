@@ -41,7 +41,7 @@ const CreateBolsa = () => {
                                 <label htmlFor="nome" className="form-label">Nome</label>
                                 <input type="text" className="form-control" 
                                     id="nome" 
-                                    placeholder="Nome da cidade"
+                                    placeholder="Nome da Bolsa"
                                     onChange={e => setNome(e.target.value)}/>
                             </div>
 

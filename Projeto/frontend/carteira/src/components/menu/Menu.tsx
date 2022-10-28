@@ -1,12 +1,35 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Link } from 'react-router-dom';
+import { Route, Link, Routes, useLocation }  from 'react-router-dom';
+import React, { useEffect, useState } from "react";
 import './menu.css';
 import '../../index.css'
 
 const Menu = () => {
 
+    // const location = useLocation();
+    // const [ title, setTitle] = useState('');
+    
+    // useEffect(() =>{ 
+    //     setTitle(location.pathname) 
+    // }, [])
+
+    // function setType(type: string) {
+    //     switch (type) {
+    //         case  "/bolsas":     setTitle(   "Bolsas"         )   ; break;
+    //         case  "/acoes":      setTitle(   "Ações"          )   ; break;
+    //         case  "/ativos":     setTitle(   "Ativos"         )   ; break;
+    //         case  "/carteiras":  setTitle(   "Carteira"       )   ; break;
+    //         case  "/cotacoes":   setTitle(   "Cotações"       )   ; break;
+    //         case  "/empresas":   setTitle(   "Empresas"       )   ; break;
+    //         case  "/indicadores":setTitle(   "Indicadores"    )   ; break;
+    //     }
+    //     return title;   
+    // }
+
     return(
+
         <><div className="App">
 
             <header id="header" className="header d-flex align-items-center">
@@ -43,7 +66,7 @@ const Menu = () => {
                     <div className="container">
                         <div className="row justify-content-center">
                             <div className="col-lg-6 text-center" style={{ margin: "10rem" }}>
-                                <h2 data-aos="fade-down">Seja Bem Vindo(a)</h2>
+                                {/* <h2 data-aos="fade-down">{setType(location.pathname)}</h2> */}
                                 <p data-aos="fade-up">Aqui você pode gerenciar sua Carteira de Investimento.</p>
                                 <a data-aos="fade-up" data-aos-delay="200" className="btn-get-started"><Link to="/carteiras">Gerenciar</Link></a>
                             </div>

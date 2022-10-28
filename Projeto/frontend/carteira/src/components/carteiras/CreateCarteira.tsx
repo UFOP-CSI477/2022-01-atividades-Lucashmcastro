@@ -43,13 +43,13 @@ const CreateCarteira = () => {
     }
 
     return (
-        <div>
+        <div className="container createForm">
             <h3>Cadastrar Carteira</h3>
 
             <form onSubmit={handleNewCarteira} className="row g-3">
 
                 <div>                           
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="nome" className="form-label">Nome</label>
                                 <input type="text" className="form-control" 
                                     id="nome" 
@@ -57,7 +57,7 @@ const CreateCarteira = () => {
                                     onChange={e => setNome(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="nome" className="form-label">CPF</label>
                                 <input type="text" className="form-control" 
                                     id="nome" 
@@ -65,7 +65,7 @@ const CreateCarteira = () => {
                                     onChange={e => setCpf(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-6">
+                            <div>
                                 <label htmlFor="status" className="form-label">Status</label>
                                 <input type="text" className="form-control" 
                                     id="status" 
@@ -73,7 +73,7 @@ const CreateCarteira = () => {
                                     onChange={e => setStatus(e.target.value)}/>
                             </div>
 
-                            <div className="col-md-4">
+                            <div>
                                 <label htmlFor="ativo" className="form-label">Ativo</label>
                                 <select id="ativos" className="form-select"                               
                                 onChange={e => setAtivoId(parseInt(e.target.value))}>
@@ -88,7 +88,7 @@ const CreateCarteira = () => {
                                 </select>
                             </div>                          
 
-                        <div className="col-12">
+                        <div className="createButton">
                             <button type="submit" className="btn btn-primary">Cadastrar</button>
                             <button type="reset" className="btn btn-secundary">Limpar</button>
                         </div>

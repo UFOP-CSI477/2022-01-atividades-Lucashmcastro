@@ -58,7 +58,15 @@ const ListAtivos = () => {
     }
 
     return(
-        <div>
+        <div className="container">
+            <div className="createButton">
+                <button type="button" className="btn btn-outline-warning"><Link to="/ativos/create">Cadastrar</Link></button>          
+            </div>
+            
+            <div className="section-header sectionPadding">               
+                <h2> Listar Ativos</h2>
+            </div>
+
             <table className="table table-hove">
                 <thead>
                     <tr>
@@ -80,7 +88,7 @@ const ListAtivos = () => {
                                 <td>{item.descricao}</td>
                                 <td>{item.bolsa.nome}-{item.bolsa.origem}</td>
                                 <td>{item.created_at}</td>
-                                <td><Link to={`/ativos/show/${item.id}`}>Visualizar</Link> </td>                               
+                                <td><Link className="btn btn-primary" to={`/ativos/show/${item.id}`}>Visualizar</Link> </td>                               
                             </tr>
                         )  
                       )
