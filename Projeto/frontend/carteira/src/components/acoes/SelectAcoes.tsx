@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import api from "../../services/api";
 import { AcaoModel } from "./ListAcoes";
+import { AtivoModel } from "../ativos/ListAtivos";
+
 
 interface SelectAcoesProps {
     id: number;
@@ -11,6 +13,11 @@ const SelectAcoes = (props: SelectAcoesProps) => {
 
     const [acoes, setAcoes ] = useState<AcaoModel[]>([]);
 
+    const [nome, setNome] = useState('');
+    const [descricao, setDescricao] = useState('');
+
+    const [ativos, setAtivos] = useState<AtivoModel[]>([]);
+
     // const [ id, setId ] = useState(0)
 
     useEffect(() => {
@@ -18,6 +25,9 @@ const SelectAcoes = (props: SelectAcoesProps) => {
         api.get('/acoes')
             .then(response => {
                 setAcoes(response.data);
+                setNome(response.data.nome);
+                setDescricao(response.data.descricao);
+                setAtivos(response.data.ativos);
             })
 
     }, []);
@@ -25,9 +35,9 @@ const SelectAcoes = (props: SelectAcoesProps) => {
     return (
 
         <div>
-            <div>
-                <label htmlFor="acao">Selecione a Ação:</label>
-            </div>
+                <div>               
+                    <label htmlFor="acao">Selecione a Ação:</label>
+                </div>
             <div>
                 <select name="acao"
                     id="acao"

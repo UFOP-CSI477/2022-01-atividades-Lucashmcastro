@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import api from "../../services/api";
 import { EmpresaModel } from "./ListEmpresas";
+import { BolsaModel } from "../bolsas/ListBolsas";
 
 interface SelectEmpresasProps {
     id: number;
@@ -9,13 +10,23 @@ interface SelectEmpresasProps {
 
 const SelectEmpresas = (props: SelectEmpresasProps) => {
 
+    const [nome, setNome] = useState('');
+    const [setor, setSetor] = useState('');
+    const [sigla, setSigla] = useState('');
+
     const [empresas, setEmpresas] = useState<EmpresaModel[]>([]);
+    const [bolsas, setBolsas] = useState<BolsaModel[]>([]);
+
 
     useEffect(() => {
 
         api.get('/empresas')
             .then(response => {
                 setEmpresas(response.data);
+                setBolsas(response.data.bolsas);
+                setNome(response.data.nome);
+                setSetor(response.data.setor);
+                setSigla(response.data.sigla);
             })
 
     }, []);

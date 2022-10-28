@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import api from "../../services/api";
 import { CarteiraModel } from "./ListCarteiras";
+import { AtivoModel } from "../ativos/ListAtivos";
+
 
 interface SelectCarteirasProps {
     id: number;
@@ -9,6 +11,11 @@ interface SelectCarteirasProps {
 
 const SelectCarteiras = (props: SelectCarteirasProps) => {
 
+    const [nome, setNome] = useState('');
+    const [cpf, setCpf] = useState('');
+    const [status, setStatus] = useState('');
+
+    const [ativos, setAtivos] = useState<AtivoModel[]>([]);
     const [carteiras, setCarteiras ] = useState<CarteiraModel[]>([]);
 
     // const [ id, setId ] = useState(0)
@@ -18,6 +25,10 @@ const SelectCarteiras = (props: SelectCarteirasProps) => {
         api.get('/carteiras')
             .then(response => {
                 setCarteiras(response.data);
+                setAtivos(response.data);
+                setNome(response.data.nome);
+                setCpf(response.data.cpf);
+                setStatus(response.data.status);
             })
 
     }, []);

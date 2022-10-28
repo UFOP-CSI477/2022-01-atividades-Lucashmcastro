@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import api from "../../services/api";
 import { CotacaoModel } from "./ListCotacoes";
+import { EmpresaModel } from "../empresas/ListEmpresas";
+import { BolsaModel } from "../bolsas/ListBolsas";
 
 interface SelectCotacoesProps {
     id: number;
@@ -9,6 +11,11 @@ interface SelectCotacoesProps {
 
 const SelectCotacoes = (props: SelectCotacoesProps) => {
 
+    const [valor, setValor] = useState('');
+    const [date, setDate] = useState('');
+
+    const [empresas, setEmpresas] = useState<EmpresaModel[]>([]);
+    const [bolsas, setBolsas] = useState<BolsaModel[]>([]);
     const [cotacoes, setCotacoes ] = useState<CotacaoModel[]>([]);
 
     // const [ id, setId ] = useState(0)
@@ -18,6 +25,10 @@ const SelectCotacoes = (props: SelectCotacoesProps) => {
         api.get('/cotacoes')
             .then(response => {
                 setCotacoes(response.data);
+                setBolsas(response.data.bolsas);
+                setEmpresas(response.data.empresas);
+                setValor(response.data.valor);
+                setDate(response.data.date);
             })
 
     }, []);

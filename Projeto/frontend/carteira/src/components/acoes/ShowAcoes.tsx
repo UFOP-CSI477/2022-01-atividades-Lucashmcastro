@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { AcaoModel } from "./ListAcoes";
+import { AtivoModel } from "../ativos/ListAtivos";
+
 
 const ShowAcoes = () => {
 
+    const [nome, setNome] = useState('');
+    const [descricao, setDescricao] = useState('');
+
+    const [ativos, setAtivos] = useState<AtivoModel[]>([]);
     const [ acao, setAcoes ] = useState<AcaoModel>()
 
     const { id } = useParams();
@@ -12,9 +18,13 @@ const ShowAcoes = () => {
     useEffect(() => {
         api.get(`/acoes/${id}`)
             .then(response => {
+                setNome(response.data.nome);
+                setDescricao(response.data.descricao);
+                setAtivos(response.data.ativos);
                 setAcoes(response.data);
             })
     }, [id]);
+
 
     const navigate = useNavigate();
 
@@ -43,22 +53,55 @@ const ShowAcoes = () => {
     }
 
     return(
-        <div>
-            <h2>Dados da Ação</h2>
-
-            <p>Id: {acao?.id}</p>
-            <p>Nome: {acao?.nome}</p>
-            <p>Descrição: {acao?.descricao}</p>
-            <p>Ativo: {acao?.ativo.tipo}</p>
-            <p>Data de inserção: {acao?.created_at}</p>
-
-            <div>
-                <Link to={`/acoes/update/${acao?.id}`}>Atualizar</Link>
-            </div>
-            <div>
-                <button className="btn btn-danger" onClick={handleDeleteAcao}>Excluir</button>
+        <div className="container">
+            
+            <div className="section-header sectionPadding">               
+                    <h2> Dados da Ação: {nome}  </h2>
             </div>
 
+            <div className="row createButtonBoth">
+                <ol className="list-group list-group-numbered col-md-6">
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Id</div>
+                    {acao?.id}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Nome</div>
+                    {acao?.nome}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Descrição</div>
+                    {acao?.descricao}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Ativo</div>
+                    {acao?.ativo.tipo}
+                    </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start">
+                    <div className="ms-2 me-auto">
+                    <div className="fw-bold">Data de inserção</div>
+                    {acao?.created_at}
+                    </div>
+                </li>
+                </ol> 
+            </div>       
+
+            <div className="row createButtonBoth">
+                <div className="col-md-2">
+                    <Link className="btn btn-primary"to={`/acoes/update/${id}`}>Atualizar</Link>
+                </div>
+                <div className="col-md-2">
+                    <button className="btn btn-danger" onClick={handleDeleteAcao}>Excluir</button>
+                </div>
+            </div>
         </div>
     )
 
